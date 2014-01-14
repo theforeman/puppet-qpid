@@ -8,7 +8,7 @@ class qpid (
   ) inherits qpid::params {
 
   class { 'qpid::install': } ~>
-  class { 'qpid::certs': } ~>
+  class { 'certs::qpid': } ~>
   class { 'qpid::config': } ~>
   class { 'qpid::service': } ->
   Class['qpid']
