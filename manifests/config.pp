@@ -2,7 +2,7 @@ class qpid::config {
 
   user { 'qpidd':
     ensure => present,
-    groups => [$::certs::user_groups],
+    groups => [$::certs::group],
   }
 
   file { "/etc/qpidd.conf":
