@@ -10,6 +10,7 @@ class qpid::install {
                           'python-qpid',
                           'policycoreutils-python',
                           'qpid-tools',
+                          'qpid-cpp-server-store'
                           ]
 
   package { $packages_to_install:
