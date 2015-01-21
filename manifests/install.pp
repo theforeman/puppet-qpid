@@ -14,7 +14,7 @@ class qpid::install {
 
   package { $packages_to_install:
     ensure => 'installed',
-    before => Service['qpidd']
+    before => Service['qpidd'],
   }
 
 }
