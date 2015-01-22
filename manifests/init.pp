@@ -19,9 +19,12 @@
 #                             type: string
 #
 # $ssl_cert_name::            The SSL cert name
-#                             string: string
+#                             type: string
 #
 # $user_groups::              Additional user groups to add the qpidd user to
+#
+# $packages_to_install::      Packages which will be installed
+#                             type: array
 #
 class qpid (
 
@@ -31,7 +34,9 @@ class qpid (
   $ssl_cert_password_file = 'UNSET',
   $ssl_cert_name          = 'UNSET',
 
-  $user_groups            = $qpid::params::user_groups
+  $user_groups            = $qpid::params::user_groups,
+
+  $packages_to_install    = $qpid::params::packages_to_install,
 
   ) inherits qpid::params {
 
