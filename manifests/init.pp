@@ -36,6 +36,9 @@
 # $user_groups::              Additional user groups to add the qpidd user to
 #                             type:array
 #
+# $server_packages::          List of server packages to install
+#                             type:array
+#
 class qpid (
   $auth                    = $qpid::params::auth,
   $config_file             = $qpid::params::config_file,
@@ -48,11 +51,13 @@ class qpid (
   $ssl_cert_name           = $qpid::params::ssl_cert_name,
   $ssl_require_client_auth = $qpid::params::ssl_require_client_auth,
   $user_groups             = $qpid::params::user_groups,
+  $server_packages         = $qpid::params::server_packages,
 ) inherits qpid::params {
 
   validate_string($log_level)
   validate_bool($ssl, $auth, $log_to_syslog)
   validate_array($user_groups)
+  validate_array($server_packages)
 
   if $ssl {
     validate_bool($ssl_require_client_auth)

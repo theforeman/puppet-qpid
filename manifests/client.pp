@@ -10,6 +10,7 @@ class qpid::client(
   $ssl_cert_db             = $qpid::client::params::ssl_cert_db,
   $ssl_cert_password_file  = $qpid::client::params::ssl_cert_password_file,
   $ssl_cert_name           = $qpid::client::params::ssl_cert_name,
+  $client_packages         = $qpid::client::params::client_packages,
 ) inherits qpid::client::params {
 
   class { 'qpid::client::install': } ~>

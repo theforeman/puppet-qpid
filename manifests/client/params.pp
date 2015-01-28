@@ -12,4 +12,6 @@ class qpid::client::params {
   $ssl_cert_db             = undef
   $ssl_cert_password_file  = undef
   $ssl_cert_name           = undef
+
+  $client_packages = ['qpid-cpp-client-devel']
 }

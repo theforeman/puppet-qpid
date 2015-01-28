@@ -3,7 +3,7 @@
 # Installs Qpid client packages
 #
 class qpid::client::install {
-  package { 'qpid-cpp-client-devel':
+  package { $qpid::client::client_packages:
     ensure => 'installed',
   }
 }
