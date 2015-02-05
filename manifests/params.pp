@@ -22,4 +22,5 @@ class qpid::params {
   $user = 'qpidd'
   $group = 'qpidd'
 
+  $server_packages = ['qpid-cpp-server', 'qpid-cpp-client', 'python-qpid-qmf', 'python-qpid', 'policycoreutils-python', 'qpid-tools']
 }
