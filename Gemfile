@@ -4,11 +4,11 @@ group :test do
   gem "rake"
   gem "puppet", ENV['PUPPET_VERSION'] || '~> 3.4.0'
   gem "puppet-lint"
-  gem "rspec-core", "< 3.2.0" # https://github.com/rspec/rspec-core/issues/1864
   gem "rspec-puppet", '>= 1'
   gem "puppet-syntax"
   gem "puppetlabs_spec_helper", '>= 0.8.0'
   gem 'rspec-puppet-facts'
+  gem 'rspec', '< 3.2.0', {"platforms"=>["ruby_18"]} # https://github.com/rspec/rspec-core/issues/1864
 end
 
 group :development do
