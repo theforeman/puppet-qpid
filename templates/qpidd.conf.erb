@@ -38,4 +38,6 @@ ssl-cert-db=<%= scope.lookupvar("qpid::ssl_cert_db") %>
 ssl-cert-password-file=<%= scope.lookupvar("qpid::ssl_cert_password_file") %>
 ssl-cert-name=<%= scope.lookupvar("qpid::ssl_cert_name") %>
 <% end %>
-
+<% unless [nil, :undefined, :undef, ''].include?(scope.lookupvar("qpid::interface")) -%>
+interface=<%= scope.lookupvar("qpid::interface") %>
+<% end %>
