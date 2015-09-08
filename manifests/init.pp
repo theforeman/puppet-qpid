@@ -15,6 +15,8 @@
 # $log_to_syslog::            Log to syslog or not
 #                             type:boolean
 #
+# $interface::                Interface to listen on
+#
 # $ssl::                      Use SSL with Qpid
 #                             type:boolean
 #
@@ -44,6 +46,7 @@ class qpid (
   $config_file             = $qpid::params::config_file,
   $log_level               = $qpid::params::log_level,
   $log_to_syslog           = $qpid::params::log_to_syslog,
+  $interface               = $qpid::params::interface,
   $ssl                     = $qpid::params::ssl,
   $ssl_port                = $qpid::params::ssl_port,
   $ssl_cert_db             = $qpid::params::ssl_cert_db,

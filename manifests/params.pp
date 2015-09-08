@@ -10,6 +10,8 @@ class qpid::params {
   $log_level = 'error+'
   $log_to_syslog = true
 
+  $interface = undef
+
   $ssl                     = false
   $ssl_port                = 5671
   $ssl_cert_db             = undef
