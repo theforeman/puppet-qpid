@@ -13,7 +13,7 @@ class qpid::params {
   $interface = undef
 
   $ssl                     = false
-  $ssl_port                = 5671
+  $ssl_port                = '5671'
   $ssl_cert_db             = undef
   $ssl_cert_password_file  = undef
   $ssl_cert_name           = undef
