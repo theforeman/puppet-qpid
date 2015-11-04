@@ -210,5 +210,31 @@ describe 'qpid::client::config' do
         ]
       end
     end
+
+    context 'with logging' do
+      let :pre_condition do
+        'class {"qpid::router":}
+
+         qpid::router::log { "logging":
+           module      => "DEFAULT",
+           level       => "debug+",
+           timestamp   => false,
+           output      => "/var/log/qpid.log",
+         }
+        '
+      end
+
+      it 'should have log fragment' do
+        content = catalogue.resource('concat_fragment', 'qdrouter+log_logging.conf').send(:parameters)[:content]
+        content.split("\n").reject { |c| c =~ /(^#|^$)/ }.should == [
+          'log {',
+          '    module: DEFAULT',
+          '    enabled: debug+',
+          '    timestamp: false',
+          '    output: /var/log/qpid.log',
+          '}'
+        ]
+      end
+    end
   end
 end
