@@ -4,31 +4,21 @@
 #
 class qpid::router::config {
 
-  concat_build {'qdrouter':
-    order  => [
-                '*header*.conf',
-                '*ssl*.conf',
-                '*connector*.conf',
-                '*link_route_pattern*.conf',
-                '*listener*.conf',
-                '*footer*.conf',
-              ],
-  }
-
-  concat_fragment {'qdrouter+header.conf':
+  concat::fragment {'qdrouter+header.conf':
+    target  => $qpid::router::config_file,
     content => template('qpid/router/header.conf.erb'),
+    order   => '01',
   }
 
-  concat_fragment {'qdrouter+footer.conf':
+  concat::fragment {'qdrouter+footer.conf':
+    target  => $qpid::router::config_file,
     content => template('qpid/router/footer.conf.erb'),
+    order   => '100',
   }
 
-  file { $qpid::router::config_file:
-    ensure  => file,
-    owner   => 'root',
-    group   => 'root',
-    mode    => '0644',
-    source  => concat_output('qdrouter'),
-    require => Concat_build['qdrouter'],
+  concat { $qpid::router::config_file:
+    owner => 'root',
+    group => 'root',
+    mode  => '0644',
   }
 }

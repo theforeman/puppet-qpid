@@ -25,8 +25,10 @@ define qpid::router::listener(
   $idle_timeout   = undef,
 ){
 
-  concat_fragment {"qdrouter+listener_${title}.conf":
+  concat::fragment {"qdrouter+listener_${title}.conf":
+    target  => $qpid::router::config_file,
     content => template('qpid/router/listener.conf.erb'),
+    order   => '05',
   }
 
 }

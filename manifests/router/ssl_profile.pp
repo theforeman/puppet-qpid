@@ -23,8 +23,10 @@ define qpid::router::ssl_profile(
 
   validate_absolute_path($ca, $cert, $key)
 
-  concat_fragment {"qdrouter+ssl_${title}.conf":
+  concat::fragment {"qdrouter+ssl_${title}.conf":
+    target  => $qpid::router::config_file,
     content => template('qpid/router/ssl_profile.conf.erb'),
+    order   => '02',
   }
 
 }

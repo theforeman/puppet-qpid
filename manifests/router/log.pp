@@ -23,8 +23,10 @@ define qpid::router::log(
   validate_bool($timestamp)
   validate_absolute_path($output)
 
-  concat_fragment {"qdrouter+log_${title}.conf":
+  concat::fragment {"qdrouter+log_${title}.conf":
+    target  => $qpid::router::config_file,
     content => template('qpid/router/log.conf.erb'),
+    order   => '06',
   }
 
 }

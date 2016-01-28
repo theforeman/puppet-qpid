@@ -4,6 +4,7 @@ describe 'qpid::client::config' do
   context 'on redhat' do
     let :facts do
       {
+        :concat_basedir             => '/tmp',
         :operatingsystem            => 'RedHat',
         :operatingsystemrelease     => '6.4',
         :operatingsystemmajrelease  => '6.4',
@@ -19,7 +20,7 @@ describe 'qpid::client::config' do
       end
 
       it 'should have header fragment' do
-        content = catalogue.resource('concat_fragment', 'qdrouter+header.conf').send(:parameters)[:content]
+        content = catalogue.resource('concat::fragment', 'qdrouter+header.conf').send(:parameters)[:content]
         content.split("\n").reject { |c| c =~ /(^#|^$)/ }.should == [
           'container {',
           '    worker-threads: 2',
@@ -33,7 +34,7 @@ describe 'qpid::client::config' do
       end
 
       it 'should have footer fragment' do
-        content = catalogue.resource('concat_fragment', 'qdrouter+footer.conf').send(:parameters)[:content]
+        content = catalogue.resource('concat::fragment', 'qdrouter+footer.conf').send(:parameters)[:content]
         content.split("\n").reject { |c| c =~ /(^#|^$)/ }.should == [
           'fixed-address {',
           '    prefix: /closest',
@@ -67,7 +68,6 @@ describe 'qpid::client::config' do
 
       it 'should configure qdrouter.conf' do
         should contain_file('/etc/qpid-dispatch/qdrouterd.conf').with({
-          'require' => 'Concat_build[qdrouter]',
           'owner'   => 'root',
           'group'   => 'root',
           'mode'    => '0644',
@@ -88,7 +88,7 @@ describe 'qpid::client::config' do
       end
 
       it 'should have ssl fragment' do
-        content = catalogue.resource('concat_fragment', 'qdrouter+ssl_router-ssl.conf').send(:parameters)[:content]
+        content = catalogue.resource('concat::fragment', 'qdrouter+ssl_router-ssl.conf').send(:parameters)[:content]
         content.split("\n").reject { |c| c =~ /(^#|^$)/ }.should == [
           'ssl-profile {',
           '    name: router-ssl',
@@ -113,7 +113,7 @@ describe 'qpid::client::config' do
       end
 
       it 'should have listener fragment' do
-        content = catalogue.resource('concat_fragment', 'qdrouter+listener_hub.conf').send(:parameters)[:content]
+        content = catalogue.resource('concat::fragment', 'qdrouter+listener_hub.conf').send(:parameters)[:content]
         content.split("\n").reject { |c| c =~ /(^#|^$)/ }.should == [
           'listener {',
           '    addr: 0.0.0.0',
@@ -142,7 +142,7 @@ describe 'qpid::client::config' do
       end
 
       it 'should have connector fragment' do
-        content = catalogue.resource('concat_fragment', 'qdrouter+connector_broker.conf').send(:parameters)[:content]
+        content = catalogue.resource('concat::fragment', 'qdrouter+connector_broker.conf').send(:parameters)[:content]
         content.split("\n").reject { |c| c =~ /(^#|^$)/ }.should == [
           'connector {',
           '    name: broker',
@@ -175,7 +175,7 @@ describe 'qpid::client::config' do
       end
 
       it 'should have link_route_pattern fragment' do
-        content = catalogue.resource('concat_fragment', 'qdrouter+link_route_pattern_broker-link.conf').send(:parameters)[:content]
+        content = catalogue.resource('concat::fragment', 'qdrouter+link_route_pattern_broker-link.conf').send(:parameters)[:content]
         content.split("\n").reject { |c| c =~ /(^#|^$)/ }.should == [
           'linkRoutePattern {',
           '    prefix: unicorn.',
@@ -204,7 +204,7 @@ describe 'qpid::client::config' do
       end
 
       it 'should have link_route_pattern fragment' do
-        content = catalogue.resource('concat_fragment', 'qdrouter+link_route_pattern_broker-link.conf').send(:parameters)[:content]
+        content = catalogue.resource('concat::fragment', 'qdrouter+link_route_pattern_broker-link.conf').send(:parameters)[:content]
         content.split("\n").reject { |c| c =~ /(^#|^$)/ }.should == [
           'linkRoutePattern {',
           '    prefix: unicorn.',
@@ -229,7 +229,7 @@ describe 'qpid::client::config' do
       end
 
       it 'should have log fragment' do
-        content = catalogue.resource('concat_fragment', 'qdrouter+log_logging.conf').send(:parameters)[:content]
+        content = catalogue.resource('concat::fragment', 'qdrouter+log_logging.conf').send(:parameters)[:content]
         content.split("\n").reject { |c| c =~ /(^#|^$)/ }.should == [
           'log {',
           '    module: DEFAULT',
