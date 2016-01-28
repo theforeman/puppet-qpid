@@ -25,8 +25,10 @@ define qpid::router::connector(
   $idle_timeout = undef,
 ){
 
-  concat_fragment {"qdrouter+connector_${name}.conf":
+  concat::fragment {"qdrouter+connector_${name}.conf":
+    target  => $qpid::router::config_file,
     content => template('qpid/router/connector.conf.erb'),
+    order   => '03',
   }
 
 }

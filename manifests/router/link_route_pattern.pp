@@ -16,8 +16,10 @@ define qpid::router::link_route_pattern(
   $connector = undef,
 ){
 
-  concat_fragment {"qdrouter+link_route_pattern_${name}.conf":
+  concat::fragment {"qdrouter+link_route_pattern_${name}.conf":
+    target  => $qpid::router::config_file,
     content => template('qpid/router/link_route_pattern.conf.erb'),
+    order   => '04',
   }
 
 }
