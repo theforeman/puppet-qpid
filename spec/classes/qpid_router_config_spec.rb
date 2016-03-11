@@ -67,7 +67,7 @@ describe 'qpid::client::config' do
       end
 
       it 'should configure qdrouter.conf' do
-        should contain_file('/etc/qpid-dispatch/qdrouterd.conf').with({
+        should contain_concat('/etc/qpid-dispatch/qdrouterd.conf').with({
           'owner'   => 'root',
           'group'   => 'root',
           'mode'    => '0644',
