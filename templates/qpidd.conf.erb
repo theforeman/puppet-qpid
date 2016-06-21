@@ -27,17 +27,17 @@
 # (Note: no spaces on either side of '='). Using default settings:
 # "qpidd --help" or "man qpidd" for more details.
 #cluster-mechanism=ANONYMOUS
-log-enable=<%= scope.lookupvar("qpid::log_level") %>
-log-to-syslog=<%= scope.lookupvar("qpid::log_to_syslog") ? 'yes' : 'no' %>
-auth=<%= scope.lookupvar("qpid::auth") ? 'yes' : 'no' %>
-<% if scope.lookupvar("qpid::ssl") -%>
+log-enable=<%= scope['qpid::log_level'] %>
+log-to-syslog=<%= scope['qpid::log_to_syslog'] ? 'yes' : 'no' %>
+auth=<%= scope['qpid::auth'] ? 'yes' : 'no' %>
+<% if scope['qpid::ssl'] -%>
 require-encryption=yes
-ssl-require-client-authentication=<%= scope.lookupvar("qpid::ssl_require_client_auth") ? 'yes' : 'no' %>
-ssl-port=<%= scope.lookupvar("qpid::ssl_port") %>
-ssl-cert-db=<%= scope.lookupvar("qpid::ssl_cert_db") %>
-ssl-cert-password-file=<%= scope.lookupvar("qpid::ssl_cert_password_file") %>
-ssl-cert-name=<%= scope.lookupvar("qpid::ssl_cert_name") %>
+ssl-require-client-authentication=<%= scope['qpid::ssl_require_client_auth'] ? 'yes' : 'no' %>
+ssl-port=<%= scope['qpid::ssl_port'] %>
+ssl-cert-db=<%= scope['qpid::ssl_cert_db'] %>
+ssl-cert-password-file=<%= scope['qpid::ssl_cert_password_file'] %>
+ssl-cert-name=<%= scope['qpid::ssl_cert_name'] %>
 <% end %>
-<% unless [nil, :undefined, :undef, ''].include?(scope.lookupvar("qpid::interface")) -%>
-interface=<%= scope.lookupvar("qpid::interface") %>
+<% unless [nil, :undefined, :undef, ''].include?(scope['qpid::interface']) -%>
+interface=<%= scope['qpid::interface'] %>
 <% end %>

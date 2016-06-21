@@ -3,7 +3,7 @@
 # Handles Qpid client configuration
 #
 class qpid::client::config {
-  file { $qpid::client::config_file:
+  file { $::qpid::client::config_file:
     ensure  => file,
     content => template('qpid/qpidc.conf.erb'),
     owner   => 'root',

@@ -1,19 +1,13 @@
 require 'spec_helper'
 
 describe 'qpid::tools' do
+  on_supported_os.each do |os, facts|
+    context 'on redhat' do
+      let :facts do
+        facts.merge(:concat_basedir => '/tmp')
+      end
 
- context 'on redhat' do
-    let :facts do
-      {
-        :concat_basedir             => '/tmp',
-        :operatingsystem            => 'RedHat',
-        :operatingsystemrelease     => '6.4',
-        :operatingsystemmajrelease  => '6.4',
-        :osfamily                   => 'RedHat',
-      }
+      it { should contain_package('qpid-tools').with_ensure('installed') }
     end
-
-    it { should contain_package('qpid-tools').with_ensure('installed') }
   end
-
 end
