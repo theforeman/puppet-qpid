@@ -26,7 +26,7 @@
 #                             type:boolean
 #
 # $ssl_port::                 SSL port to use
-#                             type:string
+#                             type:integer
 #
 # $ssl_cert_db::              The SSL cert database to use
 #                             type:string
@@ -71,7 +71,7 @@ class qpid (
 
   if $ssl {
     validate_bool($ssl_require_client_auth)
-    validate_re($ssl_port, '^\d+$')
+    validate_integer($ssl_port)
     validate_string($ssl_cert_name)
     validate_absolute_path($ssl_cert_db, $ssl_cert_password_file)
   }
