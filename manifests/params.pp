@@ -3,6 +3,7 @@
 # Default parameter values
 #
 class qpid::params {
+  $version = 'installed'
   $auth = false
 
   $config_file = '/etc/qpid/qpidd.conf'

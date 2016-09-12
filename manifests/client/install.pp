@@ -4,6 +4,6 @@
 #
 class qpid::client::install {
   package { $qpid::client::client_packages:
-    ensure => 'installed',
+    ensure => $qpid::client::version,
   }
 }

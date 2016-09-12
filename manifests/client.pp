@@ -3,6 +3,7 @@
 # Handles Qpid client package installations and configuration
 #
 class qpid::client(
+  $version                 = $qpid::client::params::version,
   $config_file             = $qpid::client::params::config_file,
   $log_level               = $qpid::client::params::log_level,
   $ssl                     = $qpid::client::params::ssl,

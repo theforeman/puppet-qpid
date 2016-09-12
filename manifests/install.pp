@@ -7,13 +7,13 @@ class qpid::install {
   include ::qpid::tools
 
   package { $qpid::server_packages:
-    ensure => 'installed',
+    ensure => $qpid::version,
     before => Service['qpidd'],
   }
 
   if ($qpid::server_store) {
     package { $qpid::server_store_package:
-      ensure => 'installed',
+      ensure => $qpid::version,
       before => Service['qpidd'],
     }
   }
