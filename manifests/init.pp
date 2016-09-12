@@ -3,6 +3,9 @@
 # Install and configure Qpid
 #
 # ===  Parameters:
+# $version::                  Package version to be installed
+#                             type:string
+#
 # $auth::                     Use SASL authentication
 #                             type:boolean
 #
@@ -47,6 +50,7 @@
 #                             type:array
 #
 class qpid (
+  $version                 = $qpid::params::version,
   $auth                    = $qpid::params::auth,
   $config_file             = $qpid::params::config_file,
   $log_level               = $qpid::params::log_level,
