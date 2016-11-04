@@ -2,28 +2,15 @@
 #
 # Install and configure Qpid
 #
-# ===  Parameters:
-# $version::                  Package version to be installed
-#                             type:string
-#
-# $auth::                     Use SASL authentication
-#                             type:boolean
-#
-# $config_file::              Location of qpid configuration file
-#                             type:string
+# === Parameters:
 #
 # $log_level::                Logging level
 #                             type:string
 #
-# $log_to_syslog::            Log to syslog or not
+# === SSL parameters
+#
+# $auth::                     Use SASL authentication
 #                             type:boolean
-#
-# $interface::                Interface to listen on
-#
-# $server_store::             Install a Qpid message store
-#                             type:boolean
-#
-# $server_store_package::     Package name for the Qpid message store
 #
 # $ssl::                      Use SSL with Qpid
 #                             type:boolean
@@ -42,6 +29,24 @@
 #
 # $ssl_require_client_auth::  Require client SSL authentication
 #                             type:boolean
+#
+# === Advanced parameters
+#
+# $log_to_syslog::            Log to syslog or not
+#                             type:boolean
+#
+# $interface::                Interface to listen on
+#
+# $server_store::             Install a Qpid message store
+#                             type:boolean
+#
+# $version::                  Package version to be installed
+#                             type:string
+#
+# $config_file::              Location of qpid configuration file
+#                             type:string
+#
+# $server_store_package::     Package name for the Qpid message store
 #
 # $user_groups::              Additional user groups to add the qpidd user to
 #                             type:array
