@@ -8,13 +8,13 @@ class qpid::install {
 
   package { $qpid::server_packages:
     ensure => $qpid::version,
-    before => Service['qpidd'],
+    before => [Service['qpidd'],Package['qpid-tools']],
   }
 
   if ($qpid::server_store) {
     package { $qpid::server_store_package:
       ensure => $qpid::version,
-      before => Service['qpidd'],
+      before => [Service['qpidd'],Package['qpid-tools']],
     }
   }
 }
