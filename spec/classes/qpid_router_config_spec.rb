@@ -4,7 +4,7 @@ describe 'qpid::router::config' do
   on_supported_os.each do |os, facts|
     context "on #{os}" do
       let :facts do
-        facts.merge(:concat_basedir => '/tmp', :processorcount => 2)
+        facts.merge(:concat_basedir => '/tmp', :processorcount => 2, :systemd => true)
       end
 
       context 'without parameters' do
@@ -231,6 +231,19 @@ describe 'qpid::router::config' do
             '    output: /var/log/qpid.log',
             '}'
           ]
+        end
+      end
+
+      context 'with open files limit' do
+        let :pre_condition do
+          'class {"qpid::router":
+             open_file_limit => 10000,
+          }
+          '
+        end
+
+        it 'should configure systemd' do
+          is_expected.to contain_systemd__service_limits('qdrouterd.service') #.with('limits' => { 'LimitNOFILE' => 10000 })
         end
       end
     end

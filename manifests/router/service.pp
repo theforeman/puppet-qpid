@@ -11,4 +11,12 @@ class qpid::router::service {
     hasrestart => true,
   }
 
+  if($::qpid::router::open_file_limit and $::systemd) {
+    systemd::service_limits { 'qdrouterd.service':
+      limits  => {
+        'LimitNOFILE' => $::qpid::router::open_file_limit,
+      },
+      require => Service['qdrouterd'],
+    }
+  }
 }

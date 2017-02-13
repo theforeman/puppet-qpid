@@ -9,4 +9,5 @@ class qpid::router::params {
   $container_name      = $::fqdn
   $worker_threads      = $::processorcount
   $router_packages     = ['qpid-dispatch-router']
+  $open_file_limit     = undef
 }
