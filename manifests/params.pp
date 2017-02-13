@@ -13,6 +13,8 @@ class qpid::params {
 
   $interface = undef
 
+  $max_connections = undef
+
   $ssl                     = false
   $ssl_port                = '5671'
   $ssl_cert_db             = undef

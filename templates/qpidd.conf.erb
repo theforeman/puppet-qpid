@@ -41,3 +41,6 @@ ssl-cert-name=<%= scope['qpid::ssl_cert_name'] %>
 <% unless [nil, :undefined, :undef, ''].include?(scope['qpid::interface']) -%>
 interface=<%= scope['qpid::interface'] %>
 <% end %>
+<% unless [nil, :undefined, :undef, ''].include?(scope['qpid::max_connections']) -%>
+max-connections=<%= scope['qpid::max_connections'] %>
+<% end %>
