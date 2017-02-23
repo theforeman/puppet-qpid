@@ -68,5 +68,23 @@ describe 'qpid::config' do
         end
       end
     end
+
+    context 'with max-connections' do
+      let :pre_condition do
+        'class {"qpid":
+            max_connections => 2000,
+          }'
+      end
+
+      it 'should create configuration file' do
+        content = catalogue.resource('file', '/etc/qpid/qpidd.conf').send(:parameters)[:content]
+        content.split("\n").reject { |c| c =~ /(^#|^$)/ }.should == [
+          'log-enable=error+',
+          'log-to-syslog=yes',
+          'auth=no',
+          'max-connections=2000'
+        ]
+      end
+    end
   end
 end
