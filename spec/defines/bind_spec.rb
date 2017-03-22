@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'qpid::bind_event' do
+describe 'qpid::config::bind' do
   let :title do
     '*.*'
   end
@@ -8,6 +8,7 @@ describe 'qpid::bind_event' do
   context 'without ssl_cert' do
     let :params do
       {
+        'exchange' => 'event',
         'queue' => 'myqueue',
       }
     end
@@ -22,6 +23,7 @@ describe 'qpid::bind_event' do
   context 'with ssl_cert' do
     let :params do
       {
+        'exchange' => 'event',
         'queue'    => 'myqueue',
         'ssl_cert' => '/path/to/cert.pem',
       }
