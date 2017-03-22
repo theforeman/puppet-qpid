@@ -1,21 +1,21 @@
-# Define: qpid::bind_event
+# Define: qpid::config::bind
 #
-# This define binds the event queue with the correct messages
+# This define binds the queue with the correct messages
 #
 # === Parameters
 #
-# $queue::                      Name of the event queue
+# $queue::                      Name of the queue
 #
 # $exchange::                   Name of the exchange the queue is on
 #
-# $hostname::                   Set to localhost for qpid-config operations
+# $hostname::                   Hostname of the qpid broker
 #
 # $port::                       Port that qpid is listening on
 #
 # $ssl_cert::                   SSL cert to use for qpid-config commands
-define qpid::bind_event(
+define qpid::config::bind(
   $queue,
-  $exchange = 'event',
+  $exchange,
   $hostname = 'localhost',
   $port = undef,
   $ssl_cert = undef
