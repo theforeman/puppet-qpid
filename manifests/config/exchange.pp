@@ -12,11 +12,14 @@
 #
 # $ssl_cert::                   SSL cert to use for qpid-config commands
 #
+# $ssl_key::                    SSL key to use for qpid-config commands
+#
 define qpid::config::exchange(
   $exchange,
-  $hostname = 'localhost',
+  $hostname = undef,
   $port = undef,
-  $ssl_cert = undef
+  $ssl_cert = undef,
+  $ssl_key = undef,
 )
 {
   qpid::config_cmd { "ensure exchange ${title}":
@@ -25,5 +28,6 @@ define qpid::config::exchange(
     hostname => $hostname,
     port     => $port,
     ssl_cert => $ssl_cert,
+    ssl_key  => $ssl_key,
   }
 }

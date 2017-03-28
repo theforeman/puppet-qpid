@@ -13,9 +13,13 @@ describe 'qpid::config::exchange' do
     end
 
     it do
-      is_expected.to contain_exec('qpid-config ensure exchange event')
-        .with_command('qpid-config -b amqp://localhost:5672 add exchange topic event --durable')
-        .with_unless('qpid-config -b amqp://localhost:5672 exchanges event')
+      is_expected.to contain_qpid__config_cmd('ensure exchange event')
+        .with_command('add exchange topic event --durable')
+        .with_unless('exchanges event')
+        .with_hostname('localhost')
+        .with_port(nil)
+        .with_ssl_cert(nil)
+        .with_ssl_key(nil)
     end
   end
 
@@ -23,14 +27,21 @@ describe 'qpid::config::exchange' do
     let :params do
       {
         'exchange' => 'event',
+        'hostname' => 'myhost.example.com',
+        'port'     => 5671,
         'ssl_cert' => '/path/to/cert.pem',
+        'ssl_key'  => '/path/to/key.pem',
       }
     end
 
     it do
-      is_expected.to contain_exec('qpid-config ensure exchange event')
-        .with_command('qpid-config --ssl-certificate /path/to/cert.pem -b amqps://localhost:5671 add exchange topic event --durable')
-        .with_unless('qpid-config --ssl-certificate /path/to/cert.pem -b amqps://localhost:5671 exchanges event')
+      is_expected.to contain_qpid__config_cmd('ensure exchange event')
+        .with_command('add exchange topic event --durable')
+        .with_unless('exchanges event')
+        .with_hostname('myhost.example.com')
+        .with_port(5671)
+        .with_ssl_cert('/path/to/cert.pem')
+        .with_ssl_key('/path/to/key.pem')
     end
   end
 end

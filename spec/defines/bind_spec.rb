@@ -14,9 +14,13 @@ describe 'qpid::config::bind' do
     end
 
     it do
-      is_expected.to contain_exec('qpid-config bind queue to exchange and filter messages that deal with *.*')
-        .with_command('qpid-config -b amqp://localhost:5672 bind event myqueue *.*')
-        .with_onlyif('qpid-config -b amqp://localhost:5672 exchanges event -r | grep *.*')
+      is_expected.to contain_qpid__config_cmd('bind queue to exchange and filter messages that deal with *.*')
+        .with_command('bind event myqueue *.*')
+        .with_onlyif('exchanges event -r | grep *.*')
+        .with_hostname('localhost')
+        .with_port(nil)
+        .with_ssl_cert(nil)
+        .with_ssl_key(nil)
     end
   end
 
@@ -25,14 +29,21 @@ describe 'qpid::config::bind' do
       {
         'exchange' => 'event',
         'queue'    => 'myqueue',
+        'hostname' => 'myhost.example.com',
+        'port'     => 5671,
         'ssl_cert' => '/path/to/cert.pem',
+        'ssl_key'  => '/path/to/key.pem',
       }
     end
 
     it do
-      is_expected.to contain_exec('qpid-config bind queue to exchange and filter messages that deal with *.*')
-        .with_command('qpid-config --ssl-certificate /path/to/cert.pem -b amqps://localhost:5671 bind event myqueue *.*')
-        .with_onlyif('qpid-config --ssl-certificate /path/to/cert.pem -b amqps://localhost:5671 exchanges event -r | grep *.*')
+      is_expected.to contain_qpid__config_cmd('bind queue to exchange and filter messages that deal with *.*')
+        .with_command('bind event myqueue *.*')
+        .with_onlyif('exchanges event -r | grep *.*')
+        .with_hostname('myhost.example.com')
+        .with_port(5671)
+        .with_ssl_cert('/path/to/cert.pem')
+        .with_ssl_key('/path/to/key.pem')
     end
   end
 end
