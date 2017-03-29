@@ -93,8 +93,8 @@ class qpid (
     validate_absolute_path($ssl_cert_db, $ssl_cert_password_file)
   }
 
-  contain ::qpid::install
-  contain ::qpid::config
+  include ::qpid::install
+  include ::qpid::config
   contain ::qpid::service
 
   Class['qpid::install'] ~> Class['qpid::config'] ~> Class['qpid::service']
