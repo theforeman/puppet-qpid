@@ -4,7 +4,7 @@ describe 'qpid::router::config' do
   on_supported_os.each do |os, facts|
     context "on #{os}" do
       let :facts do
-        facts.merge(:concat_basedir => '/tmp', :processorcount => 2, :systemd => true)
+        facts.merge(:processorcount => 2, :systemd => true)
       end
 
       context 'without parameters' do
@@ -13,8 +13,7 @@ describe 'qpid::router::config' do
         end
 
         it 'should have header fragment' do
-          content = catalogue.resource('concat::fragment', 'qdrouter+header.conf').send(:parameters)[:content]
-          content.split("\n").reject { |c| c =~ /(^#|^$)/ }.should == [
+          verify_concat_fragment_exact_contents(catalogue, 'qdrouter+header.conf', [
             'container {',
             '    worker-threads: 2',
             '    container-name: foo.example.com',
@@ -23,12 +22,11 @@ describe 'qpid::router::config' do
             '    mode: interior',
             '    router-id: foo.example.com',
             '}'
-          ]
+          ])
         end
 
         it 'should have footer fragment' do
-          content = catalogue.resource('concat::fragment', 'qdrouter+footer.conf').send(:parameters)[:content]
-          content.split("\n").reject { |c| c =~ /(^#|^$)/ }.should == [
+          verify_concat_fragment_exact_contents(catalogue, 'qdrouter+footer.conf', [
             'fixed-address {',
             '    prefix: /closest',
             '    fanout: single',
@@ -56,15 +54,14 @@ describe 'qpid::router::config' do
             '    prefix: /',
             '    fanout: multiple',
             '}'
-          ]
+          ])
         end
 
         it 'should configure qdrouter.conf' do
-          should contain_concat('/etc/qpid-dispatch/qdrouterd.conf').with({
-            'owner'   => 'root',
-            'group'   => 'root',
-            'mode'    => '0644',
-          })
+          is_expected.to contain_concat('/etc/qpid-dispatch/qdrouterd.conf')
+            .with_owner('root')
+            .with_group('root')
+            .with_mode('0644')
         end
       end
 
@@ -81,15 +78,14 @@ describe 'qpid::router::config' do
         end
 
         it 'should have ssl fragment' do
-          content = catalogue.resource('concat::fragment', 'qdrouter+ssl_router-ssl.conf').send(:parameters)[:content]
-          content.split("\n").reject { |c| c =~ /(^#|^$)/ }.should == [
+          verify_concat_fragment_exact_contents(catalogue, 'qdrouter+ssl_router-ssl.conf', [
             'ssl-profile {',
             '    name: router-ssl',
             '    cert-db: /some/where/ca.pem',
             '    cert-file: /some/where/cert.pem',
             '    key-file: /some/where/key.pem',
             '}'
-          ]
+          ])
         end
       end
 
@@ -106,8 +102,7 @@ describe 'qpid::router::config' do
         end
 
         it 'should have listener fragment' do
-          content = catalogue.resource('concat::fragment', 'qdrouter+listener_hub.conf').send(:parameters)[:content]
-          content.split("\n").reject { |c| c =~ /(^#|^$)/ }.should == [
+          verify_concat_fragment_exact_contents(catalogue, 'qdrouter+listener_hub.conf', [
             'listener {',
             '    addr: 0.0.0.0',
             '    port: 5672',
@@ -116,7 +111,7 @@ describe 'qpid::router::config' do
             '    ssl-profile: router-ssl',
             '    idle-timeout-seconds: 0',
             '}'
-          ]
+          ])
         end
       end
 
@@ -135,8 +130,7 @@ describe 'qpid::router::config' do
         end
 
         it 'should have connector fragment' do
-          content = catalogue.resource('concat::fragment', 'qdrouter+connector_broker.conf').send(:parameters)[:content]
-          content.split("\n").reject { |c| c =~ /(^#|^$)/ }.should == [
+          verify_concat_fragment_exact_contents(catalogue, 'qdrouter+connector_broker.conf', [
             'connector {',
             '    name: broker',
             '    addr: 127.0.0.1',
@@ -146,7 +140,7 @@ describe 'qpid::router::config' do
             '    ssl-profile: router-ssl',
             '    idle-timeout-seconds: 0',
             '}'
-          ]
+          ])
         end
       end
 
@@ -168,13 +162,12 @@ describe 'qpid::router::config' do
         end
 
         it 'should have link_route_pattern fragment' do
-          content = catalogue.resource('concat::fragment', 'qdrouter+link_route_pattern_broker-link.conf').send(:parameters)[:content]
-          content.split("\n").reject { |c| c =~ /(^#|^$)/ }.should == [
+          verify_concat_fragment_exact_contents(catalogue, 'qdrouter+link_route_pattern_broker-link.conf', [
             'linkRoutePattern {',
             '    prefix: unicorn.',
             '    connector: broker',
             '}'
-          ]
+          ])
         end
       end
 
@@ -197,14 +190,13 @@ describe 'qpid::router::config' do
         end
 
         it 'should have link_route_pattern fragment' do
-          content = catalogue.resource('concat::fragment', 'qdrouter+link_route_pattern_broker-link.conf').send(:parameters)[:content]
-          content.split("\n").reject { |c| c =~ /(^#|^$)/ }.should == [
+          verify_concat_fragment_exact_contents(catalogue, 'qdrouter+link_route_pattern_broker-link.conf', [
             'linkRoutePattern {',
             '    prefix: unicorn.',
             '    dir: in',
             '    connector: broker',
             '}'
-          ]
+          ])
         end
       end
 
@@ -222,15 +214,14 @@ describe 'qpid::router::config' do
         end
 
         it 'should have log fragment' do
-          content = catalogue.resource('concat::fragment', 'qdrouter+log_logging.conf').send(:parameters)[:content]
-          content.split("\n").reject { |c| c =~ /(^#|^$)/ }.should == [
+          verify_concat_fragment_exact_contents(catalogue, 'qdrouter+log_logging.conf', [
             'log {',
             '    module: DEFAULT',
             '    enable: debug+',
             '    timestamp: false',
             '    output: /var/log/qpid.log',
             '}'
-          ]
+          ])
         end
       end
 
@@ -243,7 +234,8 @@ describe 'qpid::router::config' do
         end
 
         it 'should configure systemd' do
-          is_expected.to contain_systemd__service_limits('qdrouterd.service') #.with('limits' => { 'LimitNOFILE' => 10000 })
+          is_expected.to contain_systemd__service_limits('qdrouterd.service')
+            .with_limits({'LimitNOFILE' => 10000})
         end
       end
     end

@@ -15,6 +15,8 @@
 #
 # $open_file_limit:: Limit number of open files - systemd distros only
 #
+# $router_packages:: The package to be installed
+#
 class qpid::router(
   $router_id               = $qpid::router::params::router_id,
   $mode                    = $qpid::router::params::router_mode,
@@ -24,8 +26,10 @@ class qpid::router(
   $open_file_limit         = $qpid::router::params::open_file_limit,
 ) inherits qpid::router::params {
 
-  class { '::qpid::router::install': } ->
-  class { '::qpid::router::config': } ~>
-  class { '::qpid::router::service': }
+  include ::qpid::router::install
+  include ::qpid::router::config
+  include ::qpid::router::service
+
+  Class['qpid::router::install'] -> Class['qpid::router::config'] ~> Class['qpid::router::service']
 
 }
