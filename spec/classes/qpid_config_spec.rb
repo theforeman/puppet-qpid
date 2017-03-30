@@ -13,12 +13,11 @@ describe 'qpid::config' do
         end
 
         it 'should create configuration file' do
-          content = catalogue.resource('file', '/etc/qpid/qpidd.conf').send(:parameters)[:content]
-          content.split("\n").reject { |c| c =~ /(^#|^$)/ }.should == [
+          verify_exact_contents(catalogue, '/etc/qpid/qpidd.conf', [
             'log-enable=error+',
             'log-to-syslog=yes',
             'auth=no'
-          ]
+          ])
         end
       end
 
@@ -30,13 +29,12 @@ describe 'qpid::config' do
         end
 
         it 'should create configuration file' do
-          content = catalogue.resource('file', '/etc/qpid/qpidd.conf').send(:parameters)[:content]
-          content.split("\n").reject { |c| c =~ /(^#|^$)/ }.should == [
+          verify_exact_contents(catalogue, '/etc/qpid/qpidd.conf', [
             'log-enable=error+',
             'log-to-syslog=yes',
             'auth=no',
             'interface=lo'
-          ]
+          ])
         end
       end
 
@@ -53,8 +51,7 @@ describe 'qpid::config' do
         end
 
         it 'should create configuration file' do
-          content = catalogue.resource('file', '/etc/qpid/qpidd.conf').send(:parameters)[:content]
-          content.split("\n").reject { |c| c =~ /(^#|^$)/ }.should == [
+          verify_exact_contents(catalogue, '/etc/qpid/qpidd.conf', [
             'log-enable=error+',
             'log-to-syslog=yes',
             'auth=no',
@@ -64,26 +61,25 @@ describe 'qpid::config' do
             'ssl-cert-db=/etc/pki/katello/nssdb',
             'ssl-cert-password-file=/etc/pki/katello/nssdb/nss_db_password-file',
             'ssl-cert-name=broker'
-          ]
+          ])
         end
       end
-    end
 
-    context 'with max-connections' do
-      let :pre_condition do
-        'class {"qpid":
-            max_connections => 2000,
-          }'
-      end
+      context 'with max-connections' do
+        let :pre_condition do
+          'class {"qpid":
+              max_connections => 2000,
+            }'
+        end
 
-      it 'should create configuration file' do
-        content = catalogue.resource('file', '/etc/qpid/qpidd.conf').send(:parameters)[:content]
-        content.split("\n").reject { |c| c =~ /(^#|^$)/ }.should == [
-          'log-enable=error+',
-          'log-to-syslog=yes',
-          'auth=no',
-          'max-connections=2000'
-        ]
+        it 'should create configuration file' do
+          verify_exact_contents(catalogue, '/etc/qpid/qpidd.conf', [
+            'log-enable=error+',
+            'log-to-syslog=yes',
+            'auth=no',
+            'max-connections=2000'
+          ])
+        end
       end
     end
   end
