@@ -10,23 +10,22 @@
 #
 # $key::        Location of private key pem file
 #
-# $name::       Name of SSL profile
-#
 # $password::   Password, if required
 #
+# == Advanced
+#
+# $config_file::    The config file to use
+#
 define qpid::router::ssl_profile(
-  $ca,
-  $cert,
-  $key,
-  $password      = undef,
+  Stdlib::Absolutepath $ca,
+  Stdlib::Absolutepath $cert,
+  Stdlib::Absolutepath $key,
+  Optional[String] $password = undef,
+  String $config_file = $::qpid::router::config_file,
 ) {
-
-  validate_absolute_path($ca, $cert, $key)
-
   concat::fragment {"qdrouter+ssl_${title}.conf":
-    target  => $qpid::router::config_file,
+    target  => $config_file,
     content => template('qpid/router/ssl_profile.conf.erb'),
     order   => '02',
   }
-
 }

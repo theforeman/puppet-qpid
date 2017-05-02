@@ -9,24 +9,23 @@
 # $level::          Logging level to use (e.g., debug+, info+)
 #
 # $timestamp::      Enable timestamps
-#                   type:boolean
 #
 # $output::         Log file location
 #
+# == Advanced
+#
+# $config_file::    The config file to use
+#
 define qpid::router::log(
-  $module         = 'DEFAULT',
-  $level          = 'info+',
-  $timestamp      = true,
-  $output         = '/var/log/qdrouterd.log',
+  String $module = 'DEFAULT',
+  String $level = 'info+',
+  Boolean $timestamp = true,
+  Stdlib::Absolutepath $output = '/var/log/qdrouterd.log',
+  String $config_file = $::qpid::router::config_file,
 ){
-
-  validate_bool($timestamp)
-  validate_absolute_path($output)
-
   concat::fragment {"qdrouter+log_${title}.conf":
-    target  => $qpid::router::config_file,
+    target  => $config_file,
     content => template('qpid/router/log.conf.erb'),
     order   => '06',
   }
-
 }
