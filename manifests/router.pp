@@ -26,9 +26,9 @@ class qpid::router(
   $open_file_limit         = $qpid::router::params::open_file_limit,
 ) inherits qpid::router::params {
 
-  include ::qpid::router::install
-  include ::qpid::router::config
-  include ::qpid::router::service
+  contain ::qpid::router::install
+  contain ::qpid::router::config
+  contain ::qpid::router::service
 
   Class['qpid::router::install'] -> Class['qpid::router::config'] ~> Class['qpid::router::service']
 
