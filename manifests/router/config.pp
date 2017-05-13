@@ -21,4 +21,6 @@ class qpid::router::config {
     group => 'root',
     mode  => '0644',
   }
+
+  Concat::Fragment<| target == $qpid::router::config_file |> ~> Concat[$qpid::router::config_file]
 }
