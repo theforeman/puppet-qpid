@@ -30,6 +30,8 @@
 # $ssl_require_client_auth::  Require client SSL authentication
 #                             type:boolean
 #
+# $session_unacked:           buffer if the broker has a large number of sessions and the memory overhead is a problem
+#
 # === Advanced parameters
 #
 # $max_connections::          Maximum number of connections to allow
@@ -58,6 +60,7 @@
 #                             type:array
 #
 class qpid (
+<<<<<<< HEAD
   $version                 = $qpid::params::version,
   $auth                    = $qpid::params::auth,
   $config_file             = $qpid::params::config_file,
@@ -68,6 +71,7 @@ class qpid (
   $server_store_package    = $qpid::params::server_store_package,
   $ssl                     = $qpid::params::ssl,
   $ssl_port                = $qpid::params::ssl_port,
+  $session_unacked         = $::qpid::params::session_unacked,
   $ssl_cert_db             = $qpid::params::ssl_cert_db,
   $ssl_cert_password_file  = $qpid::params::ssl_cert_password_file,
   $ssl_cert_name           = $qpid::params::ssl_cert_name,

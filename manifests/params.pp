@@ -22,6 +22,8 @@ class qpid::params {
   $ssl_cert_name           = undef
   $ssl_require_client_auth = true
 
+  $session_unacked = undef
+
   $user_groups = []
 
   $user = 'qpidd'

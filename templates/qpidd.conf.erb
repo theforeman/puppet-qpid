@@ -44,3 +44,6 @@ interface=<%= scope['qpid::interface'] %>
 <% unless [nil, :undefined, :undef, ''].include?(scope['qpid::max_connections']) -%>
 max-connections=<%= scope['qpid::max_connections'] %>
 <% end %>
+<% unless [nil, :undefined, :undef, ''].include?(scope['qpid::session_unacked']) -%>
+session-max-unacked=<%= scope['qpid::session_unacked'] %>
+<% end %>
