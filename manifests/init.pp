@@ -22,6 +22,8 @@
 #
 # $ssl_require_client_auth::  Require client SSL authentication
 #
+# $session_unacked:           buffer if the broker has a large number of sessions and the memory overhead is a problem
+#
 # === Advanced parameters
 #
 # $max_connections::          Maximum number of connections to allow
@@ -53,6 +55,7 @@ class qpid (
   String $server_store_package = $::qpid::params::server_store_package,
   Boolean $ssl = $::qpid::params::ssl,
   Integer[0, 65535] $ssl_port = $::qpid::params::ssl_port,
+  Optional[Integer[0]] $session_unacked = $::qpid::params::session_unacked,
   Optional[Stdlib::Absolutepath] $ssl_cert_db = $::qpid::params::ssl_cert_db,
   Optional[Stdlib::Absolutepath] $ssl_cert_password_file = $::qpid::params::ssl_cert_password_file,
   Optional[String] $ssl_cert_name = $::qpid::params::ssl_cert_name,
