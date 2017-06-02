@@ -30,6 +30,8 @@
 #
 # $wcache_page_size::         The size (in KB) of the pages in the write page cache
 #
+# $open_file_limit::          Limit number of open files - systemd distros only
+#
 # $log_to_syslog::            Log to syslog or not
 #
 # $interface::                Interface to listen on
@@ -66,6 +68,7 @@ class qpid (
   Array[String] $server_packages = $::qpid::params::server_packages,
   Optional[Integer[1]] $max_connections = $::qpid::params::max_connections,
   Optional[Integer[1]] $wcache_page_size = $::qpid::params::wcache_page_size,
+  Optional[Integer[1]] $open_file_limit = $::qpid::params::open_file_limit,
 ) inherits qpid::params {
   if $ssl {
     assert_type(Boolean, $ssl_require_client_auth)
