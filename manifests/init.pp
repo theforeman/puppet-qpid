@@ -39,6 +39,8 @@
 #
 # $wcache_page_size::         The size (in KB) of the pages in the write page cache
 #
+# $open_file_limit::          Limit number of open files - systemd distros only
+#
 # $log_to_syslog::            Log to syslog or not
 #                             type:boolean
 #
@@ -81,6 +83,7 @@ class qpid (
   $server_packages         = $qpid::params::server_packages,
   $max_connections         = $qpid::params::max_connections,
   $wcache_page_size        = $qpid::params::wcache_page_size,
+  $open_file_limit         = $qpid::params::open_file_limit,
 ) inherits qpid::params {
 
   validate_string($log_level)
