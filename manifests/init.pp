@@ -28,6 +28,8 @@
 #
 # $max_connections::          Maximum number of connections to allow
 #
+# $wcache_page_size::         The size (in KB) of the pages in the write page cache
+#
 # $log_to_syslog::            Log to syslog or not
 #
 # $interface::                Interface to listen on
@@ -63,6 +65,7 @@ class qpid (
   Array[String] $user_groups = $::qpid::params::user_groups,
   Array[String] $server_packages = $::qpid::params::server_packages,
   Optional[Integer[1]] $max_connections = $::qpid::params::max_connections,
+  Optional[Integer[1]] $wcache_page_size = $::qpid::params::wcache_page_size,
 ) inherits qpid::params {
   if $ssl {
     assert_type(Boolean, $ssl_require_client_auth)

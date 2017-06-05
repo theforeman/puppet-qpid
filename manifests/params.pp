@@ -24,6 +24,8 @@ class qpid::params {
 
   $session_unacked = undef
 
+  $wcache_page_size = undef
+
   $user_groups = []
 
   $user = 'qpidd'
