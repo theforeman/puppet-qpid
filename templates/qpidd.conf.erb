@@ -47,3 +47,6 @@ max-connections=<%= scope['qpid::max_connections'] %>
 <% unless [nil, :undefined, :undef, ''].include?(scope['qpid::session_unacked']) -%>
 session-max-unacked=<%= scope['qpid::session_unacked'] %>
 <% end %>
+<% unless [nil, :undefined, :undef, ''].include?(scope['qpid::wcache_page_size']) -%>
+wcache-page-size=<%= scope['qpid::wcache_page_size'] %>
+<% end %>
