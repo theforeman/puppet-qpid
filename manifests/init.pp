@@ -37,6 +37,8 @@
 # $max_connections::          Maximum number of connections to allow
 #                             type:integer
 #
+# $wcache_page_size::         The size (in KB) of the pages in the write page cache
+#
 # $log_to_syslog::            Log to syslog or not
 #                             type:boolean
 #
@@ -60,7 +62,6 @@
 #                             type:array
 #
 class qpid (
-<<<<<<< HEAD
   $version                 = $qpid::params::version,
   $auth                    = $qpid::params::auth,
   $config_file             = $qpid::params::config_file,
@@ -71,7 +72,7 @@ class qpid (
   $server_store_package    = $qpid::params::server_store_package,
   $ssl                     = $qpid::params::ssl,
   $ssl_port                = $qpid::params::ssl_port,
-  $session_unacked         = $::qpid::params::session_unacked,
+  $session_unacked         = $qpid::params::session_unacked,
   $ssl_cert_db             = $qpid::params::ssl_cert_db,
   $ssl_cert_password_file  = $qpid::params::ssl_cert_password_file,
   $ssl_cert_name           = $qpid::params::ssl_cert_name,
@@ -79,6 +80,7 @@ class qpid (
   $user_groups             = $qpid::params::user_groups,
   $server_packages         = $qpid::params::server_packages,
   $max_connections         = $qpid::params::max_connections,
+  $wcache_page_size        = $qpid::params::wcache_page_size,
 ) inherits qpid::params {
 
   validate_string($log_level)
