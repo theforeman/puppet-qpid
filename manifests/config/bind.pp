@@ -27,7 +27,7 @@ define qpid::config::bind(
 {
   qpid::config_cmd { "bind queue to exchange and filter messages that deal with ${title}":
     command  => "bind ${exchange} ${queue} ${title}",
-    onlyif   => "exchanges ${exchange} -r | grep ${title}",
+    unless   => "exchanges ${exchange} -r | grep ${title}",
     hostname => $hostname,
     port     => $port,
     ssl_cert => $ssl_cert,
