@@ -11,4 +11,12 @@ class qpid::service {
     hasrestart => true,
   }
 
+  if $::qpid::open_file_limit and $::systemd {
+    systemd::service_limits { 'qpidd.service':
+      limits  => {
+        'LimitNOFILE' => $::qpid::open_file_limit,
+      },
+      notify  => Service['qpidd'],
+    }
+  }
 }
