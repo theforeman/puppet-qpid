@@ -14,6 +14,7 @@ class qpid::params {
   $interface = undef
 
   $max_connections = undef
+  $open_file_limit = undef
 
   $ssl                     = false
   $ssl_port                = 5671
