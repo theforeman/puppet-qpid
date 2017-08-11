@@ -6,11 +6,7 @@ describe 'qpid::config::exchange' do
   end
 
   context 'without ssl_cert' do
-    let :params do
-      {
-        'exchange' => 'event',
-      }
-    end
+    it { is_expected.to compile.with_all_deps }
 
     it do
       is_expected.to contain_qpid__config_cmd('ensure exchange event')
@@ -24,9 +20,10 @@ describe 'qpid::config::exchange' do
   end
 
   context 'with ssl_cert' do
+    it { is_expected.to compile.with_all_deps }
+
     let :params do
       {
-        'exchange' => 'event',
         'hostname' => 'myhost.example.com',
         'port'     => 5671,
         'ssl_cert' => '/path/to/cert.pem',
