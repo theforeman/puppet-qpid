@@ -25,7 +25,8 @@ define qpid::config::bind(
   $ssl_key = undef,
 )
 {
-  qpid::config_cmd { "bind queue to exchange and filter messages that deal with ${title}":
+  $cmd = "bind queue to exchange and filter messages that deal with ${title}"
+  qpid::config_cmd { $cmd:
     command  => "bind ${exchange} ${queue} ${title}",
     unless   => "exchanges ${exchange} -r | grep ${title}",
     hostname => $hostname,
@@ -33,4 +34,7 @@ define qpid::config::bind(
     ssl_cert => $ssl_cert,
     ssl_key  => $ssl_key,
   }
+
+  Qpid::Config::Exchange <| exchange == $exchange |> -> Qpid::Config_cmd[$cmd]
+  Qpid::Config::Queue <| queue == $queue |> -> Qpid::Config_cmd[$cmd]
 }

@@ -13,6 +13,8 @@ describe 'qpid::config::bind' do
       }
     end
 
+    it { is_expected.to compile.with_all_deps }
+
     it do
       is_expected.to contain_qpid__config_cmd('bind queue to exchange and filter messages that deal with *.*')
         .with_command('bind event myqueue *.*')
@@ -36,6 +38,8 @@ describe 'qpid::config::bind' do
       }
     end
 
+    it { is_expected.to compile.with_all_deps }
+
     it do
       is_expected.to contain_qpid__config_cmd('bind queue to exchange and filter messages that deal with *.*')
         .with_command('bind event myqueue *.*')
@@ -44,6 +48,29 @@ describe 'qpid::config::bind' do
         .with_port(5671)
         .with_ssl_cert('/path/to/cert.pem')
         .with_ssl_key('/path/to/key.pem')
+    end
+  end
+
+  context 'with chaining' do
+    let :params do
+      {
+        'exchange' => 'event',
+        'queue' => 'myqueue',
+      }
+    end
+
+    let :pre_condition do
+      <<-EOS
+      qpid::config::exchange { 'event': }
+      qpid::config::queue { 'myqueue': }
+      EOS
+    end
+
+    it { is_expected.to compile.with_all_deps }
+
+    it do
+      is_expected.to contain_qpid__config_cmd('bind queue to exchange and filter messages that deal with *.*')
+        .that_requires(['Qpid::Config::Exchange[event]', 'Qpid::Config::Queue[myqueue]'])
     end
   end
 end
