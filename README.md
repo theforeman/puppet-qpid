@@ -1,7 +1,7 @@
 [![Puppet Forge](http://img.shields.io/puppetforge/v/katello/qpid.svg)](https://forge.puppetlabs.com/katello/qpid)
 [![Build Status](https://travis-ci.org/Katello/puppet-qpid.svg?branch=master)](https://travis-ci.org/Katello/puppet-qpid)
 
-####Table of Contents
+#### Table of Contents
 
 1. [Overview](#overview)
 2. [Setup - The basics of getting started with qpid](#setup)
@@ -13,33 +13,33 @@
 5. [Limitations - OS compatibility, etc.](#limitations)
 6. [Development - Guide for contributing to the module](#development)
 
-##Overview
+## Overview
 
 This module is designed to install and configure Qpid servers, clients, and dispatch routers for communication across a message bus.
 
-##Setup
+## Setup
 
-###What qpid affects
+### What qpid affects
 
 * Installs and configures a Qpid server, client, or dispatch router
 
-###Beginning with qpid
+### Beginning with qpid
 
-##Usage
+## Usage
 
 See the top of each manifest for the parameters that each takes.
 
-##Reference
+## Reference
 
 * [Qpid Documentation](https://qpid.apache.org/documentation.html)
 
-##Limitations
+## Limitations
 
 Tested on:
 
 * EL6 (RHEL 6, CentOS 6, etc)
 * EL7 (RHEL 7, CentOS 7, etc)
 
-##Development
+## Development
 
 See the CONTRIBUTING guide for steps on how to make a change and get it accepted upstream.
