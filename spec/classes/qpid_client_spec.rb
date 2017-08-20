@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'qpid::client::config' do
+describe 'qpid::client' do
   on_supported_os.each do |os, facts|
     context "on #{os}" do
       let :facts do
@@ -8,9 +8,8 @@ describe 'qpid::client::config' do
       end
 
       context 'without parameters' do
-        let :pre_condition do
-          'include qpid::client'
-        end
+        it { is_expected.to compile.with_all_deps }
+        it { is_expected.to create_package('qpid-cpp-client-devel') }
 
         it 'should create configuration file' do
           verify_exact_contents(catalogue, '/etc/qpid/qpidc.conf', [
@@ -20,15 +19,18 @@ describe 'qpid::client::config' do
       end
 
       context 'with ssl options' do
-        let :pre_condition do
-          'class { "qpid::client":
-            ssl                     => true,
-            ssl_port                => 5671,
-            ssl_cert_db             => "/etc/pki/katello/nssdb",
-            ssl_cert_password_file  => "/etc/pki/katello/nssdb/nss_db_password-file",
-            ssl_cert_name           => "broker",
-          }'
+        let :params do
+          {
+            :ssl                     => true,
+            :ssl_port                => 5671,
+            :ssl_cert_db             => "/etc/pki/katello/nssdb",
+            :ssl_cert_password_file  => "/etc/pki/katello/nssdb/nss_db_password-file",
+            :ssl_cert_name           => "broker",
+          }
         end
+
+        it { is_expected.to compile.with_all_deps }
+        it { is_expected.to create_package('qpid-cpp-client-devel') }
 
         it 'should create configuration file' do
           verify_exact_contents(catalogue, '/etc/qpid/qpidc.conf', [
