@@ -26,11 +26,11 @@
 #
 # (Note: no spaces on either side of '='). Using default settings:
 # "qpidd --help" or "man qpidd" for more details.
-log-enable=<%= scope['qpid::client::log_level'] %>
-<% if scope['qpid::client::ssl'] -%>
-ssl-port=<%= scope['qpid::client::ssl_port'] %>
-ssl-cert-db=<%= scope['qpid::client::ssl_cert_db'] %>
-ssl-cert-password-file=<%= scope['qpid::client::ssl_cert_password_file'] %>
-ssl-cert-name=<%= scope['qpid::client::ssl_cert_name'] %>
+log-enable=<%= @log_level %>
+<% if @ssl -%>
+ssl-port=<%= @ssl_port %>
+ssl-cert-db=<%= @ssl_cert_db %>
+ssl-cert-password-file=<%= @ssl_cert_password_file %>
+ssl-cert-name=<%= @ssl_cert_name %>
 <% end %>
 
