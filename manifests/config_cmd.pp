@@ -30,6 +30,8 @@ define qpid::config_cmd (
   $ssl_cert = undef,
   $ssl_key = undef,
 ) {
+  include ::qpid::tools
+
   if $ssl_cert and $ssl_key {
     $_port = pick($port, 5671)
     $base_cmd = "qpid-config --ssl-certificate ${ssl_cert} --ssl-key ${ssl_key} -b amqps://${hostname}:${_port}"
