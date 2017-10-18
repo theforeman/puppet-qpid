@@ -1,5 +1,18 @@
 # Change Log
 
+## [3.1.1](https://github.com/katello/puppet-qpid/tree/3.1.1)
+[Full Changelog](https://github.com/katello/puppet-qpid/compare/3.1.0...3.1.1)
+
+**Closed issues:**
+
+- Changelog [\#72](https://github.com/Katello/puppet-qpid/issues/72)
+
+**Merged pull requests:**
+
+- ensure config\_cmd has qpid-tools installed [\#77](https://github.com/Katello/puppet-qpid/pull/77) ([timogoebel](https://github.com/timogoebel))
+- Allow camptocamp/systemd 1.0.0 [\#76](https://github.com/Katello/puppet-qpid/pull/76) ([ekohl](https://github.com/ekohl))
+- Update CHANGELOG.md [\#75](https://github.com/Katello/puppet-qpid/pull/75) ([ekohl](https://github.com/ekohl))
+
 ## [3.1.0](https://github.com/katello/puppet-qpid/tree/3.1.0) (2017-08-30)
 [Full Changelog](https://github.com/katello/puppet-qpid/compare/3.0.0...3.1.0)
 
