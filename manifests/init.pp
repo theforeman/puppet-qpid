@@ -22,7 +22,7 @@
 #
 # $ssl_require_client_auth::  Require client SSL authentication
 #
-# $session_unacked:           buffer if the broker has a large number of sessions and the memory overhead is a problem
+# $session_unacked::          buffer if the broker has a large number of sessions and the memory overhead is a problem
 #
 # === Advanced parameters
 #
