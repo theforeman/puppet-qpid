@@ -1,5 +1,5 @@
 # This file is managed centrally by modulesync
-#   https://github.com/Katello/foreman-installer-modulesync
+#   https://github.com/theforeman/foreman-installer-modulesync
 
 require 'puppetlabs_spec_helper/rake_tasks'
 require 'puppet-lint/tasks/puppet-lint'
@@ -18,12 +18,12 @@ PuppetLint.configuration.log_format = '%{path}:%{line}:%{KIND}: %{message}'
 
 require 'puppet-lint-param-docs/tasks'
 PuppetLintParamDocs.define_selective do |config|
-  config.pattern = []
+  config.pattern = ["manifests/init.pp"]
 end
 
 require 'kafo_module_lint/tasks'
 KafoModuleLint::RakeTask.new do |config|
-  config.pattern = []
+  config.pattern = ["manifests/init.pp"]
 end
 
 task :default => [:release_checks]
