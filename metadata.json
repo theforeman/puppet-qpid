@@ -4,8 +4,8 @@
   "author": "Katello",
   "summary": "Qpid message bus configuration",
   "license": "GPL-3.0+",
-  "source": "https://github.com/Katello/puppet-qpid.git",
-  "project_page": "https://github.com/Katello/puppet-qpid",
+  "source": "https://github.com/theforeman/puppet-qpid.git",
+  "project_page": "https://github.com/theforeman/puppet-qpid",
   "issues_url": "http://projects.theforeman.org/projects/katello/issues",
   "dependencies": [
     {
