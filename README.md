@@ -1,5 +1,5 @@
 [![Puppet Forge](http://img.shields.io/puppetforge/v/katello/qpid.svg)](https://forge.puppetlabs.com/katello/qpid)
-[![Build Status](https://travis-ci.org/Katello/puppet-qpid.svg?branch=master)](https://travis-ci.org/Katello/puppet-qpid)
+[![Build Status](https://travis.ci.org/theforeman/puppet-qpid.svg?branch=master)](https://travis-ci.org/Katello/puppet-qpid)
 
 #### Table of Contents
 
