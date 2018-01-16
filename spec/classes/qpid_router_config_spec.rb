@@ -101,7 +101,7 @@ describe 'qpid::router::config' do
         it 'should have listener fragment' do
           verify_concat_fragment_exact_contents(catalogue, 'qdrouter+listener_hub.conf', [
             'listener {',
-            '    addr: 0.0.0.0',
+            '    host: 0.0.0.0',
             '    port: 5672',
             '    sasl-mechanisms: ANONYMOUS',
             '    role: inter-router',
@@ -117,7 +117,7 @@ describe 'qpid::router::config' do
           'class {"qpid::router":}
 
            qpid::router::connector { "broker":
-             host         => "127.0.0.1",
+             addr         => "127.0.0.1",
              port         => "5672",
              role         => "on-demand",
              ssl_profile  => "router-ssl",
@@ -130,7 +130,7 @@ describe 'qpid::router::config' do
           verify_concat_fragment_exact_contents(catalogue, 'qdrouter+connector_broker.conf', [
             'connector {',
             '    name: broker',
-            '    addr: 127.0.0.1',
+            '    host: 127.0.0.1',
             '    port: 5672',
             '    sasl-mechanisms: ANONYMOUS',
             '    role: on-demand',
@@ -146,7 +146,7 @@ describe 'qpid::router::config' do
           'class {"qpid::router":}
 
            qpid::router::connector { "broker":
-             host        => "127.0.0.1",
+             addr        => "127.0.0.1",
              port        => "5672",
              role        => "on-demand",
              ssl_profile => "router-ssl",
@@ -158,8 +158,8 @@ describe 'qpid::router::config' do
            }'
         end
 
-        it 'should have link_route_pattern fragment' do
-          verify_concat_fragment_exact_contents(catalogue, 'qdrouter+link_route_pattern_broker-link.conf', [
+        it 'should have link_route fragment' do
+          verify_concat_fragment_exact_contents(catalogue, 'qdrouter+link_route_broker-link.conf', [
             'linkRoute {',
             '    prefix: unicorn.',
             '    connection: broker',
@@ -168,12 +168,12 @@ describe 'qpid::router::config' do
         end
       end
 
-      context 'with asymmetric link route pattern' do
+      context 'with asymmetric link route' do
         let :pre_condition do
           'class {"qpid::router":}
 
            qpid::router::connector { "broker":
-             host        => "127.0.0.1",
+             addr        => "127.0.0.1",
              port        => "5672",
              role        => "on-demand",
              ssl_profile => "router-ssl",
@@ -187,7 +187,7 @@ describe 'qpid::router::config' do
         end
 
         it 'should have link_route_pattern fragment' do
-          verify_concat_fragment_exact_contents(catalogue, 'qdrouter+link_route_pattern_broker-link.conf', [
+          verify_concat_fragment_exact_contents(catalogue, 'qdrouter+link_route_broker-link.conf', [
             'linkRoute {',
             '    prefix: unicorn.',
             '    dir: in',
