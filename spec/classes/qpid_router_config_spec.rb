@@ -14,13 +14,10 @@ describe 'qpid::router::config' do
 
         it 'should have header fragment' do
           verify_concat_fragment_exact_contents(catalogue, 'qdrouter+header.conf', [
-            'container {',
-            '    worker-threads: 2',
-            '    container-name: foo.example.com',
-            '}',
             'router {',
+            '    id: foo.example.com',
             '    mode: interior',
-            '    router-id: foo.example.com',
+            '    worker-threads: 2',
             '}'
           ])
         end
