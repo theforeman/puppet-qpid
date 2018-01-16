@@ -6,7 +6,7 @@
 #
 # $ssl_profile::    SSL profile to use
 #
-# $addr::           Address to listen on
+# $host::           Host/address to listen on
 #
 # $port::           Port to listen on
 #
@@ -17,7 +17,7 @@
 # $idle_timeout::   Timeout in seconds
 #
 define qpid::router::connector(
-  $addr         = '0.0.0.0',
+  $host         = '0.0.0.0',
   $port         = 5672,
   $sasl_mech    = 'ANONYMOUS',
   $role         = undef,

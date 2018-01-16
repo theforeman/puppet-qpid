@@ -24,30 +24,30 @@ describe 'qpid::router::config' do
 
         it 'should have footer fragment' do
           verify_concat_fragment_exact_contents(catalogue, 'qdrouter+footer.conf', [
-            'fixed-address {',
+            'address {',
             '    prefix: /closest',
             '    fanout: single',
             '    bias: closest',
             '}',
-            'fixed-address {',
+            'address {',
             '    prefix: /unicast',
             '    fanout: single',
             '    bias: closest',
             '}',
-            'fixed-address {',
+            'address {',
             '    prefix: /exclusive',
             '    fanout: single',
             '    bias: closest',
             '}',
-            'fixed-address {',
+            'address {',
             '    prefix: /multicast',
             '    fanout: multiple',
             '}',
-            'fixed-address {',
+            'address {',
             '    prefix: /broadcast',
             '    fanout: multiple',
             '}',
-            'fixed-address {',
+            'address {',
             '    prefix: /',
             '    fanout: multiple',
             '}'
@@ -117,7 +117,7 @@ describe 'qpid::router::config' do
           'class {"qpid::router":}
 
            qpid::router::connector { "broker":
-             addr         => "127.0.0.1",
+             host         => "127.0.0.1",
              port         => "5672",
              role         => "on-demand",
              ssl_profile  => "router-ssl",
@@ -146,7 +146,7 @@ describe 'qpid::router::config' do
           'class {"qpid::router":}
 
            qpid::router::connector { "broker":
-             addr        => "127.0.0.1",
+             host        => "127.0.0.1",
              port        => "5672",
              role        => "on-demand",
              ssl_profile => "router-ssl",
@@ -160,9 +160,9 @@ describe 'qpid::router::config' do
 
         it 'should have link_route_pattern fragment' do
           verify_concat_fragment_exact_contents(catalogue, 'qdrouter+link_route_pattern_broker-link.conf', [
-            'linkRoutePattern {',
+            'linkRoute {',
             '    prefix: unicorn.',
-            '    connector: broker',
+            '    connection: broker',
             '}'
           ])
         end
@@ -173,7 +173,7 @@ describe 'qpid::router::config' do
           'class {"qpid::router":}
 
            qpid::router::connector { "broker":
-             addr        => "127.0.0.1",
+             host        => "127.0.0.1",
              port        => "5672",
              role        => "on-demand",
              ssl_profile => "router-ssl",
@@ -188,10 +188,10 @@ describe 'qpid::router::config' do
 
         it 'should have link_route_pattern fragment' do
           verify_concat_fragment_exact_contents(catalogue, 'qdrouter+link_route_pattern_broker-link.conf', [
-            'linkRoutePattern {',
+            'linkRoute {',
             '    prefix: unicorn.',
             '    dir: in',
-            '    connector: broker',
+            '    connection: broker',
             '}'
           ])
         end
