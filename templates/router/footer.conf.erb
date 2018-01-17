@@ -1,33 +1,24 @@
-
 address {
-    prefix: /closest
-    fanout: single
-    bias: closest
+    prefix: closest
+    distribution: closest
 }
 
 address {
-    prefix: /unicast
-    fanout: single
-    bias: closest
+    prefix: multicast
+    distribution: multicast
 }
 
 address {
-    prefix: /exclusive
-    fanout: single
-    bias: closest
+    prefix: unicast
+    distribution: closest
 }
 
 address {
-    prefix: /multicast
-    fanout: multiple
+    prefix: exclusive
+    distribution: closest
 }
 
 address {
-    prefix: /broadcast
-    fanout: multiple
-}
-
-address {
-    prefix: /
-    fanout: multiple
+    prefix: broadcast
+    distribution: multicast
 }
