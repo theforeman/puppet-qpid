@@ -94,7 +94,6 @@ describe 'qpid::router::config' do
         it 'should have listener fragment' do
           verify_concat_fragment_exact_contents(catalogue, 'qdrouter+listener_hub.conf', [
             'listener {',
-            '    host: 0.0.0.0',
             '    port: 5672',
             '    sasl-mechanisms: ANONYMOUS',
             '    role: inter-router',
@@ -111,7 +110,7 @@ describe 'qpid::router::config' do
 
            qpid::router::connector { "broker":
              host         => "127.0.0.1",
-             port         => "5672",
+             port         => 5672,
              role         => "on-demand",
              ssl_profile  => "router-ssl",
              idle_timeout => 0,
@@ -140,7 +139,7 @@ describe 'qpid::router::config' do
 
            qpid::router::connector { "broker":
              host        => "127.0.0.1",
-             port        => "5672",
+             port        => 5672,
              role        => "on-demand",
              ssl_profile => "router-ssl",
            }

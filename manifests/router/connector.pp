@@ -17,12 +17,12 @@
 # $idle_timeout::   Timeout in seconds
 #
 define qpid::router::connector(
-  $host         = '0.0.0.0',
-  $port         = 5672,
-  $sasl_mech    = 'ANONYMOUS',
-  $role         = undef,
-  $ssl_profile  = undef,
-  $idle_timeout = undef,
+  String $host = '127.0.0.1',
+  Integer[0, 65535] $port = 5672,
+  Optional[String] $sasl_mech = 'ANONYMOUS',
+  Optional[String] $role = undef,
+  Optional[String] $ssl_profile = undef,
+  Optional[Integer[0]] $idle_timeout = undef,
 ){
 
   concat::fragment {"qdrouter+connector_${name}.conf":

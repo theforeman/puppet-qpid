@@ -11,9 +11,9 @@
 # $connection:: Connector for this link route pattern
 #
 define qpid::router::link_route(
-  $prefix     = 'queue.',
-  $direction  = undef,
-  $connection = undef,
+  Enum['in', 'out'] $direction,
+  String $prefix = 'queue.',
+  Optional[String] $connection = undef,
 ){
 
   concat::fragment {"qdrouter+link_route_${name}.conf":
