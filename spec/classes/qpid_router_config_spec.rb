@@ -32,7 +32,6 @@ describe 'qpid::router::config' do
             '    prefix: multicast',
             '    distribution: multicast',
             '}',
-            '',
             'address {',
             '    prefix: unicast',
             '    distribution: closest',
@@ -111,7 +110,7 @@ describe 'qpid::router::config' do
           'class {"qpid::router":}
 
            qpid::router::connector { "broker":
-             addr         => "127.0.0.1",
+             host         => "127.0.0.1",
              port         => "5672",
              role         => "on-demand",
              ssl_profile  => "router-ssl",
@@ -140,15 +139,15 @@ describe 'qpid::router::config' do
           'class {"qpid::router":}
 
            qpid::router::connector { "broker":
-             addr        => "127.0.0.1",
+             host        => "127.0.0.1",
              port        => "5672",
              role        => "on-demand",
              ssl_profile => "router-ssl",
            }
 
            qpid::router::link_route_pattern { "broker-link":
-             connector => "broker",
-             prefix    => "unicorn.",
+             connection => "broker",
+             prefix     => "unicorn.",
            }'
         end
 
@@ -167,16 +166,16 @@ describe 'qpid::router::config' do
           'class {"qpid::router":}
 
            qpid::router::connector { "broker":
-             addr        => "127.0.0.1",
+             host        => "127.0.0.1",
              port        => "5672",
              role        => "on-demand",
              ssl_profile => "router-ssl",
            }
 
            qpid::router::link_route_pattern { "broker-link":
-             connector => "broker",
-             direction => "in",
-             prefix    => "unicorn.",
+             connection => "broker",
+             direction  => "in",
+             prefix     => "unicorn.",
            }'
         end
 
