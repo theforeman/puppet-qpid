@@ -134,33 +134,6 @@ describe 'qpid::router::config' do
         end
       end
 
-      context 'with symmetric link route pattern' do
-        let :pre_condition do
-          'class {"qpid::router":}
-
-           qpid::router::connector { "broker":
-             host        => "127.0.0.1",
-             port        => "5672",
-             role        => "on-demand",
-             ssl_profile => "router-ssl",
-           }
-
-           qpid::router::link_route_pattern { "broker-link":
-             connection => "broker",
-             prefix     => "unicorn.",
-           }'
-        end
-
-        it 'should have link_route fragment' do
-          verify_concat_fragment_exact_contents(catalogue, 'qdrouter+link_route_broker-link.conf', [
-            'linkRoute {',
-            '    prefix: unicorn.',
-            '    connection: broker',
-            '}'
-          ])
-        end
-      end
-
       context 'with asymmetric link route' do
         let :pre_condition do
           'class {"qpid::router":}
@@ -172,14 +145,14 @@ describe 'qpid::router::config' do
              ssl_profile => "router-ssl",
            }
 
-           qpid::router::link_route_pattern { "broker-link":
+           qpid::router::link_route { "broker-link":
              connection => "broker",
              direction  => "in",
              prefix     => "unicorn.",
            }'
         end
 
-        it 'should have link_route_pattern fragment' do
+        it 'should have link_route fragment' do
           verify_concat_fragment_exact_contents(catalogue, 'qdrouter+link_route_broker-link.conf', [
             'linkRoute {',
             '    prefix: unicorn.',
