@@ -21,7 +21,7 @@ define qpid::router::listener(
   Optional[String] $host = undef,
   Integer[0, 65535] $port = 5672,
   Optional[String] $sasl_mech = 'ANONYMOUS',
-  Optional[String] $role = undef,
+  Optional[Enum['normal', 'inter-router', 'route-container']] $role = undef,
   Optional[Integer[0]] $idle_timeout = undef,
 ){
 
