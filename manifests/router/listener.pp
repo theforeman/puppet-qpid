@@ -6,7 +6,7 @@
 #
 # $ssl_profile::    SSL profile to use
 #
-# $addr::           Address to listen on
+# $host::           Host/address to listen on
 #
 # $port::           Port to listen on
 #
@@ -17,12 +17,12 @@
 # $idle_timeout::   Timeout in seconds
 #
 define qpid::router::listener(
-  $ssl_profile    = undef,
-  $addr           = '0.0.0.0',
-  $port           = 5672,
-  $sasl_mech      = 'ANONYMOUS',
-  $role           = undef,
-  $idle_timeout   = undef,
+  Optional[String] $ssl_profile = undef,
+  Optional[String] $host = undef,
+  Integer[0, 65535] $port = 5672,
+  Optional[String] $sasl_mech = 'ANONYMOUS',
+  Optional[Enum['normal', 'inter-router', 'route-container']] $role = undef,
+  Optional[Integer[0]] $idle_timeout = undef,
 ){
 
   concat::fragment {"qdrouter+listener_${title}.conf":

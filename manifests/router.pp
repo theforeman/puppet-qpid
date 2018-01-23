@@ -7,8 +7,6 @@
 #
 # $router_id::       Unique router ID
 #
-# $container_name::  Unique container name
-#
 # $mode::            Router mode
 #
 # $config_file::     Dispatch router config file location
@@ -17,13 +15,15 @@
 #
 # $router_packages:: The package to be installed
 #
+# $worker_threads::  Number of worker threads
+#
 class qpid::router(
   $router_id               = $qpid::router::params::router_id,
   $mode                    = $qpid::router::params::router_mode,
   $config_file             = $qpid::router::params::config_file,
-  $container_name          = $qpid::router::params::container_name,
   $router_packages         = $qpid::router::params::router_packages,
   $open_file_limit         = $qpid::router::params::open_file_limit,
+  $worker_threads          = $qpid::router::params::worker_threads,
 ) inherits qpid::router::params {
 
   contain ::qpid::router::install

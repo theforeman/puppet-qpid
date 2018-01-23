@@ -1,33 +1,24 @@
-
-fixed-address {
-    prefix: /closest
-    fanout: single
-    bias: closest
+address {
+    prefix: closest
+    distribution: closest
 }
 
-fixed-address {
-    prefix: /unicast
-    fanout: single
-    bias: closest
+address {
+    prefix: multicast
+    distribution: multicast
 }
 
-fixed-address {
-    prefix: /exclusive
-    fanout: single
-    bias: closest
+address {
+    prefix: unicast
+    distribution: closest
 }
 
-fixed-address {
-    prefix: /multicast
-    fanout: multiple
+address {
+    prefix: exclusive
+    distribution: closest
 }
 
-fixed-address {
-    prefix: /broadcast
-    fanout: multiple
-}
-
-fixed-address {
-    prefix: /
-    fanout: multiple
+address {
+    prefix: broadcast
+    distribution: multicast
 }

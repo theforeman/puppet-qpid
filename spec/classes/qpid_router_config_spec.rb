@@ -14,45 +14,35 @@ describe 'qpid::router::config' do
 
         it 'should have header fragment' do
           verify_concat_fragment_exact_contents(catalogue, 'qdrouter+header.conf', [
-            'container {',
-            '    worker-threads: 2',
-            '    container-name: foo.example.com',
-            '}',
             'router {',
+            '    id: foo.example.com',
             '    mode: interior',
-            '    router-id: foo.example.com',
+            '    worker-threads: 2',
             '}'
           ])
         end
 
         it 'should have footer fragment' do
           verify_concat_fragment_exact_contents(catalogue, 'qdrouter+footer.conf', [
-            'fixed-address {',
-            '    prefix: /closest',
-            '    fanout: single',
-            '    bias: closest',
+            'address {',
+            '    prefix: closest',
+            '    distribution: closest',
             '}',
-            'fixed-address {',
-            '    prefix: /unicast',
-            '    fanout: single',
-            '    bias: closest',
+            'address {',
+            '    prefix: multicast',
+            '    distribution: multicast',
             '}',
-            'fixed-address {',
-            '    prefix: /exclusive',
-            '    fanout: single',
-            '    bias: closest',
+            'address {',
+            '    prefix: unicast',
+            '    distribution: closest',
             '}',
-            'fixed-address {',
-            '    prefix: /multicast',
-            '    fanout: multiple',
+            'address {',
+            '    prefix: exclusive',
+            '    distribution: closest',
             '}',
-            'fixed-address {',
-            '    prefix: /broadcast',
-            '    fanout: multiple',
-            '}',
-            'fixed-address {',
-            '    prefix: /',
-            '    fanout: multiple',
+            'address {',
+            '    prefix: broadcast',
+            '    distribution: multicast',
             '}'
           ])
         end
@@ -104,7 +94,6 @@ describe 'qpid::router::config' do
         it 'should have listener fragment' do
           verify_concat_fragment_exact_contents(catalogue, 'qdrouter+listener_hub.conf', [
             'listener {',
-            '    addr: 0.0.0.0',
             '    port: 5672',
             '    sasl-mechanisms: ANONYMOUS',
             '    role: inter-router',
@@ -120,9 +109,9 @@ describe 'qpid::router::config' do
           'class {"qpid::router":}
 
            qpid::router::connector { "broker":
-             addr         => "127.0.0.1",
-             port         => "5672",
-             role         => "on-demand",
+             host         => "127.0.0.1",
+             port         => 5672,
+             role         => "inter-router",
              ssl_profile  => "router-ssl",
              idle_timeout => 0,
            }
@@ -133,10 +122,10 @@ describe 'qpid::router::config' do
           verify_concat_fragment_exact_contents(catalogue, 'qdrouter+connector_broker.conf', [
             'connector {',
             '    name: broker',
-            '    addr: 127.0.0.1',
+            '    host: 127.0.0.1',
             '    port: 5672',
             '    sasl-mechanisms: ANONYMOUS',
-            '    role: on-demand',
+            '    role: inter-router',
             '    ssl-profile: router-ssl',
             '    idle-timeout-seconds: 0',
             '}'
@@ -144,57 +133,30 @@ describe 'qpid::router::config' do
         end
       end
 
-      context 'with symmetric link route pattern' do
+      context 'with asymmetric link route' do
         let :pre_condition do
           'class {"qpid::router":}
 
            qpid::router::connector { "broker":
-             addr        => "127.0.0.1",
-             port        => "5672",
-             role        => "on-demand",
+             host        => "127.0.0.1",
+             port        => 5672,
+             role        => "inter-router",
              ssl_profile => "router-ssl",
            }
 
-           qpid::router::link_route_pattern { "broker-link":
-             connector => "broker",
-             prefix    => "unicorn.",
+           qpid::router::link_route { "broker-link":
+             connection => "broker",
+             direction  => "in",
+             prefix     => "unicorn.",
            }'
         end
 
-        it 'should have link_route_pattern fragment' do
-          verify_concat_fragment_exact_contents(catalogue, 'qdrouter+link_route_pattern_broker-link.conf', [
-            'linkRoutePattern {',
-            '    prefix: unicorn.',
-            '    connector: broker',
-            '}'
-          ])
-        end
-      end
-
-      context 'with asymmetric link route pattern' do
-        let :pre_condition do
-          'class {"qpid::router":}
-
-           qpid::router::connector { "broker":
-             addr        => "127.0.0.1",
-             port        => "5672",
-             role        => "on-demand",
-             ssl_profile => "router-ssl",
-           }
-
-           qpid::router::link_route_pattern { "broker-link":
-             connector => "broker",
-             direction => "in",
-             prefix    => "unicorn.",
-           }'
-        end
-
-        it 'should have link_route_pattern fragment' do
-          verify_concat_fragment_exact_contents(catalogue, 'qdrouter+link_route_pattern_broker-link.conf', [
-            'linkRoutePattern {',
+        it 'should have link_route fragment' do
+          verify_concat_fragment_exact_contents(catalogue, 'qdrouter+link_route_broker-link.conf', [
+            'linkRoute {',
             '    prefix: unicorn.',
             '    dir: in',
-            '    connector: broker',
+            '    connection: broker',
             '}'
           ])
         end
