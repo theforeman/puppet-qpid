@@ -1,5 +1,16 @@
 # Change Log
 
+## [4.0.0](https://github.com/theforeman/puppet-qpid/tree/4.0.0) (2018-01-25)
+[Full Changelog](https://github.com/theforeman/puppet-qpid/compare/3.1.1...4.0.0)
+
+**Breaking changes:**
+
+- fixes \#22289 - update for dispatch router 1.0 [\#83](https://github.com/theforeman/puppet-qpid/pull/83) ([stbenjam](https://github.com/stbenjam))
+
+**Implemented enhancements:**
+
+- Update Github URLs [\#80](https://github.com/theforeman/puppet-qpid/pull/80) ([ekohl](https://github.com/ekohl))
+
 ## [3.1.1](https://github.com/theforeman/puppet-qpid/tree/3.1.1)
 [Full Changelog](https://github.com/theforeman/puppet-qpid/compare/3.1.0...3.1.1)
 
