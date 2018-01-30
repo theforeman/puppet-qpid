@@ -64,7 +64,7 @@ describe 'qpid::config' do
           ])
         end
       end
-  
+
       context 'with session-max-unacked' do
         let :pre_condition do
           'class {"qpid":
@@ -78,6 +78,23 @@ describe 'qpid::config' do
             'log-to-syslog=yes',
             'auth=no',
             'session-max-unacked=10'
+          ])
+        end
+      end
+
+      context 'with mgmt-pub-interval' do
+        let :pre_condition do
+          'class {"qpid":
+            mgmt_pub_interval => 4,
+          }'
+        end
+
+        it 'should create configuration file' do
+          verify_exact_contents(catalogue, '/etc/qpid/qpidd.conf', [
+            'log-enable=error+',
+            'log-to-syslog=yes',
+            'auth=no',
+            'mgmt-pub-interval=4'
           ])
         end
       end

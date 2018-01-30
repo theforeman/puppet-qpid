@@ -27,6 +27,8 @@ class qpid::params {
 
   $wcache_page_size = undef
 
+  $mgmt_pub_interval = undef
+
   $user_groups = []
 
   $user = 'qpidd'

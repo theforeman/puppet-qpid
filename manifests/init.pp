@@ -48,6 +48,9 @@
 #
 # $server_packages::          List of server packages to install
 #
+# $mgmt_pub_interval::        Controls the interval at which the broker sends
+#                             updated information (stats, etc.) to the management console.
+#
 class qpid (
   String $version = $::qpid::params::version,
   Boolean $auth = $::qpid::params::auth,
@@ -69,6 +72,7 @@ class qpid (
   Optional[Integer[1]] $max_connections = $::qpid::params::max_connections,
   Optional[Integer[1]] $wcache_page_size = $::qpid::params::wcache_page_size,
   Optional[Integer[1]] $open_file_limit = $::qpid::params::open_file_limit,
+  Optional[Integer[1]] $mgmt_pub_interval = $::qpid::params::mgmt_pub_interval,
 ) inherits qpid::params {
   if $ssl {
     assert_type(Boolean, $ssl_require_client_auth)

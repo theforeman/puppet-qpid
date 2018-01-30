@@ -50,3 +50,6 @@ session-max-unacked=<%= scope['qpid::session_unacked'] %>
 <% unless [nil, :undefined, :undef, ''].include?(scope['qpid::wcache_page_size']) -%>
 wcache-page-size=<%= scope['qpid::wcache_page_size'] %>
 <% end %>
+<% unless [nil, :undefined, :undef, ''].include?(scope['qpid::mgmt_pub_interval']) -%>
+mgmt-pub-interval=<%= scope['qpid::mgmt_pub_interval'] %>
+<% end %>
