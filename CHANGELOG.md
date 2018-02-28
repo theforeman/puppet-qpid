@@ -1,11 +1,19 @@
 # Change Log
 
+## [4.1.0](https://github.com/theforeman/puppet-qpid/tree/4.1.0) (2018-02-28)
+
+[Full Changelog](https://github.com/theforeman/puppet-qpid/compare/4.0.0...4.1.0)
+
+**Implemented enhancements:**
+
+- Fixes [\#22465](https://projects.theforeman.org/issues/22465) - Add mgmt interval param [\#86](https://github.com/theforeman/puppet-qpid/pull/86) ([chris1984](https://github.com/chris1984))
+
 ## [4.0.0](https://github.com/theforeman/puppet-qpid/tree/4.0.0) (2018-01-25)
 [Full Changelog](https://github.com/theforeman/puppet-qpid/compare/3.1.1...4.0.0)
 
 **Breaking changes:**
 
-- fixes \#22289 - update for dispatch router 1.0 [\#83](https://github.com/theforeman/puppet-qpid/pull/83) ([stbenjam](https://github.com/stbenjam))
+- fixes [\#22289](https://projects.theforeman.org/issues/22289) - update for dispatch router 1.0 [\#83](https://github.com/theforeman/puppet-qpid/pull/83) ([stbenjam](https://github.com/stbenjam))
 
 **Implemented enhancements:**
 
@@ -35,7 +43,7 @@
 
 - Refactor qpid::client [\#74](https://github.com/theforeman/puppet-qpid/pull/74) ([ekohl](https://github.com/ekohl))
 - Fix README markdown [\#73](https://github.com/theforeman/puppet-qpid/pull/73) ([alexjfisher](https://github.com/alexjfisher))
-- Package conflicts during install on CentOS7, fixes \#46 [\#47](https://github.com/theforeman/puppet-qpid/pull/47) ([braddeicide](https://github.com/braddeicide))
+- Package conflicts during install on CentOS7, fixes [\#46](https://projects.theforeman.org/issues/46) [\#47](https://github.com/theforeman/puppet-qpid/pull/47) ([braddeicide](https://github.com/braddeicide))
 
 ## [3.0.0](https://github.com/theforeman/puppet-qpid/tree/3.0.0) (2017-08-14)
 [Full Changelog](https://github.com/theforeman/puppet-qpid/compare/2.2.0...3.0.0)
@@ -55,15 +63,15 @@
 **Merged pull requests:**
 
 - Support open files limit on qpidd too [\#70](https://github.com/theforeman/puppet-qpid/pull/70) ([chris1984](https://github.com/chris1984))
-- Refs \#19929 - Add wcache-page-size to installer [\#65](https://github.com/theforeman/puppet-qpid/pull/65) ([chris1984](https://github.com/chris1984))
-- Fixes \#19514 - Add session-max-unacked option [\#62](https://github.com/theforeman/puppet-qpid/pull/62) ([chris1984](https://github.com/chris1984))
+- Refs [\#19929](https://projects.theforeman.org/issues/19929) - Add wcache-page-size to installer [\#65](https://github.com/theforeman/puppet-qpid/pull/65) ([chris1984](https://github.com/chris1984))
+- Fixes [\#19514](https://projects.theforeman.org/issues/19514) - Add session-max-unacked option [\#62](https://github.com/theforeman/puppet-qpid/pull/62) ([chris1984](https://github.com/chris1984))
 
 ## [2.1.1](https://github.com/theforeman/puppet-qpid/tree/2.1.1) (2017-06-14)
 [Full Changelog](https://github.com/theforeman/puppet-qpid/compare/2.1.0...2.1.1)
 
 **Merged pull requests:**
 
-- Fixes \#18812 - update puppet logic on qpid bind [\#66](https://github.com/theforeman/puppet-qpid/pull/66) ([chris1984](https://github.com/chris1984))
+- Fixes [\#18812](https://projects.theforeman.org/issues/18812) - update puppet logic on qpid bind [\#66](https://github.com/theforeman/puppet-qpid/pull/66) ([chris1984](https://github.com/chris1984))
 
 ## [2.1.0](https://github.com/theforeman/puppet-qpid/tree/2.1.0) (2017-04-07)
 [Full Changelog](https://github.com/theforeman/puppet-qpid/compare/2.0.0...2.1.0)
@@ -77,7 +85,7 @@
 - Modulesync update [\#54](https://github.com/theforeman/puppet-qpid/pull/54) ([ekohl](https://github.com/ekohl))
 - Introduce qpid::config\_cmd as qpid-config wrapper [\#53](https://github.com/theforeman/puppet-qpid/pull/53) ([ekohl](https://github.com/ekohl))
 - Re-factor bind\_event to the generic bind action [\#52](https://github.com/theforeman/puppet-qpid/pull/52) ([ehelms](https://github.com/ehelms))
-- Refs \#18812 - Add event queue binding define [\#51](https://github.com/theforeman/puppet-qpid/pull/51) ([chris1984](https://github.com/chris1984))
+- Refs [\#18812](https://projects.theforeman.org/issues/18812) - Add event queue binding define [\#51](https://github.com/theforeman/puppet-qpid/pull/51) ([chris1984](https://github.com/chris1984))
 - Configure performance tuning settings for qpid [\#50](https://github.com/theforeman/puppet-qpid/pull/50) ([stbenjam](https://github.com/stbenjam))
 - Update modulesync config [\#49](https://github.com/theforeman/puppet-qpid/pull/49) ([ekohl](https://github.com/ekohl))
 
@@ -107,7 +115,7 @@
 - support updating the version [\#40](https://github.com/theforeman/puppet-qpid/pull/40) ([cristifalcas](https://github.com/cristifalcas))
 - Modulesync update [\#39](https://github.com/theforeman/puppet-qpid/pull/39) ([ehelms](https://github.com/ehelms))
 - Modulesync: pin json\_pure [\#38](https://github.com/theforeman/puppet-qpid/pull/38) ([stbenjam](https://github.com/stbenjam))
-- refs \#15217 - puppet 4 support [\#37](https://github.com/theforeman/puppet-qpid/pull/37) ([stbenjam](https://github.com/stbenjam))
+- refs [\#15217](https://projects.theforeman.org/issues/15217) - puppet 4 support [\#37](https://github.com/theforeman/puppet-qpid/pull/37) ([stbenjam](https://github.com/stbenjam))
 - Modulesync [\#35](https://github.com/theforeman/puppet-qpid/pull/35) ([stbenjam](https://github.com/stbenjam))
 
 ## [1.2.2](https://github.com/theforeman/puppet-qpid/tree/1.2.2) (2016-02-01)
@@ -130,8 +138,8 @@
 
 **Merged pull requests:**
 
-- fixes \#12026 - support idle timeout on connectors and listeners [\#31](https://github.com/theforeman/puppet-qpid/pull/31) ([stbenjam](https://github.com/stbenjam))
-- fixes \#11285 - require qpid-cpp-server-linearstore [\#26](https://github.com/theforeman/puppet-qpid/pull/26) ([stbenjam](https://github.com/stbenjam))
+- fixes [\#12026](https://projects.theforeman.org/issues/12026) - support idle timeout on connectors and listeners [\#31](https://github.com/theforeman/puppet-qpid/pull/31) ([stbenjam](https://github.com/stbenjam))
+- fixes [\#11285](https://projects.theforeman.org/issues/11285) - require qpid-cpp-server-linearstore [\#26](https://github.com/theforeman/puppet-qpid/pull/26) ([stbenjam](https://github.com/stbenjam))
 
 ## [1.1.0](https://github.com/theforeman/puppet-qpid/tree/1.1.0) (2015-10-15)
 [Full Changelog](https://github.com/theforeman/puppet-qpid/compare/1.0.4...1.1.0)
@@ -139,7 +147,7 @@
 **Merged pull requests:**
 
 - Change ssl\_port to a string [\#30](https://github.com/theforeman/puppet-qpid/pull/30) ([ehelms](https://github.com/ehelms))
-- refs \#11737 - support listening on a particular interface [\#29](https://github.com/theforeman/puppet-qpid/pull/29) ([stbenjam](https://github.com/stbenjam))
+- refs [\#11737](https://projects.theforeman.org/issues/11737) - support listening on a particular interface [\#29](https://github.com/theforeman/puppet-qpid/pull/29) ([stbenjam](https://github.com/stbenjam))
 - Add qpid::tools package [\#28](https://github.com/theforeman/puppet-qpid/pull/28) ([ehelms](https://github.com/ehelms))
 
 ## [1.0.4](https://github.com/theforeman/puppet-qpid/tree/1.0.4) (2015-08-11)
@@ -182,16 +190,16 @@
 
 **Merged pull requests:**
 
-- refs \#8175 - link router connector is optional [\#17](https://github.com/theforeman/puppet-qpid/pull/17) ([stbenjam](https://github.com/stbenjam))
-- refs \#8175 - Add linkRoutePattern support for dispatch router [\#15](https://github.com/theforeman/puppet-qpid/pull/15) ([stbenjam](https://github.com/stbenjam))
+- refs [\#8175](https://projects.theforeman.org/issues/8175) - link router connector is optional [\#17](https://github.com/theforeman/puppet-qpid/pull/17) ([stbenjam](https://github.com/stbenjam))
+- refs [\#8175](https://projects.theforeman.org/issues/8175) - Add linkRoutePattern support for dispatch router [\#15](https://github.com/theforeman/puppet-qpid/pull/15) ([stbenjam](https://github.com/stbenjam))
 - make package lists configurable [\#14](https://github.com/theforeman/puppet-qpid/pull/14) ([bechtoldt](https://github.com/bechtoldt))
-- fixes \#9060, \#8175 - refactor module and support dispatch router  [\#12](https://github.com/theforeman/puppet-qpid/pull/12) ([stbenjam](https://github.com/stbenjam))
+- fixes [\#9060](https://projects.theforeman.org/issues/9060), \#8175 - refactor module and support dispatch router  [\#12](https://github.com/theforeman/puppet-qpid/pull/12) ([stbenjam](https://github.com/stbenjam))
 - Fixes 7802 - ensure that qpidd and user and group are created [\#11](https://github.com/theforeman/puppet-qpid/pull/11) ([dustints](https://github.com/dustints))
-- Refs \#6736: Add missing files to create basic layout. [\#9](https://github.com/theforeman/puppet-qpid/pull/9) ([ehelms](https://github.com/ehelms))
-- Fixes \#6544 - qpid-cpp-client-dev pkg & qpidc.xml [\#8](https://github.com/theforeman/puppet-qpid/pull/8) ([dustints](https://github.com/dustints))
+- Refs [\#6736](https://projects.theforeman.org/issues/6736): Add missing files to create basic layout. [\#9](https://github.com/theforeman/puppet-qpid/pull/9) ([ehelms](https://github.com/ehelms))
+- Fixes [\#6544](https://projects.theforeman.org/issues/6544) - qpid-cpp-client-dev pkg & qpidc.xml [\#8](https://github.com/theforeman/puppet-qpid/pull/8) ([dustints](https://github.com/dustints))
 - Log Qpid errors to syslog. [\#7](https://github.com/theforeman/puppet-qpid/pull/7) ([awood](https://github.com/awood))
-- Fixes \#5798: Create symlink for /etc/qpidd.conf to support versions olde... [\#6](https://github.com/theforeman/puppet-qpid/pull/6) ([ehelms](https://github.com/ehelms))
-- Refs \#5377: Updates to support newer version of Qpid. [\#4](https://github.com/theforeman/puppet-qpid/pull/4) ([ehelms](https://github.com/ehelms))
+- Fixes [\#5798](https://projects.theforeman.org/issues/5798): Create symlink for /etc/qpidd.conf to support versions olde... [\#6](https://github.com/theforeman/puppet-qpid/pull/6) ([ehelms](https://github.com/ehelms))
+- Refs [\#5377](https://projects.theforeman.org/issues/5377): Updates to support newer version of Qpid. [\#4](https://github.com/theforeman/puppet-qpid/pull/4) ([ehelms](https://github.com/ehelms))
 - Clean-up and parameterizing. [\#3](https://github.com/theforeman/puppet-qpid/pull/3) ([ehelms](https://github.com/ehelms))
 - Move certs specific part to puppet-certs module [\#1](https://github.com/theforeman/puppet-qpid/pull/1) ([iNecas](https://github.com/iNecas))
 
