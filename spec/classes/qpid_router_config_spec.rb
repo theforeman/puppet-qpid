@@ -60,9 +60,11 @@ describe 'qpid::router::config' do
           'class {"qpid::router":}
 
            qpid::router::ssl_profile { "router-ssl":
-             ca      => "/some/where/ca.pem",
-             cert    => "/some/where/cert.pem",
-             key     => "/some/where/key.pem",
+             ca        => "/some/where/ca.pem",
+             cert      => "/some/where/cert.pem",
+             key       => "/some/where/key.pem",
+             ciphers   => "ALL:!aNULL:!MD5:!DSS",
+             protocols => ["TLSv1.1", "TLSv1.2"],
            }
           '
         end
@@ -74,6 +76,8 @@ describe 'qpid::router::config' do
             '    cert-db: /some/where/ca.pem',
             '    cert-file: /some/where/cert.pem',
             '    key-file: /some/where/key.pem',
+            '    ciphers: ALL:!aNULL:!MD5:!DSS',
+            '    protocols: TLSv1.1 TLSv1.2',
             '}'
           ])
         end

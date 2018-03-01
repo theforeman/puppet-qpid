@@ -12,6 +12,10 @@
 #
 # $password::   Password, if required
 #
+# $ciphers::    Enabled ciphers, in OpenSSL format
+#
+# $protocols::  Enabled TLS protocols (e.g. TLSv1.1, TLSv1.2)
+#
 # == Advanced
 #
 # $config_file::    The config file to use
@@ -20,6 +24,8 @@ define qpid::router::ssl_profile(
   Stdlib::Absolutepath $ca,
   Stdlib::Absolutepath $cert,
   Stdlib::Absolutepath $key,
+  Optional[String] $ciphers = undef,
+  Optional[Array[String]] $protocols = undef,
   Optional[String] $password = undef,
   String $config_file = $::qpid::router::config_file,
 ) {
