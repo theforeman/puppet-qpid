@@ -51,6 +51,8 @@
 # $mgmt_pub_interval::        Controls the interval at which the broker sends
 #                             updated information (stats, etc.) to the management console.
 #
+# $default_queue_limit::      Default maximum size for queues (in bytes)
+#
 class qpid (
   String $version = $::qpid::params::version,
   Boolean $auth = $::qpid::params::auth,
@@ -73,6 +75,7 @@ class qpid (
   Optional[Integer[1]] $wcache_page_size = $::qpid::params::wcache_page_size,
   Optional[Integer[1]] $open_file_limit = $::qpid::params::open_file_limit,
   Optional[Integer[1]] $mgmt_pub_interval = $::qpid::params::mgmt_pub_interval,
+  Optional[Integer[1]] $default_queue_limit = $::qpid::params::default_queue_limit,
 ) inherits qpid::params {
   if $ssl {
     assert_type(Boolean, $ssl_require_client_auth)

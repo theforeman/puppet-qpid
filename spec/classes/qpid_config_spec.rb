@@ -116,6 +116,23 @@ describe 'qpid::config' do
         end
       end
 
+      context 'with default_queue_limit' do
+        let :pre_condition do
+          'class {"qpid":
+            default_queue_limit => 10000,
+          }'
+        end
+
+        it 'should create configuration file' do
+          verify_exact_contents(catalogue, '/etc/qpid/qpidd.conf', [
+            'log-enable=error+',
+            'log-to-syslog=yes',
+            'auth=no',
+            'default-queue-limit=10000'
+          ])
+        end
+      end
+
       context 'with max-connections' do
         let :pre_condition do
           'class {"qpid":
