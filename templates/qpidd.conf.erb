@@ -53,3 +53,6 @@ wcache-page-size=<%= scope['qpid::wcache_page_size'] %>
 <% unless [nil, :undefined, :undef, ''].include?(scope['qpid::mgmt_pub_interval']) -%>
 mgmt-pub-interval=<%= scope['qpid::mgmt_pub_interval'] %>
 <% end %>
+<% unless [nil, :undefined, :undef, ''].include?(scope['qpid::default_queue_limit']) -%>
+default-queue-limit=<%= scope['qpid::default_queue_limit'] %>
+<% end %>

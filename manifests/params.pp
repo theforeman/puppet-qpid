@@ -24,10 +24,9 @@ class qpid::params {
   $ssl_require_client_auth = true
 
   $session_unacked = undef
-
   $wcache_page_size = undef
-
   $mgmt_pub_interval = undef
+  $default_queue_limit= undef
 
   $user_groups = []
 
