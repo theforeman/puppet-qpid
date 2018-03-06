@@ -6,5 +6,11 @@ ssl-profile {
 <% unless [nil, :undefined, :undef, ''].include?(@password) -%>
     password: <%= @password %>
 <% end -%>
+<% unless [nil, :undefined, :undef, ''].include?(@ciphers) -%>
+    ciphers: <%= @ciphers %>
+<% end -%>
+<% unless [nil, :undefined, :undef, ''].include?(@protocols) -%>
+    protocols: <%= @protocols.join(" ") %>
+<% end -%>
 }
 
