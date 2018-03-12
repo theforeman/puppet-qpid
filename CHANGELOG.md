@@ -1,5 +1,13 @@
 # Change Log
 
+## [4.2.0](https://github.com/theforeman/puppet-qpid/tree/4.2.0) (2018-03-12)
+[Full Changelog](https://github.com/theforeman/puppet-qpid/compare/4.1.0...4.2.0)
+
+**Merged pull requests:**
+
+- Refs \#22513 - add default queue param [\#89](https://github.com/theforeman/puppet-qpid/pull/89) ([chris1984](https://github.com/chris1984))
+- refs \#21350 - allow restricting ciphers and protocols [\#88](https://github.com/theforeman/puppet-qpid/pull/88) ([stbenjam](https://github.com/stbenjam))
+
 ## [4.1.0](https://github.com/theforeman/puppet-qpid/tree/4.1.0) (2018-02-28)
 
 [Full Changelog](https://github.com/theforeman/puppet-qpid/compare/4.0.0...4.1.0)
