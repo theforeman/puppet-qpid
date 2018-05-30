@@ -166,7 +166,7 @@ describe 'qpid::router::config' do
         end
       end
 
-      context 'with logging' do
+      context 'with logging to file' do
         let :pre_condition do
           'class {"qpid::router":}
 
@@ -186,6 +186,31 @@ describe 'qpid::router::config' do
             '    enable: debug+',
             '    timestamp: false',
             '    output: /var/log/qpid.log',
+            '}'
+          ])
+        end
+      end
+
+      context 'with logging to syslog' do
+        let :pre_condition do
+          'class {"qpid::router":}
+
+           qpid::router::log { "logging":
+             module      => "DEFAULT",
+             level       => "debug+",
+             timestamp   => false,
+             output      => "syslog",
+           }
+          '
+        end
+
+        it 'should have log fragment' do
+          verify_concat_fragment_exact_contents(catalogue, 'qdrouter+log_logging.conf', [
+            'log {',
+            '    module: DEFAULT',
+            '    enable: debug+',
+            '    timestamp: false',
+            '    output: syslog',
             '}'
           ])
         end

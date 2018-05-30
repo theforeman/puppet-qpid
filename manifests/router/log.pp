@@ -20,7 +20,7 @@ define qpid::router::log(
   String $module = 'DEFAULT',
   String $level = 'info+',
   Boolean $timestamp = true,
-  Stdlib::Absolutepath $output = '/var/log/qdrouterd.log',
+  Variant[Stdlib::Absolutepath, Enum['syslog']] $output = '/var/log/qdrouterd.log',
   String $config_file = $::qpid::router::config_file,
 ){
   concat::fragment {"qdrouter+log_${title}.conf":
