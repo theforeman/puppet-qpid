@@ -1,5 +1,12 @@
 # Change Log
 
+## [4.2.1](https://github.com/theforeman/puppet-qpid/tree/4.2.1) (2018-05-31)
+[Full Changelog](https://github.com/theforeman/puppet-qpid/compare/4.2.0...4.2.1)
+
+**Fixed bugs:**
+
+- refs \#23557 - support logging to syslog [\#90](https://github.com/theforeman/puppet-qpid/pull/90) ([stbenjam](https://github.com/stbenjam))
+
 ## [4.2.0](https://github.com/theforeman/puppet-qpid/tree/4.2.0) (2018-03-12)
 [Full Changelog](https://github.com/theforeman/puppet-qpid/compare/4.1.0...4.2.0)
 
