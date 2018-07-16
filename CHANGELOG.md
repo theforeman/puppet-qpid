@@ -1,19 +1,29 @@
-# Change Log
+# Changelog
+
+## [4.2.2](https://github.com/theforeman/puppet-qpid/tree/4.2.2) (2018-07-16)
+
+[Full Changelog](https://github.com/theforeman/puppet-qpid/compare/4.2.1...4.2.2)
+
+**Merged pull requests:**
+
+- Allow camptocamp/systemd 2.x [\#93](https://github.com/theforeman/puppet-qpid/pull/93) ([ekohl](https://github.com/ekohl))
 
 ## [4.2.1](https://github.com/theforeman/puppet-qpid/tree/4.2.1) (2018-05-31)
+
 [Full Changelog](https://github.com/theforeman/puppet-qpid/compare/4.2.0...4.2.1)
 
 **Fixed bugs:**
 
-- refs \#23557 - support logging to syslog [\#90](https://github.com/theforeman/puppet-qpid/pull/90) ([stbenjam](https://github.com/stbenjam))
+- refs [\#23557](https://projects.theforeman.org/issues/23557) - support logging to syslog [\#90](https://github.com/theforeman/puppet-qpid/pull/90) ([stbenjam](https://github.com/stbenjam))
 
 ## [4.2.0](https://github.com/theforeman/puppet-qpid/tree/4.2.0) (2018-03-12)
+
 [Full Changelog](https://github.com/theforeman/puppet-qpid/compare/4.1.0...4.2.0)
 
 **Merged pull requests:**
 
-- Refs \#22513 - add default queue param [\#89](https://github.com/theforeman/puppet-qpid/pull/89) ([chris1984](https://github.com/chris1984))
-- refs \#21350 - allow restricting ciphers and protocols [\#88](https://github.com/theforeman/puppet-qpid/pull/88) ([stbenjam](https://github.com/stbenjam))
+- Refs [\#22513](https://projects.theforeman.org/issues/22513) - add default queue param [\#89](https://github.com/theforeman/puppet-qpid/pull/89) ([chris1984](https://github.com/chris1984))
+- refs [\#21350](https://projects.theforeman.org/issues/21350) - allow restricting ciphers and protocols [\#88](https://github.com/theforeman/puppet-qpid/pull/88) ([stbenjam](https://github.com/stbenjam))
 
 ## [4.1.0](https://github.com/theforeman/puppet-qpid/tree/4.1.0) (2018-02-28)
 
@@ -24,6 +34,7 @@
 - Fixes [\#22465](https://projects.theforeman.org/issues/22465) - Add mgmt interval param [\#86](https://github.com/theforeman/puppet-qpid/pull/86) ([chris1984](https://github.com/chris1984))
 
 ## [4.0.0](https://github.com/theforeman/puppet-qpid/tree/4.0.0) (2018-01-25)
+
 [Full Changelog](https://github.com/theforeman/puppet-qpid/compare/3.1.1...4.0.0)
 
 **Breaking changes:**
@@ -34,7 +45,8 @@
 
 - Update Github URLs [\#80](https://github.com/theforeman/puppet-qpid/pull/80) ([ekohl](https://github.com/ekohl))
 
-## [3.1.1](https://github.com/theforeman/puppet-qpid/tree/3.1.1)
+## [3.1.1](https://github.com/theforeman/puppet-qpid/tree/3.1.1) (2017-10-18)
+
 [Full Changelog](https://github.com/theforeman/puppet-qpid/compare/3.1.0...3.1.1)
 
 **Closed issues:**
@@ -48,6 +60,7 @@
 - Update CHANGELOG.md [\#75](https://github.com/theforeman/puppet-qpid/pull/75) ([ekohl](https://github.com/ekohl))
 
 ## [3.1.0](https://github.com/theforeman/puppet-qpid/tree/3.1.0) (2017-08-30)
+
 [Full Changelog](https://github.com/theforeman/puppet-qpid/compare/3.0.0...3.1.0)
 
 **Closed issues:**
@@ -61,6 +74,7 @@
 - Package conflicts during install on CentOS7, fixes [\#46](https://projects.theforeman.org/issues/46) [\#47](https://github.com/theforeman/puppet-qpid/pull/47) ([braddeicide](https://github.com/braddeicide))
 
 ## [3.0.0](https://github.com/theforeman/puppet-qpid/tree/3.0.0) (2017-08-14)
+
 [Full Changelog](https://github.com/theforeman/puppet-qpid/compare/2.2.0...3.0.0)
 
 **Merged pull requests:**
@@ -89,6 +103,7 @@
 - Fixes [\#18812](https://projects.theforeman.org/issues/18812) - update puppet logic on qpid bind [\#66](https://github.com/theforeman/puppet-qpid/pull/66) ([chris1984](https://github.com/chris1984))
 
 ## [2.1.0](https://github.com/theforeman/puppet-qpid/tree/2.1.0) (2017-04-07)
+
 [Full Changelog](https://github.com/theforeman/puppet-qpid/compare/2.0.0...2.1.0)
 
 **Merged pull requests:**
@@ -105,6 +120,7 @@
 - Update modulesync config [\#49](https://github.com/theforeman/puppet-qpid/pull/49) ([ekohl](https://github.com/ekohl))
 
 ## [2.0.0](https://github.com/theforeman/puppet-qpid/tree/2.0.0) (2016-11-22)
+
 [Full Changelog](https://github.com/theforeman/puppet-qpid/compare/1.3.1...2.0.0)
 
 **Merged pull requests:**
@@ -116,6 +132,7 @@
 - Modulesync [\#42](https://github.com/theforeman/puppet-qpid/pull/42) ([stbenjam](https://github.com/stbenjam))
 
 ## [1.3.1](https://github.com/theforeman/puppet-qpid/tree/1.3.1) (2016-10-14)
+
 [Full Changelog](https://github.com/theforeman/puppet-qpid/compare/1.3.0...1.3.1)
 
 **Merged pull requests:**
@@ -123,6 +140,7 @@
 - Dispatch router log option is 'enable' not 'enabled' [\#41](https://github.com/theforeman/puppet-qpid/pull/41) ([stbenjam](https://github.com/stbenjam))
 
 ## [1.3.0](https://github.com/theforeman/puppet-qpid/tree/1.3.0) (2016-09-12)
+
 [Full Changelog](https://github.com/theforeman/puppet-qpid/compare/1.2.2...1.3.0)
 
 **Merged pull requests:**
@@ -134,12 +152,15 @@
 - Modulesync [\#35](https://github.com/theforeman/puppet-qpid/pull/35) ([stbenjam](https://github.com/stbenjam))
 
 ## [1.2.2](https://github.com/theforeman/puppet-qpid/tree/1.2.2) (2016-02-01)
+
 [Full Changelog](https://github.com/theforeman/puppet-qpid/compare/1.2.1...1.2.2)
 
 ## [1.2.1](https://github.com/theforeman/puppet-qpid/tree/1.2.1) (2016-02-01)
+
 [Full Changelog](https://github.com/theforeman/puppet-qpid/compare/1.2.0...1.2.1)
 
 ## [1.2.0](https://github.com/theforeman/puppet-qpid/tree/1.2.0) (2016-02-01)
+
 [Full Changelog](https://github.com/theforeman/puppet-qpid/compare/1.1.1...1.2.0)
 
 **Merged pull requests:**
@@ -149,6 +170,7 @@
 - don't manage policycoreutils-python, as it is not related to qpid [\#32](https://github.com/theforeman/puppet-qpid/pull/32) ([cristifalcas](https://github.com/cristifalcas))
 
 ## [1.1.1](https://github.com/theforeman/puppet-qpid/tree/1.1.1) (2015-10-23)
+
 [Full Changelog](https://github.com/theforeman/puppet-qpid/compare/1.1.0...1.1.1)
 
 **Merged pull requests:**
@@ -157,6 +179,7 @@
 - fixes [\#11285](https://projects.theforeman.org/issues/11285) - require qpid-cpp-server-linearstore [\#26](https://github.com/theforeman/puppet-qpid/pull/26) ([stbenjam](https://github.com/stbenjam))
 
 ## [1.1.0](https://github.com/theforeman/puppet-qpid/tree/1.1.0) (2015-10-15)
+
 [Full Changelog](https://github.com/theforeman/puppet-qpid/compare/1.0.4...1.1.0)
 
 **Merged pull requests:**
@@ -166,6 +189,7 @@
 - Add qpid::tools package [\#28](https://github.com/theforeman/puppet-qpid/pull/28) ([ehelms](https://github.com/ehelms))
 
 ## [1.0.4](https://github.com/theforeman/puppet-qpid/tree/1.0.4) (2015-08-11)
+
 [Full Changelog](https://github.com/theforeman/puppet-qpid/compare/1.0.3...1.0.4)
 
 **Merged pull requests:**
@@ -174,6 +198,7 @@
 - missed parameter [\#25](https://github.com/theforeman/puppet-qpid/pull/25) ([larkit-ian](https://github.com/larkit-ian))
 
 ## [1.0.3](https://github.com/theforeman/puppet-qpid/tree/1.0.3) (2015-07-20)
+
 [Full Changelog](https://github.com/theforeman/puppet-qpid/compare/1.0.2...1.0.3)
 
 **Merged pull requests:**
@@ -181,6 +206,7 @@
 - Revert "remove qpid-tools package" [\#24](https://github.com/theforeman/puppet-qpid/pull/24) ([stbenjam](https://github.com/stbenjam))
 
 ## [1.0.2](https://github.com/theforeman/puppet-qpid/tree/1.0.2) (2015-07-16)
+
 [Full Changelog](https://github.com/theforeman/puppet-qpid/compare/1.0.1...1.0.2)
 
 **Merged pull requests:**
@@ -192,6 +218,7 @@
 - Make router packages configurable [\#18](https://github.com/theforeman/puppet-qpid/pull/18) ([stbenjam](https://github.com/stbenjam))
 
 ## [1.0.1](https://github.com/theforeman/puppet-qpid/tree/1.0.1) (2015-02-24)
+
 [Full Changelog](https://github.com/theforeman/puppet-qpid/compare/1.0.0...1.0.1)
 
 **Merged pull requests:**
@@ -199,6 +226,9 @@
 - Address feedback from puppet forge [\#16](https://github.com/theforeman/puppet-qpid/pull/16) ([stbenjam](https://github.com/stbenjam))
 
 ## [1.0.0](https://github.com/theforeman/puppet-qpid/tree/1.0.0) (2015-02-20)
+
+[Full Changelog](https://github.com/theforeman/puppet-qpid/compare/e1852768a21d1026e09c320c27188ff03baac1bd...1.0.0)
+
 **Closed issues:**
 
 - require-encryption should be enabled only if ssl is true [\#10](https://github.com/theforeman/puppet-qpid/issues/10)
@@ -220,4 +250,4 @@
 
 
 
-\* *This Change Log was automatically generated by [github_changelog_generator](https://github.com/skywinder/Github-Changelog-Generator)*
+\* *This Changelog was automatically generated by [github_changelog_generator](https://github.com/skywinder/Github-Changelog-Generator)*
