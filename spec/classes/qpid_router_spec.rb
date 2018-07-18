@@ -4,7 +4,7 @@ describe 'qpid::router' do
   on_os_under_test.each do |os, facts|
     context "on #{os}" do
       let :facts do
-        facts
+        facts.merge!(:systemd => true)
       end
 
       it { is_expected.to compile.with_all_deps }

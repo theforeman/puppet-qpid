@@ -27,7 +27,7 @@ describe 'qpid::router::log' do
 
   context 'with dependencies' do
     let :facts do
-      on_supported_os['redhat-7-x86_64']
+      on_supported_os['redhat-7-x86_64'].merge!(:systemd => true)
     end
 
     let :pre_condition do

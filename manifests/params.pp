@@ -14,7 +14,7 @@ class qpid::params {
   $interface = undef
 
   $max_connections = undef
-  $open_file_limit = undef
+  $open_file_limit = 1 # 1 is used to denote absent condition due to how systemd::service_limits works
 
   $ssl                     = false
   $ssl_port                = 5671

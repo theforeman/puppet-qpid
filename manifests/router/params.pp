@@ -8,5 +8,5 @@ class qpid::router::params {
   $router_mode         = 'interior'
   $worker_threads      = $::processorcount
   $router_packages     = ['qpid-dispatch-router']
-  $open_file_limit     = undef
+  $open_file_limit     = 1 # 1 is used to denote absent condition due to how systemd::service_limits works
 }
