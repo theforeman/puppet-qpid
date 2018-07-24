@@ -4,7 +4,9 @@ describe 'qpid::config_cmd' do
   let (:title) { 'test' }
 
   on_os_under_test.each do |os, facts|
-    let (:facts) { facts }
+    let :facts do
+      facts.merge!(:systemd => true)
+    end
 
     [true, false].each do |qpid|
       context "qpid => #{qpid}" do
