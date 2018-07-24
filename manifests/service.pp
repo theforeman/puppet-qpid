@@ -11,12 +11,20 @@ class qpid::service {
     hasrestart => true,
   }
 
-  if $::qpid::open_file_limit and $::systemd {
+  if $::systemd {
+    if $::qpid::open_file_limit {
+      $ensure_limit = 'present'
+      $limits = {'LimitNOFILE' => $::qpid::open_file_limit}
+    } else {
+      $ensure_limit = 'absent'
+      $limits = {'LimitNOFILE' => 1} # https://github.com/camptocamp/puppet-systemd/pull/80
+    }
+
     systemd::service_limits { 'qpidd.service':
-      limits => {
-        'LimitNOFILE' => $::qpid::open_file_limit,
-      },
-      notify => Service['qpidd'],
+      ensure          => $ensure_limit,
+      restart_service => false,
+      limits          => $limits,
+      notify          => Service['qpidd'],
     }
   }
 }
