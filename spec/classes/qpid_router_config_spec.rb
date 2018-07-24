@@ -4,13 +4,15 @@ describe 'qpid::router::config' do
   on_supported_os.each do |os, facts|
     context "on #{os}" do
       let :facts do
-        facts.merge(:processorcount => 2, :systemd => true)
+        facts.merge(:processorcount => 2)
       end
 
       context 'without parameters' do
         let :pre_condition do
           'include qpid::router'
         end
+
+        it { is_expected.to compile.with_all_deps }
 
         it 'should have header fragment' do
           verify_concat_fragment_exact_contents(catalogue, 'qdrouter+header.conf', [
@@ -52,6 +54,12 @@ describe 'qpid::router::config' do
             .with_owner('root')
             .with_group('root')
             .with_mode('0644')
+        end
+
+        it 'should configure systemd' do
+          is_expected.to contain_systemd__service_limits('qdrouterd.service')
+            .with_ensure('absent')
+            .that_notifies('Service[qdrouterd]')
         end
       end
 
@@ -226,6 +234,7 @@ describe 'qpid::router::config' do
 
         it 'should configure systemd' do
           is_expected.to contain_systemd__service_limits('qdrouterd.service')
+            .with_ensure('present')
             .with_limits({'LimitNOFILE' => 10000})
         end
       end

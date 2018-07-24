@@ -11,12 +11,20 @@ class qpid::router::service {
     hasrestart => true,
   }
 
-  if $::qpid::router::open_file_limit and $::systemd {
+  if $::systemd {
+    if $::qpid::router::open_file_limit {
+      $ensure_limit = 'present'
+      $limits = {'LimitNOFILE' => $::qpid::router::open_file_limit}
+    } else {
+      $ensure_limit = 'absent'
+      $limits = {'LimitNOFILE' => 1} # https://github.com/camptocamp/puppet-systemd/pull/80
+    }
+
     systemd::service_limits { 'qdrouterd.service':
-      limits => {
-        'LimitNOFILE' => $::qpid::router::open_file_limit,
-      },
-      notify => Service['qdrouterd'],
+      ensure          => $ensure_limit,
+      restart_service => false,
+      limits          => $limits,
+      notify          => Service['qdrouterd'],
     }
   }
 }
