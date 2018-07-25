@@ -1,5 +1,13 @@
 # Changelog
 
+## [4.2.3](https://github.com/theforeman/puppet-qpid/tree/4.2.3) (2018-07-25)
+
+[Full Changelog](https://github.com/theforeman/puppet-qpid/compare/4.2.2...4.2.3)
+
+**Fixed bugs:**
+
+- Properly handle systemd\_limits [\#96](https://github.com/theforeman/puppet-qpid/pull/96) ([ekohl](https://github.com/ekohl))
+
 ## [4.2.2](https://github.com/theforeman/puppet-qpid/tree/4.2.2) (2018-07-16)
 
 [Full Changelog](https://github.com/theforeman/puppet-qpid/compare/4.2.1...4.2.2)
