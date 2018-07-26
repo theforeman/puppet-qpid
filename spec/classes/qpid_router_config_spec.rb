@@ -224,6 +224,28 @@ describe 'qpid::router::config' do
         end
       end
 
+      context 'with hello tuning params set' do
+        let :pre_condition do
+          'class {"qpid::router":
+             hello_interval => 10,
+             hello_max_age  => 30,
+          }
+          '
+        end
+
+        it 'should change header.conf' do
+          verify_concat_fragment_exact_contents(catalogue, 'qdrouter+header.conf', [
+            'router {',
+            '    id: foo.example.com',
+            '    mode: interior',
+            '    worker-threads: 2',
+            '    helloInterval: 10',
+            '    helloMaxAge: 30',
+            '}'
+          ])
+        end
+      end
+
       context 'with open files limit' do
         let :pre_condition do
           'class {"qpid::router":

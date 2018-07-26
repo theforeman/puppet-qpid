@@ -9,4 +9,6 @@ class qpid::router::params {
   $worker_threads      = $::processorcount
   $router_packages     = ['qpid-dispatch-router']
   $open_file_limit     = undef
+  $hello_max_age       = undef
+  $hello_interval      = undef
 }
