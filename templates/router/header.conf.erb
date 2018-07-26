@@ -24,5 +24,11 @@ router {
     id: <%= scope['qpid::router::router_id'] %>
     mode: <%= scope['qpid::router::router_mode'] %>
     worker-threads: <%= scope['qpid::router::worker_threads'] %>
+<% unless [nil, :undefined, :undef, ''].include?(scope['qpid::router::hello_interval']) -%>
+    helloInterval: <%= scope['qpid::router::hello_interval'] %>
+<% end -%>
+<% unless [nil, :undefined, :undef, ''].include?(scope['qpid::router::hello_max_age']) -%>
+    helloMaxAge: <%= scope['qpid::router::hello_max_age'] %>
+<% end -%>
 }
 

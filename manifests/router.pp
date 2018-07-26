@@ -17,6 +17,10 @@
 #
 # $worker_threads::  Number of worker threads
 #
+# $hello_interval::  Frequency in seconds of sending heartbeats from this router
+#
+# $hello_max_age::   Timeout of heartbeat before connections are dropped
+#
 class qpid::router(
   $router_id               = $qpid::router::params::router_id,
   $mode                    = $qpid::router::params::router_mode,
@@ -24,6 +28,8 @@ class qpid::router(
   $router_packages         = $qpid::router::params::router_packages,
   $open_file_limit         = $qpid::router::params::open_file_limit,
   $worker_threads          = $qpid::router::params::worker_threads,
+  $hello_interval          = $qpid::router::params::hello_interval,
+  $hello_max_age           = $qpid::router::params::hello_max_age,
 ) inherits qpid::router::params {
 
   contain ::qpid::router::install
