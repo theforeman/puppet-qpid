@@ -11,7 +11,7 @@ class qpid::service {
     hasrestart => true,
   }
 
-  if $::systemd {
+  if $::service_provider == 'systemd' {
     if $::qpid::open_file_limit {
       $ensure_limit = 'present'
       $limits = {'LimitNOFILE' => $::qpid::open_file_limit}
