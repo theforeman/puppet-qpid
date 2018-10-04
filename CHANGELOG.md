@@ -1,5 +1,14 @@
 # Changelog
 
+## [4.3.0](https://github.com/theforeman/puppet-qpid/tree/4.3.0) (2018-10-04)
+
+[Full Changelog](https://github.com/theforeman/puppet-qpid/compare/4.2.3...4.3.0)
+
+**Implemented enhancements:**
+
+- Allow stdlib and concat 5.x versions [\#103](https://github.com/theforeman/puppet-qpid/pull/103) ([ekohl](https://github.com/ekohl))
+- Fixes [\#24415](https://projects.theforeman.org/issues/24415) - Add hello interval/max\_age params to qdrouterd. [\#98](https://github.com/theforeman/puppet-qpid/pull/98) ([chris1984](https://github.com/chris1984))
+
 ## [4.2.3](https://github.com/theforeman/puppet-qpid/tree/4.2.3) (2018-07-25)
 
 [Full Changelog](https://github.com/theforeman/puppet-qpid/compare/4.2.2...4.2.3)
@@ -245,7 +254,7 @@
 
 - refs [\#8175](https://projects.theforeman.org/issues/8175) - link router connector is optional [\#17](https://github.com/theforeman/puppet-qpid/pull/17) ([stbenjam](https://github.com/stbenjam))
 - refs [\#8175](https://projects.theforeman.org/issues/8175) - Add linkRoutePattern support for dispatch router [\#15](https://github.com/theforeman/puppet-qpid/pull/15) ([stbenjam](https://github.com/stbenjam))
-- make package lists configurable [\#14](https://github.com/theforeman/puppet-qpid/pull/14) ([bechtoldt](https://github.com/bechtoldt))
+- make package lists configurable [\#14](https://github.com/theforeman/puppet-qpid/pull/14) ([arnoldbechtoldt](https://github.com/arnoldbechtoldt))
 - fixes [\#9060](https://projects.theforeman.org/issues/9060), \#8175 - refactor module and support dispatch router  [\#12](https://github.com/theforeman/puppet-qpid/pull/12) ([stbenjam](https://github.com/stbenjam))
 - Fixes 7802 - ensure that qpidd and user and group are created [\#11](https://github.com/theforeman/puppet-qpid/pull/11) ([dustints](https://github.com/dustints))
 - Refs [\#6736](https://projects.theforeman.org/issues/6736): Add missing files to create basic layout. [\#9](https://github.com/theforeman/puppet-qpid/pull/9) ([ehelms](https://github.com/ehelms))
