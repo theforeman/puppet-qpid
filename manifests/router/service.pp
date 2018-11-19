@@ -11,10 +11,10 @@ class qpid::router::service {
     hasrestart => true,
   }
 
-  if $::systemd {
-    if $::qpid::router::open_file_limit {
+  if $facts['systemd'] {
+    if $qpid::router::open_file_limit {
       $ensure_limit = 'present'
-      $limits = {'LimitNOFILE' => $::qpid::router::open_file_limit}
+      $limits = {'LimitNOFILE' => $qpid::router::open_file_limit}
     } else {
       $ensure_limit = 'absent'
       $limits = {'LimitNOFILE' => 1} # https://github.com/camptocamp/puppet-systemd/pull/80

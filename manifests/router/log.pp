@@ -21,7 +21,7 @@ define qpid::router::log(
   String $level = 'info+',
   Boolean $timestamp = true,
   Variant[Stdlib::Absolutepath, Enum['syslog']] $output = '/var/log/qdrouterd.log',
-  String $config_file = $::qpid::router::config_file,
+  String $config_file = $qpid::router::config_file,
 ){
   concat::fragment {"qdrouter+log_${title}.conf":
     target  => $config_file,

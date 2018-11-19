@@ -31,7 +31,7 @@ describe 'qpid::router::log' do
     end
 
     let :pre_condition do
-      'include ::qpid::router'
+      'include qpid::router'
     end
 
     it { is_expected.to compile.with_all_deps }

@@ -54,28 +54,28 @@
 # $default_queue_limit::      Default maximum size for queues (in bytes)
 #
 class qpid (
-  String $version = $::qpid::params::version,
-  Boolean $auth = $::qpid::params::auth,
-  String $config_file = $::qpid::params::config_file,
-  String $log_level = $::qpid::params::log_level,
-  Boolean $log_to_syslog = $::qpid::params::log_to_syslog,
-  Optional[String] $interface = $::qpid::params::interface,
-  Boolean $server_store = $::qpid::params::server_store,
-  String $server_store_package = $::qpid::params::server_store_package,
-  Boolean $ssl = $::qpid::params::ssl,
-  Integer[0, 65535] $ssl_port = $::qpid::params::ssl_port,
-  Optional[Integer[0]] $session_unacked = $::qpid::params::session_unacked,
-  Optional[Stdlib::Absolutepath] $ssl_cert_db = $::qpid::params::ssl_cert_db,
-  Optional[Stdlib::Absolutepath] $ssl_cert_password_file = $::qpid::params::ssl_cert_password_file,
-  Optional[String] $ssl_cert_name = $::qpid::params::ssl_cert_name,
-  Optional[Boolean] $ssl_require_client_auth = $::qpid::params::ssl_require_client_auth,
-  Array[String] $user_groups = $::qpid::params::user_groups,
-  Array[String] $server_packages = $::qpid::params::server_packages,
-  Optional[Integer[1]] $max_connections = $::qpid::params::max_connections,
-  Optional[Integer[1]] $wcache_page_size = $::qpid::params::wcache_page_size,
-  Optional[Integer[1]] $open_file_limit = $::qpid::params::open_file_limit,
-  Optional[Integer[1]] $mgmt_pub_interval = $::qpid::params::mgmt_pub_interval,
-  Optional[Integer[1]] $default_queue_limit = $::qpid::params::default_queue_limit,
+  String $version = $qpid::params::version,
+  Boolean $auth = $qpid::params::auth,
+  String $config_file = $qpid::params::config_file,
+  String $log_level = $qpid::params::log_level,
+  Boolean $log_to_syslog = $qpid::params::log_to_syslog,
+  Optional[String] $interface = $qpid::params::interface,
+  Boolean $server_store = $qpid::params::server_store,
+  String $server_store_package = $qpid::params::server_store_package,
+  Boolean $ssl = $qpid::params::ssl,
+  Integer[0, 65535] $ssl_port = $qpid::params::ssl_port,
+  Optional[Integer[0]] $session_unacked = $qpid::params::session_unacked,
+  Optional[Stdlib::Absolutepath] $ssl_cert_db = $qpid::params::ssl_cert_db,
+  Optional[Stdlib::Absolutepath] $ssl_cert_password_file = $qpid::params::ssl_cert_password_file,
+  Optional[String] $ssl_cert_name = $qpid::params::ssl_cert_name,
+  Optional[Boolean] $ssl_require_client_auth = $qpid::params::ssl_require_client_auth,
+  Array[String] $user_groups = $qpid::params::user_groups,
+  Array[String] $server_packages = $qpid::params::server_packages,
+  Optional[Integer[1]] $max_connections = $qpid::params::max_connections,
+  Optional[Integer[1]] $wcache_page_size = $qpid::params::wcache_page_size,
+  Optional[Integer[1]] $open_file_limit = $qpid::params::open_file_limit,
+  Optional[Integer[1]] $mgmt_pub_interval = $qpid::params::mgmt_pub_interval,
+  Optional[Integer[1]] $default_queue_limit = $qpid::params::default_queue_limit,
 ) inherits qpid::params {
   if $ssl {
     assert_type(Boolean, $ssl_require_client_auth)
@@ -84,9 +84,9 @@ class qpid (
     assert_type(Stdlib::Absolutepath, $ssl_cert_password_file)
   }
 
-  include ::qpid::install
-  include ::qpid::config
-  contain ::qpid::service
+  include qpid::install
+  include qpid::config
+  contain qpid::service
 
   Class['qpid::install'] ~> Class['qpid::config'] ~> Class['qpid::service']
 }

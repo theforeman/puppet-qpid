@@ -32,9 +32,9 @@ class qpid::router(
   $hello_max_age           = $qpid::router::params::hello_max_age,
 ) inherits qpid::router::params {
 
-  contain ::qpid::router::install
-  contain ::qpid::router::config
-  contain ::qpid::router::service
+  contain qpid::router::install
+  contain qpid::router::config
+  contain qpid::router::service
 
   Class['qpid::router::install'] -> Class['qpid::router::config'] ~> Class['qpid::router::service']
 
