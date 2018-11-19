@@ -27,7 +27,7 @@ define qpid::router::ssl_profile(
   Optional[String] $ciphers = undef,
   Optional[Array[String]] $protocols = undef,
   Optional[String] $password = undef,
-  String $config_file = $::qpid::router::config_file,
+  String $config_file = $qpid::router::config_file,
 ) {
   concat::fragment {"qdrouter+ssl_${title}.conf":
     target  => $config_file,

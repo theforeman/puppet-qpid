@@ -30,7 +30,7 @@ define qpid::config_cmd (
   $ssl_cert = undef,
   $ssl_key = undef,
 ) {
-  include ::qpid::tools
+  include qpid::tools
 
   if $ssl_cert and $ssl_key {
     $_port = pick($port, 5671)

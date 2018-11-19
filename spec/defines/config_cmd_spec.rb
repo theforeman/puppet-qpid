@@ -18,7 +18,7 @@ describe 'qpid::config_cmd' do
 
           if qpid
             let :pre_condition do
-              'include ::qpid'
+              'include qpid'
             end
           end
 
@@ -50,7 +50,7 @@ describe 'qpid::config_cmd' do
 
           if qpid
             let :pre_condition do
-              'include ::qpid'
+              'include qpid'
             end
           end
 
