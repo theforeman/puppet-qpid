@@ -3,20 +3,27 @@ require 'spec_helper'
 describe 'qpid' do
   on_supported_os.each do |os, facts|
     context "on #{os}" do
-      let :facts do
-        facts
-      end
+      let(:facts) { facts }
+      let(:params) { {} }
 
       context 'without parameters' do
         it { is_expected.to compile.with_all_deps }
-        it { is_expected.to contain_class('qpid::install') }
-        it { is_expected.to contain_class('qpid::config') }
-        it { is_expected.to contain_class('qpid::service') }
 
+        it { is_expected.to contain_class('qpid::install') }
         it 'should install message store by default' do
           is_expected.to contain_package('qpid-cpp-server-linearstore')
         end
 
+        it { is_expected.to contain_class('qpid::config') }
+        it 'should create configuration file' do
+          verify_exact_contents(catalogue, '/etc/qpid/qpidd.conf', [
+            'log-enable=error+',
+            'log-to-syslog=yes',
+            'auth=no'
+          ])
+        end
+
+        it { is_expected.to contain_class('qpid::service') }
         it 'should configure systemd' do
           is_expected.to contain_systemd__service_limits('qpidd.service')
             .with_ensure('absent')
@@ -25,11 +32,7 @@ describe 'qpid' do
       end
 
       context 'with service limits' do
-        let :params do
-          {
-            :open_file_limit => 100,
-          }
-        end
+        let(:params) { super().merge(open_file_limit: 100) }
 
         it { is_expected.to compile.with_all_deps }
 
@@ -42,13 +45,115 @@ describe 'qpid' do
       end
 
       context 'message store disabled' do
+        let(:params) { super().merge(server_store: false) }
+
+        it { is_expected.to compile.with_all_deps }
+        it { is_expected.not_to contain_package('qpid-cpp-server-linearstore') }
+      end
+
+      context 'with interface' do
+        let(:params) { super().merge(interface: 'lo') }
+
+        it 'should create configuration file' do
+          verify_exact_contents(catalogue, '/etc/qpid/qpidd.conf', [
+            'log-enable=error+',
+            'log-to-syslog=yes',
+            'auth=no',
+            'interface=lo'
+          ])
+        end
+      end
+
+      context 'with ssl options' do
         let :params do
-          {
-            :server_store => false,
-          }
+          super().merge(
+            ssl: true,
+            ssl_port: 5671,
+            ssl_cert_db: "/etc/pki/katello/nssdb",
+            ssl_cert_password_file: "/etc/pki/katello/nssdb/nss_db_password-file",
+            ssl_cert_name: "broker",
+            ssl_require_client_auth: true
+          )
         end
 
-        it { is_expected.not_to contain_package('qpid-cpp-server-linearstore') }
+        it 'should create configuration file' do
+          verify_exact_contents(catalogue, '/etc/qpid/qpidd.conf', [
+            'log-enable=error+',
+            'log-to-syslog=yes',
+            'auth=no',
+            'require-encryption=yes',
+            'ssl-require-client-authentication=yes',
+            'ssl-port=5671',
+            'ssl-cert-db=/etc/pki/katello/nssdb',
+            'ssl-cert-password-file=/etc/pki/katello/nssdb/nss_db_password-file',
+            'ssl-cert-name=broker'
+          ])
+        end
+      end
+
+      context 'with session-max-unacked' do
+        let(:params) { super().merge(session_unacked: 10) }
+
+        it 'should create configuration file' do
+          verify_exact_contents(catalogue, '/etc/qpid/qpidd.conf', [
+            'log-enable=error+',
+            'log-to-syslog=yes',
+            'auth=no',
+            'session-max-unacked=10'
+          ])
+        end
+      end
+
+      context 'with mgmt-pub-interval' do
+        let(:params) { super().merge(mgmt_pub_interval: 4) }
+
+        it 'should create configuration file' do
+          verify_exact_contents(catalogue, '/etc/qpid/qpidd.conf', [
+            'log-enable=error+',
+            'log-to-syslog=yes',
+            'auth=no',
+            'mgmt-pub-interval=4'
+          ])
+        end
+      end
+
+      context 'with wcache_page_size' do
+        let(:params) { super().merge(wcache_page_size: 4) }
+
+        it 'should create configuration file' do
+          verify_exact_contents(catalogue, '/etc/qpid/qpidd.conf', [
+            'log-enable=error+',
+            'log-to-syslog=yes',
+            'auth=no',
+            'wcache-page-size=4'
+          ])
+        end
+      end
+
+      context 'with default_queue_limit' do
+        let(:params) { super().merge(default_queue_limit: 10000) }
+
+        it 'should create configuration file' do
+          verify_exact_contents(catalogue, '/etc/qpid/qpidd.conf', [
+            'log-enable=error+',
+            'log-to-syslog=yes',
+            'auth=no',
+            'default-queue-limit=10000'
+          ])
+        end
+      end
+
+      context 'with max-connections' do
+        let(:params) { super().merge(max_connections: 2000) }
+
+        it 'should create configuration file' do
+          verify_exact_contents(catalogue, '/etc/qpid/qpidd.conf', [
+            'log-enable=error+',
+            'log-to-syslog=yes',
+            'auth=no',
+            'max-connections=2000'
+          ])
+        end
       end
     end
   end
