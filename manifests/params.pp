@@ -36,4 +36,6 @@ class qpid::params {
 
   $server_store = true
   $server_store_package = 'qpid-cpp-server-linearstore'
+
+  $custom_settings = {}
 }

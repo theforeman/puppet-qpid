@@ -56,3 +56,6 @@ mgmt-pub-interval=<%= scope['qpid::mgmt_pub_interval'] %>
 <% unless [nil, :undefined, :undef, ''].include?(scope['qpid::default_queue_limit']) -%>
 default-queue-limit=<%= scope['qpid::default_queue_limit'] %>
 <% end %>
+<% scope['qpid::custom_settings'].sort.each do |setting, value| -%>
+<%= setting %>=<%= value %>
+<% end -%>

@@ -53,6 +53,10 @@
 #
 # $default_queue_limit::      Default maximum size for queues (in bytes)
 #
+# $custom_settings::          Custom settings. Each entry will end up in the config file.
+#                             The settings with can't be set this way and will cause the
+#                             server to refuse to start up.
+#
 class qpid (
   String $version = $qpid::params::version,
   Boolean $auth = $qpid::params::auth,
@@ -76,6 +80,7 @@ class qpid (
   Optional[Integer[1]] $open_file_limit = $qpid::params::open_file_limit,
   Optional[Integer[1]] $mgmt_pub_interval = $qpid::params::mgmt_pub_interval,
   Optional[Integer[1]] $default_queue_limit = $qpid::params::default_queue_limit,
+  Hash[String, Variant[String, Integer]] $custom_settings = $qpid::params::custom_settings,
 ) inherits qpid::params {
   if $ssl {
     assert_type(Boolean, $ssl_require_client_auth)

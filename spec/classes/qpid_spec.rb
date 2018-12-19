@@ -143,6 +143,29 @@ describe 'qpid' do
         end
       end
 
+      context 'with custom_settings' do
+        let :pre_condition do
+          <<-PUPPET
+          class {'qpid':
+            custom_settings => {
+              efp-file-size => 512,
+              log-to-file   => '/tmp/qpidd.log',
+            },
+          }
+          PUPPET
+        end
+
+        it 'should create configuration file' do
+          verify_exact_contents(catalogue, '/etc/qpid/qpidd.conf', [
+            'log-enable=error+',
+            'log-to-syslog=yes',
+            'auth=no',
+            'efp-file-size=512',
+            'log-to-file=/tmp/qpidd.log',
+          ])
+        end
+      end
+
       context 'with max-connections' do
         let(:params) { super().merge(max_connections: 2000) }
 
