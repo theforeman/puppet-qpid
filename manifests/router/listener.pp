@@ -23,10 +23,11 @@ define qpid::router::listener(
   Optional[String] $sasl_mech = 'ANONYMOUS',
   Optional[Enum['normal', 'inter-router', 'route-container']] $role = undef,
   Optional[Integer[0]] $idle_timeout = undef,
+  String $config_file = $qpid::router::config_file,
 ){
 
   concat::fragment {"qdrouter+listener_${title}.conf":
-    target  => $qpid::router::config_file,
+    target  => $config_file,
     content => template('qpid/router/listener.conf.erb'),
     order   => '05',
   }

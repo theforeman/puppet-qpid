@@ -23,10 +23,11 @@ define qpid::router::connector(
   Optional[Enum['normal', 'inter-router', 'route-container']] $role = undef,
   Optional[String] $ssl_profile = undef,
   Optional[Integer[0]] $idle_timeout = undef,
+  String $config_file = $qpid::router::config_file,
 ){
 
   concat::fragment {"qdrouter+connector_${name}.conf":
-    target  => $qpid::router::config_file,
+    target  => $config_file,
     content => template('qpid/router/connector.conf.erb'),
     order   => '03',
   }
