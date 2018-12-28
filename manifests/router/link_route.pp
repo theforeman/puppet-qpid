@@ -1,15 +1,11 @@
-# == Define: qpid::router::link_route
-#
 # Configure a link route
 #
-# == Parameters
-#
-# $prefix::     Prefix to use
-#
-# $direction::  Direction when using asymmetric routing
-#
-# $connection:: Connector for this link route pattern
-#
+# @param direction
+#   Direction when using asymmetric routing
+# @param prefix
+#   Prefix to use
+# @param connection
+#   Connector for this link route pattern
 define qpid::router::link_route(
   Enum['in', 'out'] $direction,
   String $prefix = 'queue.',

@@ -1,25 +1,20 @@
-# == Define: qpid::router::ssl_profile
-#
 # Configures an SSL profile for Qpid Dispatch Router
 #
-# == Parameters
-#
-# $ca::         Location of CA pem file
-#
-# $cert::       Location of certificate pem file
-#
-# $key::        Location of private key pem file
-#
-# $password::   Password, if required
-#
-# $ciphers::    Enabled ciphers, in OpenSSL format
-#
-# $protocols::  Enabled TLS protocols (e.g. TLSv1.1, TLSv1.2)
-#
-# == Advanced
-#
-# $config_file::    The config file to use
-#
+# @param ca
+#   Location of CA pem file
+# @param cert
+#   Location of certificate pem file
+# @param key
+#   Location of private key pem file
+# @param ciphers
+#   Enabled ciphers, in OpenSSL format
+# @param protocols
+#   Enabled TLS protocols (e.g. TLSv1.1, TLSv1.2)
+# @param password
+#   Password, if required
+# @param config_file
+#   The config file to use. This is an advanced parameter and normally doesn't
+#   need to be set.
 define qpid::router::ssl_profile(
   Stdlib::Absolutepath $ca,
   Stdlib::Absolutepath $cert,

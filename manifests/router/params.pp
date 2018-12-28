@@ -1,7 +1,6 @@
-# == Class: qpid::router::params
+# Default router parameter values
 #
-# Default parameter values
-#
+# @api private
 class qpid::router::params {
   $config_file         = '/etc/qpid-dispatch/qdrouterd.conf'
   $router_id           = $facts['fqdn']

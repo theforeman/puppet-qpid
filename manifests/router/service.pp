@@ -1,7 +1,6 @@
-# == Class: qpid::router::service
-#
 # Handles Qpid Dispatch Router service
 #
+# @api private
 class qpid::router::service {
 
   service { 'qdrouterd':

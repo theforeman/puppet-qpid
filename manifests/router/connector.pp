@@ -1,21 +1,17 @@
-# == Define: qpid::router::connector
-#
 # Configure a qpid router connector
 #
-# == Parameters
-#
-# $ssl_profile::    SSL profile to use
-#
-# $host::           Host/address to listen on
-#
-# $port::           Port to listen on
-#
-# $sasl_mech::      SASL mechanism to use
-#
-# $role::           Listener role
-#
-# $idle_timeout::   Timeout in seconds
-#
+# @param host
+#   Host/address to listen on
+# @param port
+#   Port to listen on
+# @param sasl_mech
+#   SASL mechanism to use
+# @param role
+#   Listener role
+# @param ssl_profile
+#   SSL profile to use
+# @param idle_timeout
+#   Timeout in seconds
 define qpid::router::connector(
   String $host = '127.0.0.1',
   Integer[0, 65535] $port = 5672,
