@@ -1,7 +1,6 @@
-# == Class: qpid::params
-#
 # Default parameter values
 #
+# @api private
 class qpid::params {
   $version = 'installed'
   $auth = false

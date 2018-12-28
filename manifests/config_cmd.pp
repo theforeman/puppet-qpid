@@ -1,26 +1,21 @@
-# Define: qpid::config_cmd
-#
 # This define wraps the qpid-config command
 #
-# === Parameters
-#
-# $command::                    The qpid-config command including parameters to execute
-#
-# $onlyif::                     The qpid-config command including parameters to
-#                               check if $command should be executed
-#
-# $unless::                     The qpid-config command including parameters to
-#                               check if $command should not be executed.
-#                               Ignored if $onlyif is specified
-#
-# $hostname::                   The hostname to connect to
-#
-# $port::                       Port that qpid is listening on
-#
-# $ssl_cert::                   SSL cert to use for qpid-config commands
-#
-# $ssl_key::                    SSL key to use for qpid-config commands
-#
+# @param command
+#   The qpid-config command including parameters to execute
+# @param onlyif
+#   The qpid-config command including parameters to check if $command should be
+#   executed
+# @param unless
+#   The qpid-config command including parameters to check if $command should
+#   not be executed. Ignored if $onlyif is specified
+# @param hostname
+#   The hostname to connect to
+# @param port
+#   Port that qpid is listening on
+# @param ssl_cert
+#   SSL cert to use for qpid-config commands
+# @param ssl_key
+#   SSL key to use for qpid-config commands
 define qpid::config_cmd (
   $command,
   $onlyif = false,

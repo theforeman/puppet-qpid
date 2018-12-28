@@ -1,7 +1,6 @@
-# == Class: qpid::router::configure
-#
 # Handles Qpid Dispatch Router configuration
 #
+# @api private
 class qpid::router::config {
 
   concat::fragment {'qdrouter+header.conf':

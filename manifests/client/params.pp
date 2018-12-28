@@ -1,7 +1,6 @@
-# == Class: qpid::client::params
-#
 # Default parameter values
 #
+# @api private
 class qpid::client::params {
   $version = 'installed'
   $config_file = '/etc/qpid/qpidc.conf'

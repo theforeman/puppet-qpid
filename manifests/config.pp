@@ -1,7 +1,6 @@
-# == Class: qpid::config
-#
 # Handles Qpid configuration
 #
+# @api private
 class qpid::config
 {
 

@@ -1,21 +1,15 @@
-# == Define: qpid::router::log
-#
 # Configure qpid router logging
 #
-# == Parameters
-#
-# $module::         Logging module to use
-#
-# $level::          Logging level to use (e.g., debug+, info+)
-#
-# $timestamp::      Enable timestamps
-#
-# $output::         Log file location
-#
-# == Advanced
-#
-# $config_file::    The config file to use
-#
+# @param module
+#   Logging module to use
+# @param level
+#   Logging level to use (e.g., debug+, info+)
+# @param timestamp
+#   Enable timestamps
+# @param output
+#   Log file location
+# @param config_file
+#   The config file to use
 define qpid::router::log(
   String $module = 'DEFAULT',
   String $level = 'info+',

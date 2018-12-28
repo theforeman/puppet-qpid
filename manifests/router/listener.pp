@@ -1,21 +1,17 @@
-# == Define: qpid::router::listener
-#
 # Configure a qpid router listener
 #
-# == Parameters
-#
-# $ssl_profile::    SSL profile to use
-#
-# $host::           Host/address to listen on
-#
-# $port::           Port to listen on
-#
-# $sasl_mech::      SASL mechanism to use
-#
-# $role::           Listener role
-#
-# $idle_timeout::   Timeout in seconds
-#
+# @param ssl_profile
+#   SSL profile to use
+# @param host
+#   Host/address to listen on
+# @param port
+#   Port to listen on
+# @param sasl_mech
+#   SASL mechanism to use
+# @param role
+#   Listener role
+# @param idle_timeout
+#   Timeout in seconds
 define qpid::router::listener(
   Optional[String] $ssl_profile = undef,
   Optional[String] $host = undef,

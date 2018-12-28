@@ -1,7 +1,6 @@
-# == Class: qpid::install
-#
 # Handles Qpid install
 #
+# @api private
 class qpid::install {
 
   include qpid::tools

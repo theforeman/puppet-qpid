@@ -1,7 +1,6 @@
-# == Class: qpid::service
-#
 # Handles Qpid service
 #
+# @api private
 class qpid::service {
 
   service { 'qpidd':
