@@ -25,5 +25,11 @@ class qpid::service {
       limits          => $limits,
       notify          => Service['qpidd'],
     }
+
+    systemd::dropin_file { 'wait-for-port.conf':
+      unit    => 'qpidd.service',
+      content => template('qpid/wait-for-port.conf.erb'),
+      notify  => Service['qpidd'],
+    }
   }
 }
