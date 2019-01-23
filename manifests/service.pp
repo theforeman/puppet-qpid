@@ -27,6 +27,7 @@ class qpid::service {
     }
 
     systemd::dropin_file { 'wait-for-port.conf':
+      ensure  => bool2str($qpid::ssl, 'present', 'absent'),
       unit    => 'qpidd.service',
       content => template('qpid/wait-for-port.conf.erb'),
       notify  => Service['qpidd'],
