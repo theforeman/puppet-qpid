@@ -33,11 +33,9 @@ class qpid::service {
       notify  => Service['qpidd'],
     }
 
-    if (!defined(Package['nc']) and $qpid::ssl) {
-      package { 'nc':
-        ensure => installed,
-        notify => Systemd::Dropin_file['wait-for-port.conf'],
-      }
+    if $qpid::ssl {
+      ensure_packages(['nc'])
+      Package['nc'] -> Systemd::Dropin_file['wait-for-port.conf']
     }
   }
 }

@@ -97,9 +97,9 @@ describe 'qpid' do
           is_expected.to contain_systemd__dropin_file('wait-for-port.conf')
             .with_ensure('present')
             .that_notifies('Service[qpidd]')
+            .that_requires('Package[nc]')
           is_expected.to contain_package('nc')
-            .with_ensure('installed')
-            .that_notifies('Systemd::Dropin_file[wait-for-port.conf]')
+            .with_ensure('present')
           verify_exact_contents(catalogue, '/etc/systemd/system/qpidd.service.d/wait-for-port.conf', [
             "[Service]",
             "ExecStartPost=-/bin/bash -c 'while ! nc -z 127.0.0.1 5671; do sleep 1; done'"
