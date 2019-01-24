@@ -31,6 +31,9 @@ describe 'qpid' do
           is_expected.to contain_systemd__dropin_file('wait-for-port.conf')
             .with_ensure('absent')
             .that_notifies('Service[qpidd]')
+          is_expected.to contain_package('nc')
+            .with_ensure('installed')
+            .that_notifies('Systemd::Dropin_file[wait-for-port.conf]')
         end
       end
 

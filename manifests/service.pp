@@ -32,5 +32,12 @@ class qpid::service {
       content => template('qpid/wait-for-port.conf.erb'),
       notify  => Service['qpidd'],
     }
+
+    if ! defined(Package['nc']) {
+      package { 'nc':
+        ensure => installed,
+        notify => Systemd::Dropin_file['wait-for-port.conf'],
+      }
+    }
   }
 }
