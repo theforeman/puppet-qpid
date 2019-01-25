@@ -28,6 +28,9 @@ describe 'qpid' do
           is_expected.to contain_systemd__service_limits('qpidd.service')
             .with_ensure('absent')
             .that_notifies('Service[qpidd]')
+          is_expected.to contain_systemd__dropin_file('wait-for-port.conf')
+            .with_ensure('absent')
+            .that_notifies('Service[qpidd]')
         end
       end
 
@@ -87,6 +90,19 @@ describe 'qpid' do
             'ssl-cert-db=/etc/pki/katello/nssdb',
             'ssl-cert-password-file=/etc/pki/katello/nssdb/nss_db_password-file',
             'ssl-cert-name=broker'
+          ])
+        end
+
+        it 'should configure systemd to wait for the ssl port to be open' do
+          is_expected.to contain_systemd__dropin_file('wait-for-port.conf')
+            .with_ensure('present')
+            .that_notifies('Service[qpidd]')
+            .that_requires('Package[nc]')
+          is_expected.to contain_package('nc')
+            .with_ensure('present')
+          verify_exact_contents(catalogue, '/etc/systemd/system/qpidd.service.d/wait-for-port.conf', [
+            "[Service]",
+            "ExecStartPost=/bin/bash -c 'while ! nc -z 127.0.0.1 5671; do sleep 1; done'"
           ])
         end
       end
