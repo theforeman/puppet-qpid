@@ -1,5 +1,27 @@
 # Changelog
 
+## [4.3.0](https://github.com/theforeman/puppet-qpid/tree/4.3.0) (2019-01-31)
+
+[Full Changelog](https://github.com/theforeman/puppet-qpid/compare/4.4.0...4.3.0)
+
+**Fixed bugs:**
+
+- Fixes [\#25909](https://projects.theforeman.org/issues/25909) - make qpidd.service wait until the port is open [\#113](https://github.com/theforeman/puppet-qpid/pull/113) ([evgeni](https://github.com/evgeni))
+
+## [4.4.0](https://github.com/theforeman/puppet-qpid/tree/4.4.0) (2019-01-11)
+
+[Full Changelog](https://github.com/theforeman/puppet-qpid/compare/4.3.0...4.4.0)
+
+**Implemented enhancements:**
+
+- Refactor docs from yardoc to rdoc [\#110](https://github.com/theforeman/puppet-qpid/pull/110) ([ekohl](https://github.com/ekohl))
+- Allow arbitrary settings [\#107](https://github.com/theforeman/puppet-qpid/pull/107) ([ekohl](https://github.com/ekohl))
+- Add Puppet 6 support [\#106](https://github.com/theforeman/puppet-qpid/pull/106) ([ekohl](https://github.com/ekohl))
+
+**Merged pull requests:**
+
+- Update README [\#105](https://github.com/theforeman/puppet-qpid/pull/105) ([ekohl](https://github.com/ekohl))
+
 ## [4.3.0](https://github.com/theforeman/puppet-qpid/tree/4.3.0) (2018-10-04)
 
 [Full Changelog](https://github.com/theforeman/puppet-qpid/compare/4.2.3...4.3.0)
@@ -97,27 +119,23 @@
 **Merged pull requests:**
 
 - Improve qpid::config::\* defines [\#71](https://github.com/theforeman/puppet-qpid/pull/71) ([ekohl](https://github.com/ekohl))
+- Support open files limit on qpidd too [\#70](https://github.com/theforeman/puppet-qpid/pull/70) ([chris1984](https://github.com/chris1984))
 - msync: Puppet 5, parallel tests, .erb templates, cleanups, facter fix [\#69](https://github.com/theforeman/puppet-qpid/pull/69) ([ekohl](https://github.com/ekohl))
-- Allow puppetlabs-concat 4.0.0 [\#60](https://github.com/theforeman/puppet-qpid/pull/60) ([ekohl](https://github.com/ekohl))
+- Fixes [\#18812](https://projects.theforeman.org/issues/18812) - update puppet logic on qpid bind [\#66](https://github.com/theforeman/puppet-qpid/pull/66) ([chris1984](https://github.com/chris1984))
+- Refs [\#19929](https://projects.theforeman.org/issues/19929) - Add wcache-page-size to installer [\#65](https://github.com/theforeman/puppet-qpid/pull/65) ([chris1984](https://github.com/chris1984))
 - Contain router classes [\#63](https://github.com/theforeman/puppet-qpid/pull/63) ([ekohl](https://github.com/ekohl))
+- Fixes [\#19514](https://projects.theforeman.org/issues/19514) - Add session-max-unacked option [\#62](https://github.com/theforeman/puppet-qpid/pull/62) ([chris1984](https://github.com/chris1984))
 - Add a spec test for qpid::router [\#61](https://github.com/theforeman/puppet-qpid/pull/61) ([ekohl](https://github.com/ekohl))
+- Allow puppetlabs-concat 4.0.0 [\#60](https://github.com/theforeman/puppet-qpid/pull/60) ([ekohl](https://github.com/ekohl))
 - Convert to Puppet 4 types [\#59](https://github.com/theforeman/puppet-qpid/pull/59) ([ekohl](https://github.com/ekohl))
 
 ## [2.2.0](https://github.com/theforeman/puppet-qpid/tree/2.2.0) (2017-07-31)
+
 [Full Changelog](https://github.com/theforeman/puppet-qpid/compare/2.1.1...2.2.0)
 
-**Merged pull requests:**
-
-- Support open files limit on qpidd too [\#70](https://github.com/theforeman/puppet-qpid/pull/70) ([chris1984](https://github.com/chris1984))
-- Refs [\#19929](https://projects.theforeman.org/issues/19929) - Add wcache-page-size to installer [\#65](https://github.com/theforeman/puppet-qpid/pull/65) ([chris1984](https://github.com/chris1984))
-- Fixes [\#19514](https://projects.theforeman.org/issues/19514) - Add session-max-unacked option [\#62](https://github.com/theforeman/puppet-qpid/pull/62) ([chris1984](https://github.com/chris1984))
-
 ## [2.1.1](https://github.com/theforeman/puppet-qpid/tree/2.1.1) (2017-06-14)
+
 [Full Changelog](https://github.com/theforeman/puppet-qpid/compare/2.1.0...2.1.1)
-
-**Merged pull requests:**
-
-- Fixes [\#18812](https://projects.theforeman.org/issues/18812) - update puppet logic on qpid bind [\#66](https://github.com/theforeman/puppet-qpid/pull/66) ([chris1984](https://github.com/chris1984))
 
 ## [2.1.0](https://github.com/theforeman/puppet-qpid/tree/2.1.0) (2017-04-07)
 
@@ -254,7 +272,7 @@
 
 - refs [\#8175](https://projects.theforeman.org/issues/8175) - link router connector is optional [\#17](https://github.com/theforeman/puppet-qpid/pull/17) ([stbenjam](https://github.com/stbenjam))
 - refs [\#8175](https://projects.theforeman.org/issues/8175) - Add linkRoutePattern support for dispatch router [\#15](https://github.com/theforeman/puppet-qpid/pull/15) ([stbenjam](https://github.com/stbenjam))
-- make package lists configurable [\#14](https://github.com/theforeman/puppet-qpid/pull/14) ([arnoldbechtoldt](https://github.com/arnoldbechtoldt))
+- make package lists configurable [\#14](https://github.com/theforeman/puppet-qpid/pull/14) ([arnisoph](https://github.com/arnisoph))
 - fixes [\#9060](https://projects.theforeman.org/issues/9060), \#8175 - refactor module and support dispatch router  [\#12](https://github.com/theforeman/puppet-qpid/pull/12) ([stbenjam](https://github.com/stbenjam))
 - Fixes 7802 - ensure that qpidd and user and group are created [\#11](https://github.com/theforeman/puppet-qpid/pull/11) ([dustints](https://github.com/dustints))
 - Refs [\#6736](https://projects.theforeman.org/issues/6736): Add missing files to create basic layout. [\#9](https://github.com/theforeman/puppet-qpid/pull/9) ([ehelms](https://github.com/ehelms))
