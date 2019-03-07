@@ -1,5 +1,13 @@
 # Changelog
 
+## [4.3.1](https://github.com/theforeman/puppet-qpid/tree/4.3.1) (2019-03-07)
+
+[Full Changelog](https://github.com/theforeman/puppet-qpid/compare/4.3.0...4.3.1)
+
+**Fixed bugs:**
+
+- Fixes [\#25909](https://projects.theforeman.org/issues/25909) - make qpidd.service wait until the port is open [\#113](https://github.com/theforeman/puppet-qpid/pull/113) ([evgeni](https://github.com/evgeni))
+
 ## [4.3.0](https://github.com/theforeman/puppet-qpid/tree/4.3.0) (2018-10-04)
 
 [Full Changelog](https://github.com/theforeman/puppet-qpid/compare/4.2.3...4.3.0)
