@@ -27,6 +27,9 @@
 # (Note: no spaces on either side of '='). Using default settings:
 # "qpidd --help" or "man qpidd" for more details.
 #cluster-mechanism=ANONYMOUS
+<% unless [nil, :undefined, :undef, ''].include?(scope['qpid::acl_content']) -%>
+acl-file=<%= scope['qpid::acl_file'] %>
+<% end %>
 log-enable=<%= scope['qpid::log_level'] %>
 log-to-syslog=<%= scope['qpid::log_to_syslog'] ? 'yes' : 'no' %>
 auth=<%= scope['qpid::auth'] ? 'yes' : 'no' %>
