@@ -67,6 +67,30 @@ describe 'qpid' do
         end
       end
 
+      context 'with ACL file' do
+        let :params do
+          super().merge(
+            acl_file: "/etc/qpid/qpid.acl",
+            acl_content: "allow all all"
+          )
+        end
+
+        it 'should create configuration file' do
+          verify_exact_contents(catalogue, '/etc/qpid/qpidd.conf', [
+            'acl-file=/etc/qpid/qpid.acl',
+            'log-enable=error+',
+            'log-to-syslog=yes',
+            'auth=no',
+          ])
+        end
+
+        it 'should create ACL file' do
+          verify_exact_contents(catalogue, '/etc/qpid/qpid.acl', [
+            'allow all all',
+          ])
+        end
+      end
+
       context 'with ssl options' do
         let :params do
           super().merge(

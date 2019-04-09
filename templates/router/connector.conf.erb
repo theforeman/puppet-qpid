@@ -3,6 +3,12 @@ connector {
     host: <%= @host %>
     port: <%= @port %>
     sasl-mechanisms: <%= @sasl_mech %>
+<% unless [nil, :undefined, :undef, ''].include?(@sasl_username) -%>
+    sasl-username: <%= @sasl_username %>
+<% end -%>
+<% unless [nil, :undefined, :undef, ''].include?(@sasl_password) -%>
+    sasl-password: <%= @sasl_password %>
+<% end -%>
 <% unless [nil, :undefined, :undef, ''].include?(@role) -%>
     role: <%= @role %>
 <% end -%>
