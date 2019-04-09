@@ -6,6 +6,10 @@
 #
 # $log_level::                Logging level
 #
+# $acl_file::                 File name for Qpid ACL
+#
+# $acl_content::              Content for Access Control List file
+
 # === SSL parameters
 #
 # $auth::                     Use SASL authentication
@@ -61,6 +65,8 @@ class qpid (
   String $version = $qpid::params::version,
   Boolean $auth = $qpid::params::auth,
   String $config_file = $qpid::params::config_file,
+  Optional[String] $acl_content = $qpid::params::acl_content,
+  String $acl_file = $qpid::params::acl_file,
   String $log_level = $qpid::params::log_level,
   Boolean $log_to_syslog = $qpid::params::log_to_syslog,
   Optional[String] $interface = $qpid::params::interface,
