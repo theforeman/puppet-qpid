@@ -1,5 +1,17 @@
 # Changelog
 
+## [4.5.0](https://github.com/theforeman/puppet-qpid/tree/4.5.0) (2019-04-11)
+
+[Full Changelog](https://github.com/theforeman/puppet-qpid/compare/4.3.1...4.5.0)
+
+**Implemented enhancements:**
+
+- Refs [\#26571](https://projects.theforeman.org/issues/26571) - Support ACL file & router auth [\#120](https://github.com/theforeman/puppet-qpid/pull/120) ([jturel](https://github.com/jturel))
+
+**Fixed bugs:**
+
+- bump camptocamp/systemd requirement to \>= 1.0.0 [\#118](https://github.com/theforeman/puppet-qpid/pull/118) ([evgeni](https://github.com/evgeni))
+
 ## [4.4.1](https://github.com/theforeman/puppet-qpid/tree/4.4.1) (2019-02-14)
 
 [Full Changelog](https://github.com/theforeman/puppet-qpid/compare/4.4.0...4.4.1)
