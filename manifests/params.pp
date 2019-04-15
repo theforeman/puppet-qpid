@@ -6,6 +6,9 @@ class qpid::params {
   $version = 'installed'
   $auth = false
 
+  $acl_content = undef
+  $acl_file = '/etc/qpid/qpid.acl'
+
   $config_file = '/etc/qpid/qpidd.conf'
 
   $log_level = 'error+'
