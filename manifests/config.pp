@@ -21,4 +21,18 @@ class qpid::config
     group   => 'root',
     mode    => '0644',
   }
+
+  if $qpid::acl_content {
+    $acl_file_ensure = file
+  } else {
+    $acl_file_ensure = absent
+  }
+
+  file { $qpid::acl_file:
+    ensure  => $acl_file_ensure,
+    owner   => 'root',
+    group   => 'qpidd',
+    mode    => '0640',
+    content => $qpid::acl_content,
+  }
 }

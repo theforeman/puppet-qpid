@@ -121,11 +121,13 @@ describe 'qpid::router::config' do
           'class {"qpid::router":}
 
            qpid::router::connector { "broker":
-             host         => "127.0.0.1",
-             port         => 5672,
-             role         => "inter-router",
-             ssl_profile  => "router-ssl",
-             idle_timeout => 0,
+             host          => "127.0.0.1",
+             port          => 5672,
+             role          => "inter-router",
+             sasl_username => "qpid_user",
+             sasl_password => "qpid_password",
+             ssl_profile   => "router-ssl",
+             idle_timeout  => 0,
            }
           '
         end
@@ -137,6 +139,8 @@ describe 'qpid::router::config' do
             '    host: 127.0.0.1',
             '    port: 5672',
             '    sasl-mechanisms: ANONYMOUS',
+            '    sasl-username: qpid_user',
+            '    sasl-password: qpid_password',
             '    role: inter-router',
             '    ssl-profile: router-ssl',
             '    idle-timeout-seconds: 0',
