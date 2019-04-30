@@ -1,5 +1,13 @@
 # Changelog
 
+## [4.3.2](https://github.com/theforeman/puppet-qpid/tree/4.3.2) (2019-04-30)
+
+[Full Changelog](https://github.com/theforeman/puppet-qpid/compare/4.3.1...4.3.2)
+
+**Implemented enhancements:**
+
+- Refs [\#26571](https://projects.theforeman.org/issues/26571) - Support ACL file & router auth [\#120](https://github.com/theforeman/puppet-qpid/pull/123) ([jturel](https://github.com/jturel))
+
 ## [4.3.1](https://github.com/theforeman/puppet-qpid/tree/4.3.1) (2019-03-07)
 
 [Full Changelog](https://github.com/theforeman/puppet-qpid/compare/4.3.0...4.3.1)
