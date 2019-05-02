@@ -35,7 +35,7 @@ class qpid::params {
   $user = 'qpidd'
   $group = 'qpidd'
 
-  $server_packages = ['qpid-cpp-server', 'qpid-cpp-client', 'python2-qpid']
+  $server_packages = ['qpid-cpp-server', 'qpid-cpp-client']
 
   $server_store = true
   $server_store_package = 'qpid-cpp-server-linearstore'
