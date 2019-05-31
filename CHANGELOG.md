@@ -1,5 +1,17 @@
 # Changelog
 
+## [6.0.0](https://github.com/theforeman/puppet-qpid/tree/6.0.0) (2019-06-12)
+
+[Full Changelog](https://github.com/theforeman/puppet-qpid/compare/5.0.0...6.0.0)
+
+**Breaking changes:**
+
+- Drop python2-qpid as a server package [\#124](https://github.com/theforeman/puppet-qpid/pull/124) ([ehelms](https://github.com/ehelms))
+
+**Merged pull requests:**
+
+- Allow `puppetlabs/stdlib` and `puppetlabs/concat` 6.x [\#125](https://github.com/theforeman/puppet-qpid/pull/125) ([alexjfisher](https://github.com/alexjfisher))
+
 ## [5.0.0](https://github.com/theforeman/puppet-qpid/tree/5.0.0) (2019-04-15)
 
 [Full Changelog](https://github.com/theforeman/puppet-qpid/compare/4.5.0...5.0.0)
@@ -43,7 +55,6 @@
 **Merged pull requests:**
 
 - Update README [\#105](https://github.com/theforeman/puppet-qpid/pull/105) ([ekohl](https://github.com/ekohl))
-
 ## [4.3.0](https://github.com/theforeman/puppet-qpid/tree/4.3.0) (2018-10-04)
 
 [Full Changelog](https://github.com/theforeman/puppet-qpid/compare/4.2.3...4.3.0)

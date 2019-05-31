@@ -1,3 +1,58 @@
+## [6.0.0](https://github.com/theforeman/puppet-qpid/tree/6.0.0) (2019-05-31)
+
+[Full Changelog](https://github.com/theforeman/puppet-qpid/compare/5.0.0...6.0.0)
+
+**Breaking changes:**
+
+- Drop python2-qpid as a server package [\#124](https://github.com/theforeman/puppet-qpid/pull/124) ([ehelms](https://github.com/ehelms))
+
+**Merged pull requests:**
+
+- Allow `puppetlabs/stdlib` and `puppetlabs/concat` 6.x [\#125](https://github.com/theforeman/puppet-qpid/pull/125) ([alexjfisher](https://github.com/alexjfisher))
+
+## [5.0.0](https://github.com/theforeman/puppet-qpid/tree/5.0.0) (2019-04-15)
+
+[Full Changelog](https://github.com/theforeman/puppet-qpid/compare/4.5.0...5.0.0)
+
+**Breaking changes:**
+
+- Drop Puppet 4 [\#121](https://github.com/theforeman/puppet-qpid/pull/121) ([ekohl](https://github.com/ekohl))
+- Drop unused python2-qpid-qmf [\#119](https://github.com/theforeman/puppet-qpid/pull/119) ([ehelms](https://github.com/ehelms))
+- Move to using python2 package names [\#117](https://github.com/theforeman/puppet-qpid/pull/117) ([ehelms](https://github.com/ehelms))
+
+## [4.5.0](https://github.com/theforeman/puppet-qpid/tree/4.5.0) (2019-04-11)
+
+[Full Changelog](https://github.com/theforeman/puppet-qpid/compare/4.4.1...4.5.0)
+
+**Implemented enhancements:**
+
+- Refs [\#26571](https://projects.theforeman.org/issues/26571) - Support ACL file & router auth [\#120](https://github.com/theforeman/puppet-qpid/pull/120) ([jturel](https://github.com/jturel))
+
+**Fixed bugs:**
+
+- bump camptocamp/systemd requirement to \>= 1.0.0 [\#118](https://github.com/theforeman/puppet-qpid/pull/118) ([evgeni](https://github.com/evgeni))
+
+## [4.4.1](https://github.com/theforeman/puppet-qpid/tree/4.4.1) (2019-02-14)
+
+[Full Changelog](https://github.com/theforeman/puppet-qpid/compare/4.4.0...4.4.1)
+
+**Fixed bugs:**
+
+- Fixes [\#25909](https://projects.theforeman.org/issues/25909) - make qpidd.service wait until the port is open [\#113](https://github.com/theforeman/puppet-qpid/pull/113) ([evgeni](https://github.com/evgeni))
+
+## [4.4.0](https://github.com/theforeman/puppet-qpid/tree/4.4.0) (2019-01-11)
+
+[Full Changelog](https://github.com/theforeman/puppet-qpid/compare/4.3.0...4.4.0)
+
+**Implemented enhancements:**
+
+- Refactor docs from yardoc to rdoc [\#110](https://github.com/theforeman/puppet-qpid/pull/110) ([ekohl](https://github.com/ekohl))
+- Allow arbitrary settings [\#107](https://github.com/theforeman/puppet-qpid/pull/107) ([ekohl](https://github.com/ekohl))
+- Add Puppet 6 support [\#106](https://github.com/theforeman/puppet-qpid/pull/106) ([ekohl](https://github.com/ekohl))
+
+**Merged pull requests:**
+
+- Update README [\#105](https://github.com/theforeman/puppet-qpid/pull/105) ([ekohl](https://github.com/ekohl))
 ## [4.3.0](https://github.com/theforeman/puppet-qpid/tree/4.3.0) (2018-10-04)
 
 [Full Changelog](https://github.com/theforeman/puppet-qpid/compare/4.2.3...4.3.0)
