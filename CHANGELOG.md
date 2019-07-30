@@ -1,6 +1,6 @@
 # Changelog
 
-## [6.0.0](https://github.com/theforeman/puppet-qpid/tree/6.0.0) (2019-06-12)
+## [6.0.0](https://github.com/theforeman/puppet-qpid/tree/6.0.0) (2019-05-31)
 
 [Full Changelog](https://github.com/theforeman/puppet-qpid/compare/5.0.0...6.0.0)
 
