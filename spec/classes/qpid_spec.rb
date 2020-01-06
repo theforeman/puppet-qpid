@@ -126,7 +126,7 @@ describe 'qpid' do
             .with_ensure('present')
           verify_exact_contents(catalogue, '/etc/systemd/system/qpidd.service.d/wait-for-port.conf', [
             "[Service]",
-            "ExecStartPost=/bin/bash -c 'while ! nc -z 127.0.0.1 5671; do sleep 1; done'"
+            "ExecStartPost=/bin/bash -c 'while ! nc -z localhost 5671; do sleep 1; done'"
           ])
         end
       end

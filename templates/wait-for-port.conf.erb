@@ -1,2 +1,2 @@
 [Service]
-ExecStartPost=/bin/bash -c 'while ! nc -z 127.0.0.1 <%= scope['qpid::ssl_port'] %>; do sleep 1; done'
+ExecStartPost=/bin/bash -c 'while ! nc -z localhost <%= scope['qpid::ssl_port'] %>; do sleep 1; done'
