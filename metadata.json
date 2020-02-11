@@ -1,7 +1,7 @@
 {
   "name": "katello-qpid",
   "version": "6.1.0",
-  "author": "Katello",
+  "author": "katello",
   "summary": "Qpid message bus configuration",
   "license": "GPL-3.0+",
   "source": "https://github.com/theforeman/puppet-qpid.git",
