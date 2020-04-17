@@ -16,6 +16,9 @@
 #   SSL profile to use
 # @param idle_timeout
 #   Timeout in seconds
+# @param config_file
+#   The target for the concat fragment. Inherited from the main config so
+#   usually not to be touched.
 define qpid::router::connector(
   String $host = '127.0.0.1',
   Integer[0, 65535] $port = 5672,

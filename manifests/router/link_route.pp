@@ -6,6 +6,9 @@
 #   Prefix to use
 # @param connection
 #   Connector for this link route pattern
+# @param config_file
+#   The target for the concat fragment. Inherited from the main config so
+#   usually not to be touched.
 define qpid::router::link_route(
   Enum['in', 'out'] $direction,
   String $prefix = 'queue.',
