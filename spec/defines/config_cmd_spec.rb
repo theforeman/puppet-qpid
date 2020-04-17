@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'qpid::config_cmd' do
   let (:title) { 'test' }
 
-  on_os_under_test.each do |os, facts|
+  on_supported_os.each do |os, facts|
     let (:facts) { facts }
 
     [true, false].each do |qpid|
