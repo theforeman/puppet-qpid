@@ -11,6 +11,9 @@
 # @param role
 #   Listener role
 # @param idle_timeout
+# @param config_file
+#   The target for the concat fragment. Inherited from the main config so
+#   usually not to be touched.
 #   Timeout in seconds
 define qpid::router::listener(
   Optional[String] $ssl_profile = undef,
