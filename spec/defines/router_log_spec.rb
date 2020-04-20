@@ -72,6 +72,7 @@ describe 'qpid::router::log' do
   context 'with dependencies' do
     on_supported_os.each do |os, facts|
       context "on #{os}" do
+        let(:facts) { facts }
         let(:pre_condition) { 'include qpid::router' }
 
         it { is_expected.to compile.with_all_deps }
