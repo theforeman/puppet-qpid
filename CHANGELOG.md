@@ -1,5 +1,13 @@
 # Changelog
 
+## [7.0.0](https://github.com/theforeman/puppet-qpid/tree/7.0.0) (2020-05-12)
+
+[Full Changelog](https://github.com/theforeman/puppet-qpid/compare/6.1.0...7.0.0)
+
+**Breaking changes:**
+
+- Use modern facts [\#134](https://github.com/theforeman/puppet-qpid/issues/134)
+
 ## [6.1.0](https://github.com/theforeman/puppet-qpid/tree/6.1.0) (2020-02-11)
 
 [Full Changelog](https://github.com/theforeman/puppet-qpid/compare/6.0.0...6.1.0)
