@@ -34,8 +34,8 @@ class qpid::service {
     }
 
     if $qpid::ssl {
-      ensure_packages(['nc'])
-      Package['nc'] -> Systemd::Dropin_file['wait-for-port.conf']
+      ensure_packages(['iproute'])
+      Package['iproute'] -> Systemd::Dropin_file['wait-for-port.conf']
     }
   }
 }

@@ -1,2 +1,2 @@
 [Service]
-ExecStartPost=/bin/bash -c 'while ! nc -z localhost <%= scope['qpid::ssl_port'] %>; do sleep 1; done'
+ExecStartPost=/bin/bash -c 'while ! ss --no-header --tcp --listening --numeric sport = :<%= scope['qpid::ssl_port'] %> | grep -q "^LISTEN.*:<%= scope['qpid::ssl_port'] %>"; do sleep 1; done'
