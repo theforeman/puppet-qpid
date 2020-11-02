@@ -3,7 +3,8 @@
 
 source 'https://rubygems.org'
 
-gem 'puppet', ENV.key?('PUPPET_VERSION') ? "~> #{ENV['PUPPET_VERSION']}" : '>= 5.5'
+gem 'puppet', ENV.key?('PUPPET_VERSION') ? "~> #{ENV['PUPPET_VERSION']}" : '>= 5.5', groups: ['development', 'test']
+gem 'rake'
 
 gem 'rake'
 gem 'rspec', '~> 3.0'
