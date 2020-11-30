@@ -1,5 +1,17 @@
 # Changelog
 
+## [7.0.0](https://github.com/theforeman/puppet-qpid/tree/7.0.0) (2020-11-30)
+
+[Full Changelog](https://github.com/theforeman/puppet-qpid/compare/6.1.0...7.0.0)
+
+**Breaking changes:**
+
+- Use modern facts [\#134](https://github.com/theforeman/puppet-qpid/issues/134)
+
+**Implemented enhancements:**
+
+- Fixes [\#30252](https://projects.theforeman.org/issues/30252): Make wait for port more resilient [\#137](https://github.com/theforeman/puppet-qpid/pull/137) ([ehelms](https://github.com/ehelms))
+
 ## [6.1.0](https://github.com/theforeman/puppet-qpid/tree/6.1.0) (2020-02-11)
 
 [Full Changelog](https://github.com/theforeman/puppet-qpid/compare/6.0.0...6.1.0)
