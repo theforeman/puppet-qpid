@@ -41,7 +41,7 @@ describe 'qpid::config_cmd' do
             end
           end
 
-          context "with unless" do
+          context "with onlyif" do
             let :params do
               {
                 'command' => "bind myexchange myqueue *.*",
