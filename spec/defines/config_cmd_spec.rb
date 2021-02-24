@@ -39,6 +39,16 @@ describe 'qpid::config_cmd' do
                 is_expected.not_to contain_exec('qpid-config test').that_requires('Service[qpidd]')
               end
             end
+
+            context 'with sasl_mechanism and username' do
+              let(:params) { super().merge(sasl_mechanism: 'EXTERNAL', username: 'myuser') }
+
+              it do
+                is_expected.to contain_exec('qpid-config test')
+                  .with_command('qpid-config --sasl-mechanism=EXTERNAL -b amqp://myuser@localhost:5672 add exchange topic myexchange --durable')
+                  .with_unless('qpid-config --sasl-mechanism=EXTERNAL -b amqp://myuser@localhost:5672 exchanges myexchange')
+              end
+            end
           end
 
           context "with onlyif" do
@@ -99,6 +109,16 @@ describe 'qpid::config_cmd' do
           is_expected.to contain_exec('qpid-config test')
             .with_command('qpid-config --ssl-certificate cert.pem --ssl-key key.pem -b amqps://localhost:5671 cmd')
             .with_onlyif('qpid-config --ssl-certificate cert.pem --ssl-key key.pem -b amqps://localhost:5671 condition')
+        end
+
+        context 'with sasl_mechanism and username' do
+          let(:params) { super().merge(sasl_mechanism: 'EXTERNAL', username: 'myuser') }
+
+          it do
+            is_expected.to contain_exec('qpid-config test')
+              .with_command('qpid-config --sasl-mechanism=EXTERNAL --ssl-certificate cert.pem --ssl-key key.pem -b amqps://myuser@localhost:5671 cmd')
+              .with_onlyif('qpid-config --sasl-mechanism=EXTERNAL --ssl-certificate cert.pem --ssl-key key.pem -b amqps://myuser@localhost:5671 condition')
+          end
         end
       end
 
