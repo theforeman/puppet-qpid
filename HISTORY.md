@@ -1,3 +1,31 @@
+## [7.0.0](https://github.com/theforeman/puppet-qpid/tree/7.0.0) (2021-03-01)
+
+[Full Changelog](https://github.com/theforeman/puppet-qpid/compare/6.2.0...7.0.0)
+
+**Breaking changes:**
+
+- Use modern facts [\#134](https://github.com/theforeman/puppet-qpid/issues/134)
+
+**Implemented enhancements:**
+
+- Expose username and sasl\_mechanism options in config\_cmd [\#145](https://github.com/theforeman/puppet-qpid/pull/145) ([ekohl](https://github.com/ekohl))
+
+## [6.2.0](https://github.com/theforeman/puppet-qpid/tree/6.2.0) (2020-11-30)
+
+[Full Changelog](https://github.com/theforeman/puppet-qpid/compare/6.1.0...6.2.0)
+
+**Implemented enhancements:**
+
+- Fixes [\#30252](https://projects.theforeman.org/issues/30252): Make wait for port more resilient [\#137](https://github.com/theforeman/puppet-qpid/pull/137) ([ehelms](https://github.com/ehelms))
+
+## [6.1.0](https://github.com/theforeman/puppet-qpid/tree/6.1.0) (2020-02-11)
+
+[Full Changelog](https://github.com/theforeman/puppet-qpid/compare/6.0.0...6.1.0)
+
+**Implemented enhancements:**
+
+- Fixes [\#28672](https://projects.theforeman.org/issues/28672) - Check if qpid is up using localhost [\#128](https://github.com/theforeman/puppet-qpid/pull/128) ([ekohl](https://github.com/ekohl))
+
 ## [6.0.0](https://github.com/theforeman/puppet-qpid/tree/6.0.0) (2019-05-31)
 
 [Full Changelog](https://github.com/theforeman/puppet-qpid/compare/5.0.0...6.0.0)
