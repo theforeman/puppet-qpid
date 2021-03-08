@@ -4,8 +4,8 @@
 class qpid::router::service {
 
   service { 'qdrouterd':
-    ensure     => running,
-    enable     => true,
+    ensure     => $qpid::router::service_ensure,
+    enable     => pick($qpid::router::service_enable, $qpid::router::service_ensure),
     hasstatus  => true,
     hasrestart => true,
   }

@@ -9,7 +9,7 @@
 # $acl_file::                 File name for Qpid ACL
 #
 # $acl_content::              Content for Access Control List file
-
+#
 # === SSL parameters
 #
 # $auth::                     Use SASL authentication
@@ -61,6 +61,10 @@
 #                             The settings with can't be set this way and will cause the
 #                             server to refuse to start up.
 #
+# $service_ensure::           Specify if qpidd service should be running or stopped
+#
+# $service_enable::           Enable qpidd service at boot
+#
 class qpid (
   String $version = $qpid::params::version,
   Boolean $auth = $qpid::params::auth,
@@ -87,6 +91,8 @@ class qpid (
   Optional[Integer[1]] $mgmt_pub_interval = $qpid::params::mgmt_pub_interval,
   Optional[Integer[1]] $default_queue_limit = $qpid::params::default_queue_limit,
   Hash[String, Variant[String, Integer]] $custom_settings = $qpid::params::custom_settings,
+  Boolean $service_ensure = true,
+  Optional[Boolean] $service_enable = undef,
 ) inherits qpid::params {
   if $ssl {
     assert_type(Boolean, $ssl_require_client_auth)

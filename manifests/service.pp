@@ -4,8 +4,8 @@
 class qpid::service {
 
   service { 'qpidd':
-    ensure     => running,
-    enable     => true,
+    ensure     => $qpid::service_ensure,
+    enable     => pick($qpid::service_enable, $qpid::service_ensure),
     hasstatus  => true,
     hasrestart => true,
   }
