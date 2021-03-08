@@ -34,6 +34,18 @@ describe 'qpid' do
         end
       end
 
+      context 'with services stopped' do
+        let(:params) { super().merge(service_ensure: false) }
+
+        it { is_expected.to compile.with_all_deps }
+
+        it 'should disable qpidd' do
+          is_expected.to contain_service('qpidd')
+            .with_ensure('false')
+            .with_enable('false')
+        end
+      end
+
       context 'with service limits' do
         let(:params) { super().merge(open_file_limit: 100) }
 

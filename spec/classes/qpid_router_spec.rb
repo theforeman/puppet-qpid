@@ -66,6 +66,22 @@ describe 'qpid::router' do
         end
       end
 
+      context 'with services stopped' do
+        let(:params) do
+          {
+            service_ensure: false
+          }
+        end
+
+        it { is_expected.to compile.with_all_deps }
+
+        it 'should disable qdrouterd' do
+          is_expected.to contain_service('qdrouterd')
+            .with_ensure('false')
+            .with_enable('false')
+        end
+      end
+
       context 'with hello tuning params set' do
         let :params do
           {
