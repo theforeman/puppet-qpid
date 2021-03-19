@@ -231,6 +231,21 @@ describe 'qpid' do
           ])
         end
       end
+
+      context 'with auth' do
+        let(:params) { super().merge(auth: true) }
+
+        it 'should create configuration file' do
+          verify_exact_contents(catalogue, '/etc/qpid/qpidd.conf', [
+            'log-enable=error+',
+            'log-to-syslog=yes',
+            'auth=yes',
+          ])
+        end
+        it 'should install cyrus-sasl-plain' do
+          is_expected.to contain_package('cyrus-sasl-plain')
+        end
+      end
     end
   end
 end
