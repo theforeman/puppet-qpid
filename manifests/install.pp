@@ -9,6 +9,10 @@ class qpid::install {
     before => Class['qpid::tools'],
   }
 
+  if $qpid::auth {
+    ensure_packages(['cyrus-sasl-plain'])
+  }
+
   if $qpid::server_store {
     package { $qpid::server_store_package:
       ensure => $qpid::version,
