@@ -12,6 +12,7 @@ describe 'qpid' do
         it { is_expected.to contain_class('qpid::install') }
         it 'should install message store by default' do
           is_expected.to contain_package('qpid-cpp-server-linearstore')
+            .that_comes_before(['Service[qpidd]', 'Package[qpid-tools]'])
         end
 
         it { is_expected.to contain_class('qpid::config') }
