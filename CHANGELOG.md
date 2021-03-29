@@ -1,5 +1,21 @@
 # Changelog
 
+## [7.1.0](https://github.com/theforeman/puppet-qpid/tree/7.1.0) (2021-03-31)
+
+[Full Changelog](https://github.com/theforeman/puppet-qpid/compare/7.0.0...7.1.0)
+
+**Implemented enhancements:**
+
+- Add types to router.pp [\#152](https://github.com/theforeman/puppet-qpid/pull/152) ([ehelms](https://github.com/ehelms))
+- Remove duplicate relations [\#150](https://github.com/theforeman/puppet-qpid/pull/150) ([ekohl](https://github.com/ekohl))
+- Install cyrus-sasl-plain package [\#149](https://github.com/theforeman/puppet-qpid/pull/149) ([ehelms](https://github.com/ehelms))
+- Refs [\#32037](https://projects.theforeman.org/issues/32037): Add parameters to disable qpid services [\#148](https://github.com/theforeman/puppet-qpid/pull/148) ([ehelms](https://github.com/ehelms))
+- Support Puppet 7 [\#147](https://github.com/theforeman/puppet-qpid/pull/147) ([ekohl](https://github.com/ekohl))
+
+**Fixed bugs:**
+
+- Router template should use mode and not router\_mode [\#153](https://github.com/theforeman/puppet-qpid/pull/153) ([ehelms](https://github.com/ehelms))
+
 ## [7.0.0](https://github.com/theforeman/puppet-qpid/tree/7.0.0) (2021-03-01)
 
 [Full Changelog](https://github.com/theforeman/puppet-qpid/compare/6.2.0...7.0.0)
