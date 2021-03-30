@@ -21,16 +21,16 @@
 # @param service_ensure
 #   Specify if qdrouterd should be running or stopped.
 class qpid::router(
-  $router_id               = $qpid::router::params::router_id,
-  $mode                    = $qpid::router::params::router_mode,
-  $config_file             = $qpid::router::params::config_file,
-  $router_packages         = $qpid::router::params::router_packages,
-  $open_file_limit         = $qpid::router::params::open_file_limit,
-  $worker_threads          = $qpid::router::params::worker_threads,
-  $hello_interval          = $qpid::router::params::hello_interval,
-  $hello_max_age           = $qpid::router::params::hello_max_age,
-  $service_ensure          = true,
-  $service_enable          = undef,
+  String $router_id = $qpid::router::params::router_id,
+  String $mode = 'interior',
+  Stdlib::AbsolutePath $config_file = '/etc/qpid-dispatch/qdrouterd.conf',
+  Array[String] $router_packages = ['qpid-dispatch-router'],
+  Optional[Integer] $open_file_limit = undef,
+  Integer $worker_threads = $qpid::router::params::worker_threads,
+  Optional[Integer] $hello_interval = undef,
+  Optional[Integer] $hello_max_age = undef,
+  Boolean $service_ensure = true,
+  Optional[Boolean] $service_enable = undef,
 ) inherits qpid::router::params {
 
   contain qpid::router::install
