@@ -22,7 +22,7 @@
 
 router {
     id: <%= scope['qpid::router::router_id'] %>
-    mode: <%= scope['qpid::router::router_mode'] %>
+    mode: <%= scope['qpid::router::mode'] %>
     worker-threads: <%= scope['qpid::router::worker_threads'] %>
 <% unless [nil, :undefined, :undef, ''].include?(scope['qpid::router::hello_interval']) -%>
     helloInterval: <%= scope['qpid::router::hello_interval'] %>

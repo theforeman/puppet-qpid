@@ -116,6 +116,24 @@ describe 'qpid::router' do
             .with_limits({'LimitNOFILE' => 10000})
         end
       end
+
+      context 'should allow setting router mode' do
+        let :params do
+          {
+            mode: 'standalone',
+          }
+        end
+
+        it 'should have header fragment' do
+          verify_concat_fragment_exact_contents(catalogue, 'qdrouter+header.conf', [
+            'router {',
+            '    id: foo.example.com',
+            '    mode: standalone',
+            '    worker-threads: 2',
+            '}'
+          ])
+        end
+      end
     end
   end
 end
