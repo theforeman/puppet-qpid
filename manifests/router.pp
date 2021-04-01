@@ -20,6 +20,9 @@
 #   Enable/disable qdrouterd service at boot
 # @param service_ensure
 #   Specify if qdrouterd should be running or stopped.
+# @param ensure
+#   Specify to explicitly enable Qpid Dispatch installs or absent to remove all packages and configs
+#
 class qpid::router(
   String $router_id = $qpid::router::params::router_id,
   String $mode = 'interior',
@@ -31,6 +34,7 @@ class qpid::router(
   Optional[Integer] $hello_max_age = undef,
   Boolean $service_ensure = true,
   Optional[Boolean] $service_enable = undef,
+  Enum['present', 'absent'] $ensure = 'present',
 ) inherits qpid::router::params {
 
   contain qpid::router::install

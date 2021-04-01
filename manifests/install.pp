@@ -2,21 +2,24 @@
 #
 # @api private
 class qpid::install {
-  include qpid::tools
+
+  if $qpid::ensure == 'absent' {
+    $_package_ensure = 'purged'
+  } else {
+    $_package_ensure = $qpid::version
+  }
 
   package { $qpid::server_packages:
-    ensure => $qpid::version,
-    before => Class['qpid::tools'],
+    ensure => $_package_ensure,
   }
 
   if $qpid::auth {
-    ensure_packages(['cyrus-sasl-plain'])
+    ensure_packages(['cyrus-sasl-plain'], {ensure => $_package_ensure})
   }
 
   if $qpid::server_store {
     package { $qpid::server_store_package:
-      ensure => $qpid::version,
-      before => Class['qpid::tools'],
+      ensure => $_package_ensure,
     }
   }
 }

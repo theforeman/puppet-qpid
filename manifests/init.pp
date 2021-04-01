@@ -65,6 +65,8 @@
 #
 # $service_enable::           Enable qpidd service at boot
 #
+# $ensure::                   Specify to explicitly enable Qpid installs or absent to remove all packages and configs
+#
 class qpid (
   String $version = $qpid::params::version,
   Boolean $auth = $qpid::params::auth,
@@ -93,6 +95,7 @@ class qpid (
   Hash[String, Variant[String, Integer]] $custom_settings = $qpid::params::custom_settings,
   Boolean $service_ensure = true,
   Optional[Boolean] $service_enable = undef,
+  Enum['present', 'absent'] $ensure = 'present',
 ) inherits qpid::params {
   if $ssl {
     assert_type(Boolean, $ssl_require_client_auth)
