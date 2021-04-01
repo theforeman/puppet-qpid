@@ -19,4 +19,25 @@ describe 'qpid' do
       it { is_expected.to be_listening }
     end
   end
+
+  context 'with ensure absent' do
+    let(:pp) do
+      <<-PUPPET
+      class { 'qpid':
+        ensure => 'absent',
+      }
+      PUPPET
+    end
+
+    it_behaves_like 'a idempotent resource'
+
+    describe service('qpidd') do
+      it { is_expected.not_to be_running }
+      it { is_expected.not_to be_enabled }
+    end
+
+    describe port('5672') do
+      it { is_expected.not_to be_listening }
+    end
+  end
 end

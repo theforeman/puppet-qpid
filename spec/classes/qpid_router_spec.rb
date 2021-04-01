@@ -66,6 +66,30 @@ describe 'qpid::router' do
         end
       end
 
+      context 'with ensure absent' do
+        let(:params) do
+          {
+            ensure: 'absent'
+          }
+        end
+
+        it { is_expected.to compile.with_all_deps }
+
+        it { is_expected.to contain_class('qpid::router::install') }
+        it { is_expected.to contain_package('qpid-dispatch-router').with_ensure('purged') }
+
+        it { is_expected.to contain_class('qpid::router::config') }
+        it { is_expected.to contain_concat('/etc/qpid-dispatch/qdrouterd.conf').with_ensure('absent') }
+
+        it { is_expected.to contain_class('qpid::router::service') }
+        it { is_expected.to contain_systemd__service_limits('qdrouterd.service').with_ensure('absent') }
+        it 'should disable qdrouterd' do
+          is_expected.to contain_service('qdrouterd')
+            .with_ensure('false')
+            .with_enable('false')
+        end
+      end
+
       context 'with services stopped' do
         let(:params) do
           {

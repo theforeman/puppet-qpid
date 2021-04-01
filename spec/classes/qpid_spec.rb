@@ -12,7 +12,7 @@ describe 'qpid' do
         it { is_expected.to contain_class('qpid::install') }
         it 'should install message store by default' do
           is_expected.to contain_package('qpid-cpp-server-linearstore')
-            .that_comes_before(['Service[qpidd]', 'Package[qpid-tools]'])
+            .that_comes_before(['Service[qpidd]'])
         end
 
         it { is_expected.to contain_class('qpid::config') }
@@ -32,6 +32,46 @@ describe 'qpid' do
           is_expected.to contain_systemd__dropin_file('wait-for-port.conf')
             .with_ensure('absent')
             .that_notifies('Service[qpidd]')
+        end
+      end
+
+      context 'with ensure absent' do
+        let(:params) do
+          super().merge(
+            ensure: 'absent',
+            auth: true,
+            ssl: true,
+            ssl_port: 5671,
+            ssl_cert_db: "/etc/pki/katello/nssdb",
+            ssl_cert_password_file: "/etc/pki/katello/nssdb/nss_db_password-file",
+            ssl_cert_name: "broker",
+            ssl_require_client_auth: true
+
+          )
+        end
+
+        it { is_expected.to compile.with_all_deps }
+
+        it { is_expected.to contain_class('qpid::install') }
+        it { is_expected.to contain_package('qpid-cpp-server').with_ensure('purged') }
+        it { is_expected.to contain_package('qpid-cpp-client').with_ensure('purged') }
+        it { is_expected.to contain_package('qpid-cpp-server-linearstore').with_ensure('purged') }
+        it { is_expected.to contain_package('cyrus-sasl-plain').with_ensure('purged') }
+
+        it { is_expected.to contain_class('qpid::config') }
+        it { is_expected.to contain_group('qpidd').with_ensure('absent') }
+        it { is_expected.to contain_user('qpidd').with_ensure('absent') }
+        it { is_expected.to contain_file('/etc/qpid/qpidd.conf').with_ensure('absent') }
+        it { is_expected.to contain_file('/etc/qpid/qpid.acl').with_ensure('absent') }
+
+        it { is_expected.to contain_class('qpid::service') }
+        it { is_expected.to contain_systemd__dropin_file('wait-for-port.conf').with_ensure('absent') }
+        it { is_expected.to contain_systemd__service_limits('qpidd.service').with_ensure('absent') }
+        it { is_expected.to contain_package('iproute').with_ensure('absent') }
+        it 'should disable qpidd' do
+          is_expected.to contain_service('qpidd')
+            .with_ensure('false')
+            .with_enable('false')
         end
       end
 

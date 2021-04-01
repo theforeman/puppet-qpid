@@ -4,24 +4,24 @@
 class qpid::config
 {
 
-  group { $qpid::group:
-    ensure => present,
-  }
-
   user { $qpid::user:
-    ensure => present,
+    ensure => $qpid::ensure,
     groups => $qpid::user_groups,
   }
 
+  group { $qpid::group:
+    ensure => $qpid::ensure,
+  }
+
   file { $qpid::config_file:
-    ensure  => file,
+    ensure  => $qpid::ensure,
     content => template('qpid/qpidd.conf.erb'),
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
   }
 
-  if $qpid::acl_content {
+  if $qpid::acl_content and $qpid::ensure == 'present' {
     $acl_file_ensure = file
   } else {
     $acl_file_ensure = absent
