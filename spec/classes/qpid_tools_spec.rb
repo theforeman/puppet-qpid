@@ -7,7 +7,19 @@ describe 'qpid::tools' do
         facts
       end
 
-      it { is_expected.to contain_package('qpid-tools').with_ensure('installed') }
+      context 'without parameters' do
+        it { is_expected.to contain_package('qpid-tools').with_ensure('present') }
+      end
+
+      context 'with ensure absent' do
+        let(:params) do
+          {
+            ensure: 'absent'
+          }
+        end
+
+        it { is_expected.to contain_package('qpid-tools').with_ensure('purged') }
+      end
     end
   end
 end

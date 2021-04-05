@@ -18,6 +18,10 @@ describe 'qpid' do
     describe port('5672') do
       it { is_expected.to be_listening }
     end
+
+    describe package('qpid-tools') do
+      it { is_expected.to be_installed }
+    end
   end
 
   context 'with ensure absent' do
@@ -38,6 +42,10 @@ describe 'qpid' do
 
     describe port('5672') do
       it { is_expected.not_to be_listening }
+    end
+
+    describe package('qpid-tools') do
+      it { is_expected.not_to be_installed }
     end
   end
 end

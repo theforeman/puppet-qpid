@@ -9,6 +9,10 @@ class qpid::install {
     $_package_ensure = $qpid::version
   }
 
+  class { 'qpid::tools':
+    ensure => $qpid::ensure,
+  }
+
   package { $qpid::server_packages:
     ensure => $_package_ensure,
   }
