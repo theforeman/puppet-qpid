@@ -3,7 +3,13 @@ if $facts['os']['release']['major'] == '8' {
     ensure => installed,
   }
 
-  yumrepo { 'powertools':
+  # See https://wiki.centos.org/Manuals/ReleaseNotes/CentOS8.2011#Yum_repo_file_and_repoid_changes
+  if $facts['os']['release']['minor'] >= '3' {
+    $powertools_repo = 'powertools'
+  } else {
+    $powertools_repo = 'PowerTools'
+  }
+  yumrepo { $powertools_repo:
     enabled => true,
   }
 
