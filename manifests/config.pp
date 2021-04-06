@@ -7,8 +7,7 @@ class qpid::config
   user { $qpid::user:
     ensure => $qpid::ensure,
     groups => $qpid::user_groups,
-  }
-
+  } ~>
   group { $qpid::group:
     ensure => $qpid::ensure,
   }

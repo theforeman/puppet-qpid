@@ -19,7 +19,7 @@ class qpid::router::service {
   }
 
   if $facts['systemd'] {
-    if $qpid::router::open_file_limit and $qpid::router::ensure {
+    if $qpid::router::open_file_limit and $qpid::router::ensure == 'present' {
       $ensure_limit = 'present'
       $limits = {'LimitNOFILE' => $qpid::router::open_file_limit}
     } else {
