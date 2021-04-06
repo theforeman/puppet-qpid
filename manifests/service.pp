@@ -47,8 +47,8 @@ class qpid::service {
       notify  => Service['qpidd'],
     }
 
-    if $qpid::ssl {
-      ensure_packages(['iproute'], {ensure => $qpid::ensure})
+    if $qpid::ssl and $qpid::ensure == 'present' {
+      ensure_packages(['iproute'])
       Package['iproute'] -> Systemd::Dropin_file['wait-for-port.conf']
     }
   }

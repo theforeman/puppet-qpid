@@ -13,8 +13,8 @@ class qpid::install {
     ensure => $_package_ensure,
   }
 
-  if $qpid::auth {
-    ensure_packages(['cyrus-sasl-plain'], {ensure => $_package_ensure})
+  if $qpid::auth and $qpid::ensure == 'present' {
+    ensure_packages(['cyrus-sasl-plain'])
   }
 
   if $qpid::server_store {

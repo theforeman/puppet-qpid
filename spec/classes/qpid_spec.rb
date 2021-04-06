@@ -56,7 +56,7 @@ describe 'qpid' do
         it { is_expected.to contain_package('qpid-cpp-server').with_ensure('purged') }
         it { is_expected.to contain_package('qpid-cpp-client').with_ensure('purged') }
         it { is_expected.to contain_package('qpid-cpp-server-linearstore').with_ensure('purged') }
-        it { is_expected.to contain_package('cyrus-sasl-plain').with_ensure('purged') }
+        it { is_expected.not_to contain_package('cyrus-sasl-plain') }
 
         it { is_expected.to contain_class('qpid::config') }
         it { is_expected.to contain_group('qpidd').with_ensure('absent') }
@@ -67,7 +67,7 @@ describe 'qpid' do
         it { is_expected.to contain_class('qpid::service') }
         it { is_expected.to contain_systemd__dropin_file('wait-for-port.conf').with_ensure('absent') }
         it { is_expected.to contain_systemd__service_limits('qpidd.service').with_ensure('absent') }
-        it { is_expected.to contain_package('iproute').with_ensure('absent') }
+        it { is_expected.not_to contain_package('iproute') }
         it 'should disable qpidd' do
           is_expected.to contain_service('qpidd')
             .with_ensure('false')
