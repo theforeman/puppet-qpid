@@ -1,6 +1,6 @@
 require 'spec_helper_acceptance'
 
-describe 'qpid' do
+describe 'qpid', :order => :defined do
   context 'with default parameters' do
     let(:pp) do
       <<-PUPPET
@@ -21,6 +21,10 @@ describe 'qpid' do
 
     describe package('qpid-tools') do
       it { is_expected.to be_installed }
+    end
+
+    describe file('/var/lib/qpidd') do
+      it { is_expected.to be_directory }
     end
   end
 
@@ -46,6 +50,10 @@ describe 'qpid' do
 
     describe package('qpid-tools') do
       it { is_expected.not_to be_installed }
+    end
+
+    describe file('/var/lib/qpidd') do
+      it { is_expected.not_to exist }
     end
   end
 end

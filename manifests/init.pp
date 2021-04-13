@@ -67,6 +67,8 @@
 #
 # $ensure::                   Specify to explicitly enable Qpid installs or absent to remove all packages and configs
 #
+# $data_dir::     Location on disk that qpid broker data is stored
+#
 class qpid (
   String $version = $qpid::params::version,
   Boolean $auth = $qpid::params::auth,
@@ -96,6 +98,7 @@ class qpid (
   Boolean $service_ensure = true,
   Optional[Boolean] $service_enable = undef,
   Enum['present', 'absent'] $ensure = 'present',
+  Stdlib::AbsolutePath $data_dir = '/var/lib/qpidd',
 ) inherits qpid::params {
   if $ssl {
     assert_type(Boolean, $ssl_require_client_auth)
