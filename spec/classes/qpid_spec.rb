@@ -18,6 +18,7 @@ describe 'qpid' do
         it { is_expected.to contain_class('qpid::config') }
         it 'should create configuration file' do
           verify_exact_contents(catalogue, '/etc/qpid/qpidd.conf', [
+            'data-dir=/var/lib/qpidd',
             'log-enable=error+',
             'log-to-syslog=yes',
             'auth=no'
@@ -64,6 +65,7 @@ describe 'qpid' do
         it { is_expected.to contain_user('qpidd').with_ensure('absent') }
         it { is_expected.to contain_file('/etc/qpid/qpidd.conf').with_ensure('absent') }
         it { is_expected.to contain_file('/etc/qpid/qpid.acl').with_ensure('absent') }
+        it { is_expected.to contain_file('/var/lib/qpidd').with_ensure('absent') }
 
         it { is_expected.to contain_class('qpid::service') }
         it { is_expected.to contain_systemd__dropin_file('wait-for-port.conf').with_ensure('absent') }
@@ -113,6 +115,7 @@ describe 'qpid' do
 
         it 'should create configuration file' do
           verify_exact_contents(catalogue, '/etc/qpid/qpidd.conf', [
+            'data-dir=/var/lib/qpidd',
             'log-enable=error+',
             'log-to-syslog=yes',
             'auth=no',
@@ -132,6 +135,7 @@ describe 'qpid' do
         it 'should create configuration file' do
           verify_exact_contents(catalogue, '/etc/qpid/qpidd.conf', [
             'acl-file=/etc/qpid/qpid.acl',
+            'data-dir=/var/lib/qpidd',
             'log-enable=error+',
             'log-to-syslog=yes',
             'auth=no',
@@ -159,6 +163,7 @@ describe 'qpid' do
 
         it 'should create configuration file' do
           verify_exact_contents(catalogue, '/etc/qpid/qpidd.conf', [
+            'data-dir=/var/lib/qpidd',
             'log-enable=error+',
             'log-to-syslog=yes',
             'auth=no',
@@ -190,6 +195,7 @@ describe 'qpid' do
 
         it 'should create configuration file' do
           verify_exact_contents(catalogue, '/etc/qpid/qpidd.conf', [
+            'data-dir=/var/lib/qpidd',
             'log-enable=error+',
             'log-to-syslog=yes',
             'auth=no',
@@ -203,6 +209,7 @@ describe 'qpid' do
 
         it 'should create configuration file' do
           verify_exact_contents(catalogue, '/etc/qpid/qpidd.conf', [
+            'data-dir=/var/lib/qpidd',
             'log-enable=error+',
             'log-to-syslog=yes',
             'auth=no',
@@ -216,6 +223,7 @@ describe 'qpid' do
 
         it 'should create configuration file' do
           verify_exact_contents(catalogue, '/etc/qpid/qpidd.conf', [
+            'data-dir=/var/lib/qpidd',
             'log-enable=error+',
             'log-to-syslog=yes',
             'auth=no',
@@ -229,6 +237,7 @@ describe 'qpid' do
 
         it 'should create configuration file' do
           verify_exact_contents(catalogue, '/etc/qpid/qpidd.conf', [
+            'data-dir=/var/lib/qpidd',
             'log-enable=error+',
             'log-to-syslog=yes',
             'auth=no',
@@ -251,6 +260,7 @@ describe 'qpid' do
 
         it 'should create configuration file' do
           verify_exact_contents(catalogue, '/etc/qpid/qpidd.conf', [
+            'data-dir=/var/lib/qpidd',
             'log-enable=error+',
             'log-to-syslog=yes',
             'auth=no',
@@ -265,6 +275,7 @@ describe 'qpid' do
 
         it 'should create configuration file' do
           verify_exact_contents(catalogue, '/etc/qpid/qpidd.conf', [
+            'data-dir=/var/lib/qpidd',
             'log-enable=error+',
             'log-to-syslog=yes',
             'auth=no',
@@ -278,6 +289,7 @@ describe 'qpid' do
 
         it 'should create configuration file' do
           verify_exact_contents(catalogue, '/etc/qpid/qpidd.conf', [
+            'data-dir=/var/lib/qpidd',
             'log-enable=error+',
             'log-to-syslog=yes',
             'auth=yes',

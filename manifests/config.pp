@@ -33,4 +33,12 @@ class qpid::config
     mode    => '0640',
     content => $qpid::acl_content,
   }
+
+  file { $qpid::data_dir:
+    ensure => bool2str($qpid::ensure == 'present', 'directory', $qpid::ensure),
+    owner  => $qpid::user,
+    group  => $qpid::group,
+    mode   => '0755',
+    force  => true,
+  }
 }
