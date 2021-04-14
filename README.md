@@ -14,6 +14,13 @@
 
 This module is designed to install and configure Qpid servers, clients, and dispatch routers for communication across a message bus.
 
+## Supported Versions
+
+The following versions of the qpid-cpp and qpid-dispatch are supported by this module
+
+ * qpid-dispatch 1.1.0+
+ * qpid-cpp 1.35+
+
 ## What qpid affects
 
 * Installs and configures a Qpid server, client, or dispatch router

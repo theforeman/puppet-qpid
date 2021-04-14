@@ -1,7 +1,7 @@
 linkRoute {
     prefix: <%= @prefix %>
 <% unless [nil, :undefined, :undef, ''].include?(@direction) -%>
-    dir: <%= @direction %>
+    direction: <%= @direction %>
 <% end -%>
 <% unless [nil, :undefined, :undef, ''].include?(@connection) -%>
     connection: <%= @connection %>
