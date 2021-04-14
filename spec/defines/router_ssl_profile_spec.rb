@@ -23,9 +23,9 @@ describe 'qpid::router::ssl_profile' do
       verify_concat_fragment_exact_contents(catalogue, 'qdrouter+ssl_example.conf', [
         'ssl-profile {',
         '    name: example',
-        '    cert-db: /ca.pem',
+        '    ca-cert-file: /ca.pem',
         '    cert-file: /cert.pem',
-        '    key-file: /key.pem',
+        '    private-key-file: /key.pem',
         '}',
       ])
     end
@@ -47,9 +47,9 @@ describe 'qpid::router::ssl_profile' do
       verify_concat_fragment_exact_contents(catalogue, 'qdrouter+ssl_example.conf', [
         'ssl-profile {',
         '    name: example',
-        '    cert-db: /some/where/ca.pem',
+        '    ca-cert-file: /some/where/ca.pem',
         '    cert-file: /some/where/cert.pem',
-        '    key-file: /some/where/key.pem',
+        '    private-key-file: /some/where/key.pem',
         '    ciphers: ALL:!aNULL:!MD5:!DSS',
         '    protocols: TLSv1.1 TLSv1.2',
         '}'
@@ -72,9 +72,9 @@ describe 'qpid::router::ssl_profile' do
       verify_concat_fragment_exact_contents(catalogue, 'qdrouter+ssl_example.conf', [
         'ssl-profile {',
         '    name: example',
-        '    cert-db: /ca.pem',
+        '    ca-cert-file: /ca.pem',
         '    cert-file: /cert.pem',
-        '    key-file: /key.pem',
+        '    private-key-file: /key.pem',
         '    password: secret',
         '}',
       ])

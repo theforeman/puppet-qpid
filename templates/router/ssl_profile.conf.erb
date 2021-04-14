@@ -1,8 +1,8 @@
 ssl-profile {
     name: <%= @title %>
-    cert-db: <%= @ca %>
+    ca-cert-file: <%= @ca %>
     cert-file: <%= @cert %>
-    key-file: <%= @key %>
+    private-key-file: <%= @key %>
 <% unless [nil, :undefined, :undef, ''].include?(@password) -%>
     password: <%= @password %>
 <% end -%>

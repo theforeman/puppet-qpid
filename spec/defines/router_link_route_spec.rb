@@ -17,7 +17,7 @@ describe 'qpid::router::link_route' do
     verify_concat_fragment_exact_contents(catalogue, 'qdrouter+link_route_broker-link.conf', [
       'linkRoute {',
       '    prefix: unicorn.',
-      '    dir: in',
+      '    direction: in',
       '    connection: broker',
       '}'
     ])

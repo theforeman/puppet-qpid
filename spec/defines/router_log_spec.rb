@@ -17,8 +17,8 @@ describe 'qpid::router::log' do
           'log {',
           '    module: DEFAULT',
           '    enable: info+',
-          '    timestamp: true',
-          '    output: /var/log/qdrouterd.log',
+          '    include-timestamp: true',
+          '    output-file: /var/log/qdrouterd.log',
           '}',
         ])
       end
@@ -39,8 +39,8 @@ describe 'qpid::router::log' do
           'log {',
           '    module: DEFAULT',
           '    enable: debug+',
-          '    timestamp: false',
-          '    output: /var/log/qpid.log',
+          '    include-timestamp: false',
+          '    output-file: /var/log/qpid.log',
           '}'
         ])
       end
@@ -61,8 +61,8 @@ describe 'qpid::router::log' do
           'log {',
           '    module: DEFAULT',
           '    enable: debug+',
-          '    timestamp: false',
-          '    output: syslog',
+          '    include-timestamp: false',
+          '    output-file: syslog',
           '}'
         ])
       end
@@ -82,8 +82,8 @@ describe 'qpid::router::log' do
             'log {',
             '    module: DEFAULT',
             '    enable: info+',
-            '    timestamp: true',
-            '    output: /var/log/qdrouterd.log',
+            '    include-timestamp: true',
+            '    output-file: /var/log/qdrouterd.log',
             '}',
           ])
         end
