@@ -1,5 +1,24 @@
 # Changelog
 
+## [8.0.0](https://github.com/theforeman/puppet-qpid/tree/8.0.0) (2021-04-15)
+
+[Full Changelog](https://github.com/theforeman/puppet-qpid/compare/7.1.0...8.0.0)
+
+**Breaking changes:**
+
+- Fix qpid-dispatch parameter deprecation warnings [\#162](https://github.com/theforeman/puppet-qpid/pull/162) ([ehelms](https://github.com/ehelms))
+
+**Implemented enhancements:**
+
+- Refs [\#32037](https://projects.theforeman.org/issues/32037): Manage /var/lib/qpidd [\#161](https://github.com/theforeman/puppet-qpid/pull/161) ([ehelms](https://github.com/ehelms))
+- Refs [\#32037](https://projects.theforeman.org/issues/32037): Add ensure on qpid::tools class to allow removal of package [\#158](https://github.com/theforeman/puppet-qpid/pull/158) ([wbclark](https://github.com/wbclark))
+- Add EL8 support [\#155](https://github.com/theforeman/puppet-qpid/pull/155) ([ehelms](https://github.com/ehelms))
+- Refs [\#32037](https://projects.theforeman.org/issues/32037): Add ensure on qpid class to allow removal of all qpid as… [\#154](https://github.com/theforeman/puppet-qpid/pull/154) ([ehelms](https://github.com/ehelms))
+
+**Fixed bugs:**
+
+- Refs [\#32037](https://projects.theforeman.org/issues/32037): Do not remove all packages when ensuring absent [\#159](https://github.com/theforeman/puppet-qpid/pull/159) ([ehelms](https://github.com/ehelms))
+
 ## [7.1.0](https://github.com/theforeman/puppet-qpid/tree/7.1.0) (2021-03-31)
 
 [Full Changelog](https://github.com/theforeman/puppet-qpid/compare/7.0.0...7.1.0)
