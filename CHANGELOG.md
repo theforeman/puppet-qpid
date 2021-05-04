@@ -1,5 +1,13 @@
 # Changelog
 
+## [8.1.0](https://github.com/theforeman/puppet-qpid/tree/8.1.0) (2021-05-04)
+
+[Full Changelog](https://github.com/theforeman/puppet-qpid/compare/8.0.0...8.1.0)
+
+**Implemented enhancements:**
+
+- Allow Puppet 7 compatible versions of mods [\#164](https://github.com/theforeman/puppet-qpid/pull/164) ([ekohl](https://github.com/ekohl))
+
 ## [8.0.0](https://github.com/theforeman/puppet-qpid/tree/8.0.0) (2021-04-15)
 
 [Full Changelog](https://github.com/theforeman/puppet-qpid/compare/7.1.0...8.0.0)
