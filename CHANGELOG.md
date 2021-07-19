@@ -1,5 +1,18 @@
 # Changelog
 
+## [9.0.0](https://github.com/theforeman/puppet-qpid/tree/9.0.0) (2021-07-22)
+
+[Full Changelog](https://github.com/theforeman/puppet-qpid/compare/8.0.0...9.0.0)
+
+**Breaking changes:**
+
+- Drop Puppet 5 support [\#169](https://github.com/theforeman/puppet-qpid/pull/169) ([ehelms](https://github.com/ehelms))
+
+**Implemented enhancements:**
+
+- Mark compatible with camptocamp/systemd 3 [\#168](https://github.com/theforeman/puppet-qpid/pull/168) ([ekohl](https://github.com/ekohl))
+- Allow Puppet 7 compatible versions of mods [\#164](https://github.com/theforeman/puppet-qpid/pull/164) ([ekohl](https://github.com/ekohl))
+
 ## [8.0.0](https://github.com/theforeman/puppet-qpid/tree/8.0.0) (2021-04-15)
 
 [Full Changelog](https://github.com/theforeman/puppet-qpid/compare/7.1.0...8.0.0)
