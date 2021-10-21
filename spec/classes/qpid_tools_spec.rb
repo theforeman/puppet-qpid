@@ -8,7 +8,7 @@ describe 'qpid::tools' do
       end
 
       context 'without parameters' do
-        it { is_expected.to contain_package('qpid-tools').with_ensure('present') }
+        it { is_expected.to contain_package('qpid-tools').with_ensure('installed') }
       end
 
       context 'with ensure absent' do
