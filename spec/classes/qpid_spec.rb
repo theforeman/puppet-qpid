@@ -182,7 +182,7 @@ describe 'qpid' do
             .that_notifies('Service[qpidd]')
             .that_requires('Package[iproute]')
           is_expected.to contain_package('iproute')
-            .with_ensure('present')
+            .with_ensure('installed')
           verify_exact_contents(catalogue, '/etc/systemd/system/qpidd.service.d/wait-for-port.conf', [
             "[Service]",
             "ExecStartPost=/bin/bash -c 'while ! ss --no-header --tcp --listening --numeric sport = :5671 | grep -q \"^LISTEN.*:5671\"; do sleep 1; done'"
