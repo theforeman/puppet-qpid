@@ -1,5 +1,14 @@
 # Changelog
 
+## [9.1.0](https://github.com/theforeman/puppet-qpid/tree/9.1.0) (2021-10-29)
+
+[Full Changelog](https://github.com/theforeman/puppet-qpid/compare/9.0.0...9.1.0)
+
+**Implemented enhancements:**
+
+- Support puppet/stdlib 8 [\#175](https://github.com/theforeman/puppet-qpid/pull/175) ([ehelms](https://github.com/ehelms))
+- Switch to puppet/systemd [\#173](https://github.com/theforeman/puppet-qpid/pull/173) ([ekohl](https://github.com/ekohl))
+
 ## [9.0.0](https://github.com/theforeman/puppet-qpid/tree/9.0.0) (2021-07-22)
 
 [Full Changelog](https://github.com/theforeman/puppet-qpid/compare/8.0.0...9.0.0)
