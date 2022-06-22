@@ -19,7 +19,7 @@ define qpid::router::listener (
   Optional[String] $ssl_profile = undef,
   Optional[String] $host = undef,
   Integer[0, 65535] $port = 5672,
-  Optional[String] $sasl_mech = 'ANONYMOUS',
+  String $sasl_mech = 'ANONYMOUS',
   Optional[Enum['normal', 'inter-router', 'route-container']] $role = undef,
   Optional[Integer[0]] $idle_timeout = undef,
   String $config_file = $qpid::router::config_file,

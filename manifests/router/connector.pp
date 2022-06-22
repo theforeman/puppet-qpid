@@ -22,7 +22,7 @@
 define qpid::router::connector (
   String $host = '127.0.0.1',
   Integer[0, 65535] $port = 5672,
-  Optional[String] $sasl_mech = 'ANONYMOUS',
+  String $sasl_mech = 'ANONYMOUS',
   Optional[String] $sasl_username = undef,
   Optional[String] $sasl_password = undef,
   Optional[Enum['normal', 'inter-router', 'route-container']] $role = undef,
