@@ -3,8 +3,3 @@
   extra_disabled_lint_checks:
     - arrow_on_right_operand_line
     - parameter_types
-spec/spec_helper.rb:
-  custom_facts:
-    - name: systemd
-      value: true
-      source: puppet-systemd
