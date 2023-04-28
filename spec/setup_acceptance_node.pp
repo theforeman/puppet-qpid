@@ -6,7 +6,10 @@ yumrepo { 'powertools':
   enabled => true,
 }
 
-yumrepo { 'katello':
-  baseurl  => "http://yum.theforeman.org/katello/nightly/katello/el8/x86_64/",
-  gpgcheck => 0,
+class { 'foreman::repo':
+  repo => 'nightly',
+}
+
+class { 'katello::repo':
+  repo_version => 'nightly',
 }

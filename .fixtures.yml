@@ -3,3 +3,6 @@ fixtures:
     stdlib:  'https://github.com/puppetlabs/puppetlabs-stdlib.git'
     concat:  'https://github.com/puppetlabs/puppetlabs-concat.git'
     systemd: 'https://github.com/voxpupuli/puppet-systemd.git'
+    foreman: 'https://github.com/theforeman/puppet-foreman.git'
+    katello: 'https://github.com/theforeman/puppet-katello.git'
+    redis:   'https://github.com/voxpupuli/puppet-redis.git'
