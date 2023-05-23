@@ -1,5 +1,23 @@
 # Changelog
 
+## [10.0.0](https://github.com/theforeman/puppet-qpid/tree/10.0.0) (2023-05-23)
+
+[Full Changelog](https://github.com/theforeman/puppet-qpid/compare/9.1.0...10.0.0)
+
+**Breaking changes:**
+
+- Drop EL7 support [\#178](https://github.com/theforeman/puppet-qpid/pull/178) ([ehelms](https://github.com/ehelms))
+
+**Implemented enhancements:**
+
+- Mark compatible with puppetlabs/concat 8.x [\#182](https://github.com/theforeman/puppet-qpid/pull/182) ([ekohl](https://github.com/ekohl))
+- Mark compatible with puppet-systemd 4 [\#180](https://github.com/theforeman/puppet-qpid/pull/180) ([evgeni](https://github.com/evgeni))
+- Update to voxpupuli-test 5 [\#179](https://github.com/theforeman/puppet-qpid/pull/179) ([ekohl](https://github.com/ekohl))
+
+**Merged pull requests:**
+
+- fix acceptance node setup [\#181](https://github.com/theforeman/puppet-qpid/pull/181) ([evgeni](https://github.com/evgeni))
+
 ## [9.1.0](https://github.com/theforeman/puppet-qpid/tree/9.1.0) (2021-10-29)
 
 [Full Changelog](https://github.com/theforeman/puppet-qpid/compare/9.0.0...9.1.0)
