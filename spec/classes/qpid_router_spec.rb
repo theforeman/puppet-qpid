@@ -1,12 +1,9 @@
 require 'spec_helper'
-require 'deep_merge'
 
 describe 'qpid::router' do
-  on_supported_os.each do |os, facts|
+  on_supported_os.each do |os, os_facts|
     context "on #{os}" do
-      let :facts do
-        {processors: {'count' => 2}}.deep_merge(facts)
-      end
+      let(:facts) { override_facts(os_facts, processors: {'count' => 2}) }
 
       context 'without parameters' do
         it { is_expected.to compile.with_all_deps }
