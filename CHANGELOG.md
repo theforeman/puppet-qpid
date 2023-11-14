@@ -1,5 +1,18 @@
 # Changelog
 
+## [11.0.0](https://github.com/theforeman/puppet-qpid/tree/11.0.0) (2023-11-14)
+
+[Full Changelog](https://github.com/theforeman/puppet-qpid/compare/10.0.0...11.0.0)
+
+**Breaking changes:**
+
+- Drop Puppet 6 & update CI to the latest versions [\#187](https://github.com/theforeman/puppet-qpid/pull/187) ([ekohl](https://github.com/ekohl))
+
+**Implemented enhancements:**
+
+- Mark compatible with Puppet 8 [\#188](https://github.com/theforeman/puppet-qpid/pull/188) ([ekohl](https://github.com/ekohl))
+- Mark compatible with puppetlabs-stdlib 9.x, puppetlabs-concat 9.x & puppet-systemd 5.x & 6.x [\#186](https://github.com/theforeman/puppet-qpid/pull/186) ([ekohl](https://github.com/ekohl))
+
 ## [10.0.0](https://github.com/theforeman/puppet-qpid/tree/10.0.0) (2023-05-23)
 
 [Full Changelog](https://github.com/theforeman/puppet-qpid/compare/9.1.0...10.0.0)

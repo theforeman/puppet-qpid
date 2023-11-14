@@ -1,6 +1,6 @@
 {
   "name": "katello-qpid",
-  "version": "10.0.0",
+  "version": "11.0.0",
   "author": "katello",
   "summary": "Qpid message bus configuration",
   "license": "GPL-3.0+",
